@@ -14,8 +14,12 @@ interface LegacyMood {
     heroSubtitle: string;
     heroWords: string[];
     aboutTitle: string;
+    aboutSectionTitle: string;
+    aboutSectionSubtitle: string;
+    aboutIntro: string;
     tagline: string;
     description: string;
+    experienceSubtitle: string;
     whoAmI: {
       currently: string;
       problemSolver: string;
@@ -60,8 +64,12 @@ export function useMood() {
       heroSubtitle: currentTheme.variants.heroSubtitle,
       heroWords: currentTheme.variants.heroWords,
       aboutTitle: currentTheme.variants.aboutTitle,
+      aboutSectionTitle: currentTheme.variants.aboutSectionTitle,
+      aboutSectionSubtitle: currentTheme.variants.aboutSectionSubtitle,
+      aboutIntro: currentTheme.variants.aboutIntro,
       tagline: currentTheme.variants.tagline,
       description: currentTheme.variants.description,
+      experienceSubtitle: currentTheme.variants.experienceSubtitle,
       whoAmI: currentTheme.variants.whoAmI,
       projects: currentTheme.variants.projects,
       services: currentTheme.variants.services,

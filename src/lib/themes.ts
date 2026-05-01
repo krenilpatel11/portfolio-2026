@@ -21,8 +21,12 @@ export interface ThemeVariants {
   
   // About Section (WhoAmI)
   aboutTitle: string;
+  aboutSectionTitle: string; // e.g., "WHO I AM" variations
+  aboutSectionSubtitle: string; // e.g., "My Developer DNA" variations
+  aboutIntro: string; // Short intro sentence for the persona shift section
   description: string;
   tagline: string;
+  experienceSubtitle: string; // For the experience tile
   
   // WhoAmI Tiles
   whoAmI: {
@@ -69,8 +73,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Crafting complete digital experiences from database to pixel",
       heroWords: ["architecting", "shipping", "deploying", "scaling", "optimizing"],
       aboutTitle: "The Complete Engineer",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Developer DNA",
+      aboutIntro: "Ten personas. One engineer. Explore the facets that define my craft.",
       description: "I build complete systems. Front to back, database to UI, local to cloud. Angular, React, .NET Core, Azure—I speak all dialects fluently and connect them seamlessly.",
       tagline: "Full ownership from idea to production",
+      experienceSubtitle: "Enterprise Full Stack Engineer",
       whoAmI: {
         currently: "Architecting a microservices ecosystem with 99.9% uptime that handles millions of requests daily",
         problemSolver: "Connecting frontend dreams to backend reality through elegant APIs and bulletproof architecture",
@@ -102,8 +110,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Crafting pixel-perfect interfaces that users actually enjoy using",
       heroWords: ["animating", "perfecting", "polishing", "optimizing", "delighting"],
       aboutTitle: "The Interface Craftsman",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Design & Code Philosophy",
+      aboutIntro: "Ten perspectives. One craftsman. Discover the skills behind pixel-perfect products.",
       description: "I turn designs into buttery-smooth reality. React. Angular. TypeScript. Tailwind. Framer Motion. Every animation timed perfectly. Every interaction delightfully responsive. 60fps or bust.",
       tagline: "Beautiful code that creates beautiful experiences",
+      experienceSubtitle: "Enterprise Frontend Specialist",
       whoAmI: {
         currently: "Building a component library that makes developers smile and users convert",
         problemSolver: "Transforming complex UI requirements into intuitive interfaces through modern component architecture and smart state management",
@@ -135,8 +147,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Engineering scalable APIs and bulletproof databases",
       heroWords: ["architecting", "optimizing", "securing", "caching", "scaling"],
       aboutTitle: "The Infrastructure Builder",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Backend Architecture DNA",
+      aboutIntro: "Ten specializations. One architect. See how I build systems that never break.",
       description: ".NET Core, SQL, Redis, microservices—I build backend systems that handle millions of requests without breaking a sweat. APIs that developers love to use.",
       tagline: "RESTful APIs, event-driven architecture, sub-100ms responses",
+      experienceSubtitle: "Enterprise Backend Architect",
       whoAmI: {
         currently: "Designing a distributed caching strategy for 10M+ daily users",
         problemSolver: "Optimizing database queries from seconds to milliseconds through indexing and strategic denormalization",
@@ -168,8 +184,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Automating deployments, monitoring everything, sleeping peacefully",
       heroWords: ["automating", "deploying", "monitoring", "orchestrating", "securing"],
       aboutTitle: "The Automation Expert",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Professional DNA",
+      aboutIntro: "Ten roles. One operator. Explore my automation mindset.",
       description: "Docker, Kubernetes, Azure, CI/CD—I turn manual processes into automated pipelines. Zero-downtime deployments. Infrastructure as code. Observability everywhere.",
       tagline: "GitOps workflow, container orchestration, 99.99% uptime",
+      experienceSubtitle: "Enterprise DevOps Specialist",
       whoAmI: {
         currently: "Building a Kubernetes cluster with auto-scaling and self-healing capabilities",
         problemSolver: "Reducing deployment time from hours to minutes through CI/CD automation and infrastructure as code",
@@ -201,8 +221,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Designing systems that scale to millions and stand the test of time",
       heroWords: ["designing", "structuring", "blueprinting", "modeling", "strategizing"],
       aboutTitle: "The Systems Designer",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Professional DNA",
+      aboutIntro: "Ten patterns. One architect. Dive into scalable design principles.",
       description: "I design software architecture that scales horizontally, fails gracefully, and evolves naturally. SOLID principles. Domain-driven design. Event-driven architecture.",
       tagline: "Microservices, event sourcing, hexagonal architecture",
+      experienceSubtitle: "Enterprise DevOps Specialist",
       whoAmI: {
         currently: "Architecting a multi-tenant SaaS platform with domain-driven design",
         problemSolver: "Decomposing monoliths into microservices while maintaining data consistency through event sourcing",
@@ -234,8 +258,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Creating interfaces that feel intuitive and look stunning",
       heroWords: ["designing", "prototyping", "illustrating", "animating", "crafting"],
       aboutTitle: "The Experience Craftsman",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Professional DNA",
+      aboutIntro: "Ten lenses. One designer. Experience my creative process.",
       description: "Figma wizard. Typography obsessed. Color theory nerd. I design systems, not just screens. Every pixel placed with purpose. Every interaction choreographed for delight.",
       tagline: "Design systems, micro-interactions, accessibility-first",
+      experienceSubtitle: "Enterprise DevOps Specialist",
       whoAmI: {
         currently: "Designing a design system that bridges brand and engineering",
         problemSolver: "Transforming complex enterprise workflows into simple, delightful user experiences through iterative prototyping",
@@ -267,8 +295,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Breaking things so you don't have to worry",
       heroWords: ["pentesting", "securing", "exploiting", "hardening", "fortifying"],
       aboutTitle: "The Security Guardian",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Professional DNA",
+      aboutIntro: "Ten vectors. One defender. Discover my security philosophy.",
       description: "White hat warrior. OWASP evangelist. I find vulnerabilities before the bad guys do. SQL injection, XSS, CSRF—I know every attack vector and how to defend against them.",
       tagline: "Ethical hacking, penetration testing, secure by default",
+      experienceSubtitle: "Enterprise DevOps Specialist",
       whoAmI: {
         currently: "Conducting security audits and pentesting production systems ethically",
         problemSolver: "Finding and patching vulnerabilities through systematic threat modeling and exploit development",
@@ -300,8 +332,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Building intelligent systems that learn, adapt, and amaze",
       heroWords: ["training", "fine-tuning", "deploying", "optimizing", "innovating"],
       aboutTitle: "The AI Architect",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Professional DNA",
+      aboutIntro: "Ten algorithms. One engineer. Uncover my AI approach.",
       description: "Azure AI certified. Computer vision, NLP, RAG systems, neural networks—I don't just use AI APIs, I architect production-grade intelligent systems. 95%+ accuracy on models serving millions.",
       tagline: "From raw data to production intelligence",
+      experienceSubtitle: "Enterprise DevOps Specialist",
       whoAmI: {
         currently: "Fine-tuning LLMs and building RAG pipelines for enterprise-scale document intelligence",
         problemSolver: "Architecting AI systems that extract structured insights from chaos—turning messy documents into actionable data with 95%+ accuracy",
@@ -333,8 +369,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "Seeing patterns before they emerge, building products from the future",
       heroWords: ["envisioning", "innovating", "disrupting", "pioneering", "transforming"],
       aboutTitle: "The Future Builder",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Professional DNA",
+      aboutIntro: "Ten innovations. One visionary. See the future I'm building.",
       description: "I don't follow trends—I spot them three moves ahead. Web3, edge computing, serverless architecture—I build products that feel like they're from tomorrow.",
       tagline: "Bleeding-edge tech, future-proof architecture, visionary products",
+      experienceSubtitle: "Enterprise DevOps Specialist",
       whoAmI: {
         currently: "Prototyping WebAssembly apps that run at native speed in browsers",
         problemSolver: "Identifying emerging technologies and adapting them for real-world use cases before the market realizes they need them",
@@ -366,8 +406,12 @@ export const themes: Record<ThemeId, Theme> = {
       heroSubtitle: "From zero to one, from MVP to millions, from idea to inevitable",
       heroWords: ["building", "launching", "scaling", "iterating", "dominating"],
       aboutTitle: "The Builder",
+      aboutSectionTitle: "WHO I AM",
+      aboutSectionSubtitle: "My Professional DNA",
+      aboutIntro: "Ten ventures. One founder. Learn my startup philosophy.",
       description: "Founded LabelFlow from scratch. Solo to profitable in 12 months. I wear every hat—developer, designer, marketer, closer. Execution is my religion. Speed is my weapon.",
       tagline: "Ship fast, learn faster, scale smartest",
+      experienceSubtitle: "Enterprise DevOps Specialist",
       whoAmI: {
         currently: "Scaling a SaaS from 100 to 10,000 users through product-led growth and viral loops",
         problemSolver: "Turning napkin sketches into MVPs in weeks, then iterating to product-market fit through obsessive customer obsession",

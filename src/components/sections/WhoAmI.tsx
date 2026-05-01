@@ -30,9 +30,18 @@ export default function WhoAmI() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
         {/* Section header - mood-reactive */}
         <div className="mb-16 text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">
-            About
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentMood.id + "-label"}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.3 }}
+              className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3"
+            >
+              {currentMood.variants.aboutSectionTitle}
+            </motion.p>
+          </AnimatePresence>
           <AnimatePresence mode="wait">
             <motion.h2
               key={currentMood.id}
@@ -42,7 +51,7 @@ export default function WhoAmI() {
               transition={{ duration: 0.3 }}
               className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-8"
             >
-              {currentMood.variants.aboutTitle}
+              {currentMood.variants.aboutSectionSubtitle}
             </motion.h2>
           </AnimatePresence>
           
@@ -50,6 +59,22 @@ export default function WhoAmI() {
           <AnimatePresence mode="wait">
             <motion.div
               key={`${currentMood.id}-desc-container`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-3xl mx-auto mb-4"
+            >
+              <p className="text-base leading-relaxed text-[var(--muted)]">
+                {currentMood.variants.aboutIntro}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+          
+          {/* Main description */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${currentMood.id}-main-desc`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

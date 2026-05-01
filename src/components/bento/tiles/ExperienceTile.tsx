@@ -1,8 +1,12 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
 import { BentoTile } from "../BentoTile";
+import { useMood } from "@/context/MoodContext";
 
 export function ExperienceTile({ delay = 0 }: { delay?: number }) {
+  const { currentMood } = useMood();
+  
   const segments = [
     { label: "Enterprise", width: "35%", color: "#6C3CE1" },
     { label: "Full Stack", width: "30%", color: "#8B5CF6" },
@@ -17,7 +21,18 @@ export function ExperienceTile({ delay = 0 }: { delay?: number }) {
         2.5+
       </div>
       <h3 className="text-lg font-semibold mb-1">Years Experience</h3>
-      <p className="text-sm text-[var(--muted)] mb-4">Enterprise Software Engineer</p>
+      <AnimatePresence mode="wait">
+        <motion.p
+          key={currentMood.id}
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -5 }}
+          transition={{ duration: 0.3 }}
+          className="text-sm text-[var(--muted)] mb-4"
+        >
+          {currentMood.variants.experienceSubtitle}
+        </motion.p>
+      </AnimatePresence>
       
       {/* Progress bar */}
       <div className="space-y-2">
