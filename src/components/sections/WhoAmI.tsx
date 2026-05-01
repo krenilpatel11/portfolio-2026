@@ -72,8 +72,8 @@ export default function WhoAmI() {
           </div>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-12 gap-4 auto-rows-[180px]">
+        {/* Bento Grid - improved spacing */}
+        <div className="grid grid-cols-12 gap-5 auto-rows-[200px]">
           {/* Row 1-3: Avatar Hero (8 cols, 3 rows) + Experience (4 cols, 1 row) */}
           <div className="col-span-12 md:col-span-8 row-span-3">
             <AvatarHeroTile />
@@ -98,14 +98,14 @@ export default function WhoAmI() {
             <BrandsDesignedTile delay={0.3} />
           </div>
 
-          {/* Row 5: Problem Solver, Based In, Quote (4, 4, 8 cols) */}
+          {/* Row 5: Problem Solver, Based In, Quote (4, 4, 4 cols) */}
           <div className="col-span-12 md:col-span-4 row-span-1">
             <ProblemSolverTile delay={0.35} />
           </div>
           <div className="col-span-12 md:col-span-4 row-span-1">
             <BasedInTile delay={0.4} />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-2">
+          <div className="col-span-12 md:col-span-4 row-span-1">
             <QuoteTile delay={0.45} />
           </div>
 

@@ -177,6 +177,16 @@ export const moods: Record<MoodId, Mood> = {
         subtitle: "Ready to collaborate? Let's write some code.",
         ctaButton: "git commit -m 'Start'"
       }
+    },
+    avatar: {
+      static: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903716406.webp",
+      placeholder: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903716406.webp",
+      video: { 
+        webm: "/avatars/gifs/coder1.webm", 
+        mp4: "/avatars/gifs/coder1.webm" 
+      },
+      gif: "/avatars/gifs/coder1.webm",
+      poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903716406.webp"
     }
   },
   designer: {
@@ -224,6 +234,16 @@ export const moods: Record<MoodId, Mood> = {
         subtitle: "Have a vision? Let's bring it to life.",
         ctaButton: "Start Designing"
       }
+    },
+    avatar: {
+      static: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903722568.webp",
+      placeholder: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903722568.webp",
+      video: { 
+        webm: "/avatars/gifs/designer1.webm", 
+        mp4: "/avatars/gifs/designer1.webm" 
+      },
+      gif: "/avatars/gifs/designer1.webm",
+      poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903722568.webp"
     }
   },
   hacker: {
@@ -412,6 +432,16 @@ export const moods: Record<MoodId, Mood> = {
         subtitle: "Ready to move fast? Let's ride together.",
         ctaButton: "Start Your Engine"
       }
+    },
+    avatar: {
+      static: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903734519.webp",
+      placeholder: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903734519.webp",
+      video: { 
+        webm: "/avatars/gifs/rider1.webm", 
+        mp4: "/avatars/gifs/rider1.webm" 
+      },
+      gif: "/avatars/gifs/rider1.webm",
+      poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903734519.webp"
     }
   },
   architect: {
