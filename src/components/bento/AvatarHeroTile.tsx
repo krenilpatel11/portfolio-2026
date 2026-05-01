@@ -1,13 +1,13 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useMood } from "@/context/MoodContext";
-import { moodOrder, moods } from "@/lib/moods";
+import { useVibeTheme } from "@/context/VibeThemeContext";
+import { vibeOrder, vibes } from "@/lib/vibes";
 import { AvatarDisplay } from "@/components/interactive/AvatarDisplay";
 import { SITE } from "@/lib/constants";
 
 export function AvatarHeroTile() {
-  const { currentMood, setMood } = useMood();
+  const { currentVibe, currentTheme, setVibe } = useVibeTheme();
 
   return (
     <motion.div
@@ -17,7 +17,7 @@ export function AvatarHeroTile() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="relative rounded-2xl border border-[var(--border)] p-8 overflow-hidden noise-overlay accent-reactive"
       style={{
-        background: `linear-gradient(135deg, ${currentMood.accentHex}15, ${currentMood.accentHex}05)`,
+        background: `linear-gradient(135deg, ${currentVibe.colors.primary}15, ${currentVibe.colors.primary}05)`,
         transition: "background 0.7s ease",
       }}
     >
@@ -26,27 +26,27 @@ export function AvatarHeroTile() {
         $ whoami
       </div>
 
-      {/* Mood emoji buttons */}
+      {/* Vibe emoji buttons */}
       <div className="absolute top-6 right-6 flex gap-2">
-        {moodOrder.map((moodId) => {
-          const mood = moods[moodId];
-          const isActive = moodId === currentMood.id;
+        {vibeOrder.map((vibeId) => {
+          const vibe = vibes[vibeId];
+          const isActive = vibeId === currentVibe.id;
           return (
             <button
-              key={moodId}
-              onClick={() => setMood(moodId)}
+              key={vibeId}
+              onClick={() => setVibe(vibeId)}
               className={`w-8 h-8 rounded-full flex items-center justify-center text-lg transition-all ${
                 isActive
                   ? "scale-110"
                   : "opacity-40 hover:opacity-100 hover:scale-105"
               }`}
               style={{
-                boxShadow: isActive ? `0 0 0 2px ${mood.accentHex}` : "none",
-                backgroundColor: isActive ? `${mood.accentHex}20` : "transparent",
+                boxShadow: isActive ? `0 0 0 2px ${vibe.colors.primary}` : "none",
+                backgroundColor: isActive ? `${vibe.colors.primary}20` : "transparent",
               }}
-              title={mood.label}
+              title={vibe.label}
             >
-              {mood.emoji}
+              {vibe.emoji}
             </button>
           );
         })}
@@ -62,14 +62,14 @@ export function AvatarHeroTile() {
         <h3 className="text-2xl font-bold font-display mb-2">{SITE.name}</h3>
         <AnimatePresence mode="wait">
           <motion.p
-            key={currentMood.id}
+            key={currentTheme.id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
             className="text-sm text-[var(--muted)] mb-4"
           >
-            {currentMood.variants.tagline}
+            {currentTheme.variants.tagline}
           </motion.p>
         </AnimatePresence>
 

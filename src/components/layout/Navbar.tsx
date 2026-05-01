@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Sun, Moon, X, Shuffle } from "lucide-react";
-import { useMood } from "@/context/MoodContext";
-import Image from "next/image";
+import { useVibeTheme } from "@/context/VibeThemeContext";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -17,10 +16,10 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showMoodTooltip, setShowMoodTooltip] = useState(false);
+  const [showThemeTooltip, setShowThemeTooltip] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { currentMood, nextMood } = useMood();
+  const { currentTheme, shuffleTheme } = useVibeTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -49,27 +48,8 @@ export default function Navbar() {
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
 
-          {/* Left: Avatar + Menu */}
+          {/* Left: Nav links */}
           <div className="flex items-center gap-4">
-            {/* Avatar - click to cycle moods */}
-            <button
-              onClick={nextMood}
-              className="relative w-8 h-8 rounded-full overflow-hidden transition-all hover:scale-105 accent-reactive flex items-center justify-center bg-[var(--card-bg)]"
-              style={{ boxShadow: `0 0 0 2px ${currentMood.accentHex}` }}
-              title={`Current mood: ${currentMood.label}. Click to switch!`}
-            >
-              {currentMood.avatar ? (
-                <Image
-                  src={currentMood.avatar.placeholder}
-                  alt={currentMood.label}
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <span className="text-lg">{currentMood.emoji}</span>
-              )}
-            </button>
-
             {/* Desktop nav links */}
             <nav className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
@@ -100,7 +80,7 @@ export default function Navbar() {
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Right: Contact Us + mood toggle + theme toggle */}
+          {/* Right: Contact Us + shuffle theme + theme toggle */}
           <div className="flex items-center gap-4">
             
             <a
@@ -111,27 +91,27 @@ export default function Navbar() {
               Contact Us
             </a>
 
-            {/* Mood Toggle Button with Tooltip */}
+            {/* Shuffle Theme Button with Tooltip */}
             {mounted && (
               <div className="relative">
                 <button
-                  onClick={nextMood}
-                  onMouseEnter={() => setShowMoodTooltip(true)}
-                  onMouseLeave={() => setShowMoodTooltip(false)}
-                  className="w-8 h-8 flex items-center justify-center rounded-full border transition-all hover:scale-110"
-                  style={{
-                    borderColor: currentMood.accentHex,
-                    backgroundColor: `${currentMood.accentHex}15`,
-                  }}
-                  aria-label="Toggle mood"
-                  title="Vibe Shift"
+                  onClick={shuffleTheme}
+                  onMouseEnter={() => setShowThemeTooltip(true)}
+                  onMouseLeave={() => setShowThemeTooltip(false)}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border)] transition-all hover:scale-105 hover:border-[var(--accent)] bg-[var(--card-bg)]"
+                  aria-label="Shuffle theme"
+                  title="Shuffle Theme"
                 >
-                  <Shuffle size={14} style={{ color: currentMood.accentHex }} />
+                  <span className="text-sm">{currentTheme.emoji}</span>
+                  <Shuffle size={14} className="text-[var(--muted)]" />
+                  <span className="text-xs font-semibold text-[var(--foreground)] hidden sm:inline">
+                    Shuffle
+                  </span>
                 </button>
                 
                 {/* Tooltip */}
                 <AnimatePresence>
-                  {showMoodTooltip && (
+                  {showThemeTooltip && (
                     <motion.div
                       initial={{ opacity: 0, y: 5 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -139,8 +119,8 @@ export default function Navbar() {
                       transition={{ duration: 0.2 }}
                       className="absolute top-full right-0 mt-2 px-3 py-2 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg shadow-xl text-xs text-[var(--muted)] whitespace-nowrap z-50"
                     >
-                      Mood changes after 15 mins or{" "}
-                      <span className="font-semibold text-[var(--foreground)]">toggle it</span>
+                      Theme changes every 10 mins or{" "}
+                      <span className="font-semibold text-[var(--foreground)]">shuffle it</span>
                     </motion.div>
                   )}
                 </AnimatePresence>

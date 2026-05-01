@@ -1,94 +1,88 @@
-"use client";
+// Compatibility layer - maps old useMood to new useVibeTheme
+// This allows components to work while we migrate them
 
-import React, { createContext, useContext, useState, useCallback, useMemo, useEffect } from "react";
-import { moods, getNextMood, getPrevMood, type MoodId, type Mood } from "@/lib/moods";
-import { MoodChipPopup } from "@/components/mood/MoodChipPopup";
+import { useVibeTheme } from "./VibeThemeContext";
 
-interface MoodContextType {
-  currentMoodId: MoodId;
-  currentMood: Mood;
-  setMood: (id: MoodId) => void;
-  nextMood: () => void;
-  prevMood: () => void;
-}
-
-const MoodContext = createContext<MoodContextType | undefined>(undefined);
-
-export function MoodProvider({ children }: { children: React.ReactNode }) {
-  const [currentMoodId, setCurrentMoodId] = useState<MoodId>("coder");
-  const [showChip, setShowChip] = useState(false);
-
-  // Update CSS variables when mood changes
-  useEffect(() => {
-    const mood = moods[currentMoodId];
-    document.documentElement.style.setProperty("--accent-color", mood.accentHex);
-    document.documentElement.style.setProperty("--accent", mood.accentHex);
-    document.documentElement.style.setProperty("--accent-glow", mood.accentHex + "4D");
-    document.documentElement.style.setProperty("--accent-light", mood.accentHex + "18"); // 10% opacity for light backgrounds
-    
-    // Save to cookie
-    document.cookie = `mood=${currentMoodId};path=/;max-age=31536000`;
-    
-    // Show chip popup for 2 seconds
-    setShowChip(true);
-    const timer = setTimeout(() => setShowChip(false), 2000);
-    return () => clearTimeout(timer);
-  }, [currentMoodId]);
-
-  // Restore from cookie on mount
-  useEffect(() => {
-    const savedMood = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("mood="))
-      ?.split("=")[1];
-    
-    if (savedMood && savedMood in moods) {
-      setCurrentMoodId(savedMood as MoodId);
-    }
-  }, []);
-
-  const setMood = useCallback((id: MoodId) => {
-    setCurrentMoodId(id);
-  }, []);
-
-  const handleNextMood = useCallback(() => {
-    setCurrentMoodId((prev) => getNextMood(prev));
-  }, []);
-
-  const handlePrevMood = useCallback(() => {
-    setCurrentMoodId((prev) => getPrevMood(prev));
-  }, []);
-
-  const currentMood = useMemo(() => moods[currentMoodId], [currentMoodId]);
-
-  const value = useMemo(
-    () => ({
-      currentMoodId,
-      currentMood,
-      setMood,
-      nextMood: handleNextMood,
-      prevMood: handlePrevMood,
-    }),
-    [currentMoodId, currentMood, setMood, handleNextMood, handlePrevMood]
-  );
-
-  return (
-    <MoodContext.Provider value={value}>
-      {children}
-      <MoodChipPopup
-        isVisible={showChip}
-        moodLabel={currentMood.label}
-        moodEmoji={currentMood.emoji}
-        accentColor={currentMood.accentHex}
-      />
-    </MoodContext.Provider>
-  );
+interface LegacyMood {
+  id: string;
+  label: string;
+  emoji: string;
+  accentHex: string;
+  accentGlow: string;
+  variants: {
+    heroTitle: string;
+    heroSubtitle: string;
+    heroWords: string[];
+    aboutTitle: string;
+    tagline: string;
+    description: string;
+    whoAmI: {
+      currently: string;
+      problemSolver: string;
+      quote: string;
+    };
+    projects: {
+      title: string;
+      subtitle: string;
+      viewAllText: string;
+    };
+    services: {
+      title: string;
+      subtitle: string;
+    };
+    contact: {
+      title: string;
+      subtitle: string;
+      ctaButton: string;
+    };
+  };
+  avatar?: {
+    static: string;
+    placeholder: string;
+    video: { webm: string; mp4: string };
+    gif: string;
+    poster: string;
+  };
 }
 
 export function useMood() {
-  const context = useContext(MoodContext);
-  if (context === undefined) {
-    throw new Error("useMood must be used within a MoodProvider");
-  }
-  return context;
+  const { currentVibe, currentTheme, nextVibe } = useVibeTheme();
+  
+  // Merge vibe and theme into legacy mood format
+  const currentMood: LegacyMood = {
+    id: currentVibe.id,
+    label: currentVibe.label,
+    emoji: currentVibe.emoji,
+    accentHex: currentVibe.colors.primary,
+    accentGlow: `shadow-[${currentVibe.colors.primary}]/30`,
+    variants: {
+      heroTitle: currentTheme.variants.heroTitle,
+      heroSubtitle: currentTheme.variants.heroSubtitle,
+      heroWords: currentTheme.variants.heroWords,
+      aboutTitle: currentTheme.variants.aboutTitle,
+      tagline: currentTheme.variants.tagline,
+      description: currentTheme.variants.description,
+      whoAmI: currentTheme.variants.whoAmI,
+      projects: currentTheme.variants.projects,
+      services: currentTheme.variants.services,
+      contact: currentTheme.variants.contact,
+    },
+    avatar: {
+      static: currentVibe.poster,
+      placeholder: currentVibe.poster,
+      video: { 
+        webm: currentVibe.videos.video1, 
+        mp4: currentVibe.videos.video1 
+      },
+      gif: currentVibe.videos.video1,
+      poster: currentVibe.poster,
+    },
+  };
+  
+  return {
+    currentMood,
+    currentMoodId: currentVibe.id,
+    nextMood: nextVibe,
+    setMood: () => {}, // No-op for compatibility
+  };
 }

@@ -1,27 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMood } from "@/context/MoodContext";
-import { moodOrder, type MoodId } from "@/lib/moods";
-import { moods } from "@/lib/moods";
+import { useVibeTheme } from "@/context/VibeThemeContext";
+import { themeOrder } from "@/lib/themes";
+import { themes } from "@/lib/themes";
 
 export function MoodSwitcher() {
-  const { currentMoodId, setMood } = useMood();
+  const { currentThemeId, setTheme } = useVibeTheme();
 
   return (
     <div
       className="flex gap-2 bg-neutral-100 dark:bg-neutral-900 p-1.5 rounded-full"
       role="radiogroup"
-      aria-label="Mood switcher"
+      aria-label="Theme switcher"
     >
-      {moodOrder.map((moodId) => {
-        const mood = moods[moodId];
-        const isActive = moodId === currentMoodId;
+      {themeOrder.map((themeId) => {
+        const theme = themes[themeId];
+        const isActive = themeId === currentThemeId;
 
         return (
           <button
-            key={moodId}
-            onClick={() => setMood(moodId)}
+            key={themeId}
+            onClick={() => setTheme(themeId)}
             className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
               isActive
                 ? "text-white"
@@ -32,15 +32,15 @@ export function MoodSwitcher() {
           >
             {isActive && (
               <motion.div
-                layoutId="activeMoodPill"
+                layoutId="activeThemePill"
                 className="absolute inset-0 rounded-full"
-                style={{ backgroundColor: mood.accentHex }}
+                style={{ backgroundColor: "var(--accent)" }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}
             <span className="relative z-10 flex items-center gap-2">
-              <span className="text-base">{mood.emoji}</span>
-              <span className="hidden sm:inline">{mood.label}</span>
+              <span className="text-base">{theme.emoji}</span>
+              <span className="hidden sm:inline">{theme.label}</span>
             </span>
           </button>
         );

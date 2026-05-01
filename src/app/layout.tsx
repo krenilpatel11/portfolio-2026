@@ -3,7 +3,8 @@ import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
 import { inter, jetbrainsMono, syne } from "@/lib/fonts";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
-import { MoodProvider } from "@/context/MoodContext";
+import { VibeThemeProvider } from "@/context/VibeThemeContext";
+import { FloatingVibeToggle } from "@/components/interactive/FloatingVibeToggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -45,11 +46,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable} ${syne.variable}`}>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <MoodProvider>
+          <VibeThemeProvider>
             <SmoothScrollProvider>
               {children}
+              <FloatingVibeToggle />
             </SmoothScrollProvider>
-          </MoodProvider>
+          </VibeThemeProvider>
         </ThemeProvider>
         <Analytics />
       </body>
