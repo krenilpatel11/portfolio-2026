@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 
 const marqueeText =
   "Krenil Patel • Full Stack Engineer • LabelFlow • Azure Certified • Let's Build Together • ";
@@ -21,17 +20,33 @@ const footerLinks = {
     { label: "Behance", href: "https://www.behance.net/krenilpatel2" },
     { label: "LabelFlow", href: "https://labelflow.store/" },
   ],
+  Resources: [
+    { label: "Resume", href: "#" },
+    { label: "Blog", href: "#" },
+    { label: "Career", href: "#" },
+  ],
 };
 
 export default function Footer() {
   return (
     <footer id="footer" className="border-t border-[var(--border)] overflow-hidden">
-      {/* Marquee */}
-      <div className="py-8 overflow-hidden border-b border-[var(--border)]">
+      {/* Giant marquee — oversized editorial text */}
+      <div className="overflow-hidden py-4 border-b border-[var(--border)]">
         <div className="flex whitespace-nowrap">
-          <span className="animate-marquee flex shrink-0">
-            {[...Array(4)].map((_, i) => (
-              <span key={i} className="text-5xl md:text-7xl font-bold text-[var(--foreground)] opacity-10 pr-8 font-display">
+          <span
+            className="animate-marquee flex shrink-0"
+            aria-hidden="true"
+          >
+            {[...Array(6)].map((_, i) => (
+              <span
+                key={i}
+                className="font-black font-display text-[var(--foreground)] pr-8"
+                style={{
+                  fontSize: "clamp(4rem,10vw,10rem)",
+                  opacity: 0.07,
+                  lineHeight: 1,
+                }}
+              >
                 {marqueeText}
               </span>
             ))}
@@ -41,9 +56,9 @@ export default function Footer() {
 
       {/* Links grid */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           {/* Brand */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <p className="text-2xl font-bold text-[var(--foreground)] mb-3">
               KP<span className="text-[var(--accent)]">.</span>
             </p>

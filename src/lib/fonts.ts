@@ -1,4 +1,4 @@
-import { DM_Sans, JetBrains_Mono, Bricolage_Grotesque } from "next/font/google";
+import { DM_Sans, JetBrains_Mono, Sora } from "next/font/google";
 
 export const inter = DM_Sans({
   subsets: ["latin"],
@@ -14,7 +14,7 @@ export const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "700"],
 });
 
-export const syne = Bricolage_Grotesque({
+export const syne = Sora({
   subsets: ["latin"],
   variable: "--font-syne",
   display: "swap",

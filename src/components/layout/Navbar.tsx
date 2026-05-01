@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, X, Menu } from "lucide-react";
+import { Sun, Moon, X } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -44,76 +44,89 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-          {/* Logo */}
+
+          {/* Left: Menu button (desktop: nav links; mobile: hamburger "Menu" text) */}
+          <div className="flex items-center">
+            {/* Desktop nav links */}
+            <nav className="hidden md:flex items-center gap-7">
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors tracking-wide"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Mobile: "Menu" text button */}
+            <button
+              onClick={() => setMenuOpen(true)}
+              className="md:hidden text-sm font-semibold text-[var(--foreground)] tracking-wide hover:text-[var(--accent)] transition-colors"
+            >
+              Menu
+            </button>
+          </div>
+
+          {/* Center: Logo */}
           <a
             href="/"
-            className="text-[var(--foreground)] font-bold text-lg tracking-tight hover:text-[var(--accent)] transition-colors"
+            className="absolute left-1/2 -translate-x-1/2 text-[var(--foreground)] font-bold text-lg tracking-tight hover:text-[var(--accent)] transition-colors font-display"
           >
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors tracking-wide"
-              >
-                {link.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Right side */}
-          <div className="flex items-center gap-3">
-            {/* Theme Toggle */}
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
-              </button>
-            )}
-
-            {/* CTA */}
+          {/* Right: Contact Us link + theme toggle */}
+          <div className="flex items-center gap-4">
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
-              className="hidden md:inline-flex items-center gap-2 bg-[var(--foreground)] text-[var(--background)] text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-80 transition-opacity"
+              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors tracking-wide"
             >
-              Let&apos;s Talk
+              Contact Us
             </a>
 
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border)]"
-            >
-              <Menu size={16} />
-            </button>
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="w-8 h-8 flex items-center justify-center rounded-full border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+              </button>
+            )}
           </div>
         </div>
       </motion.header>
 
-      {/* Mobile Full-Screen Menu */}
+      {/* Mobile Full-Screen Drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, clipPath: "circle(0% at 95% 5%)" }}
-            animate={{ opacity: 1, clipPath: "circle(150% at 95% 5%)" }}
-            exit={{ opacity: 0, clipPath: "circle(0% at 95% 5%)" }}
+            initial={{ opacity: 0, clipPath: "circle(0% at 5% 5%)" }}
+            animate={{ opacity: 1, clipPath: "circle(150% at 5% 5%)" }}
+            exit={{ opacity: 0, clipPath: "circle(0% at 5% 5%)" }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-50 bg-[var(--background)] flex flex-col items-center justify-center"
           >
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-5 right-6 w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border)]"
+              className="absolute top-5 left-6 w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
             >
               <X size={18} />
             </button>
+
+            {/* Theme toggle inside drawer */}
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="absolute top-5 right-6 w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+              </button>
+            )}
 
             <nav className="flex flex-col items-center gap-8">
               {navLinks.map((link, i) => (
@@ -123,7 +136,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08 }}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-4xl font-bold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
+                  className="text-4xl font-bold font-display text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
                 >
                   {link.label}
                 </motion.button>

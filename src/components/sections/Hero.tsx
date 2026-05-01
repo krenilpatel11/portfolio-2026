@@ -1,44 +1,67 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiDotnet,
-  SiFigma,
-} from "react-icons/si";
-import { FiCloud } from "react-icons/fi";
-import type { IconType } from "react-icons";
+  ViewVoiceMockup,
+  SecurityGateMockup,
+  TrainingMockup,
+  SportMockup,
+  LabelFlowMockup,
+} from "@/components/ProjectMockups";
 
 const rotatingWords = ["PRODUCTS", "EXPERIENCES", "SOLUTIONS"];
 
-interface FloatingChip {
-  icon?: IconType;
-  iconEmoji?: string;
-  label: string;
-  color: string;
-  x: number;
-  y: number;
-  rotate: number;
-  delay: number;
-}
-
-const floatingChips: FloatingChip[] = [
-  { icon: SiReact,        label: "React 19",       color: "bg-cyan-50 border-cyan-200 text-cyan-700",       x: 54, y: 6,  rotate: -3, delay: 1.2  },
-  { icon: SiNextdotjs,    label: "Next.js 15",      color: "bg-zinc-900 border-zinc-700 text-white",         x: 72, y: 14, rotate: 4,  delay: 1.35 },
-  { icon: SiTypescript,   label: "TypeScript",      color: "bg-blue-50 border-blue-200 text-blue-700",       x: 82, y: 30, rotate: -5, delay: 1.5  },
-  { icon: FiCloud,       label: "Azure AI-102 ✓", color: "bg-orange-50 border-orange-200 text-orange-700", x: 58, y: 42, rotate: 6,  delay: 1.65 },
-  { icon: SiDotnet,       label: ".NET Core",       color: "bg-violet-50 border-violet-200 text-violet-700", x: 76, y: 54, rotate: -4, delay: 1.8  },
-  { iconEmoji: "🧠",      label: "AI Builder",      color: "bg-emerald-50 border-emerald-200 text-emerald-700", x: 55, y: 65, rotate: 3,  delay: 1.95 },
-  { icon: SiFigma,        label: "Figma",           color: "bg-pink-50 border-pink-200 text-pink-700",       x: 82, y: 74, rotate: -6, delay: 2.1  },
-  {                       label: "LabelFlow.store ↗", color: "bg-amber-50 border-amber-200 text-amber-700",   x: 62, y: 86, rotate: 5,  delay: 2.25 },
+const mockupCards = [
+  { Component: ViewVoiceMockup,    rotate: -2,    delay: 0.5 },
+  { Component: SecurityGateMockup, rotate: 1,     delay: 0.6 },
+  { Component: TrainingMockup,     rotate: -1,    delay: 0.7 },
+  { Component: SportMockup,        rotate: 2,     delay: 0.8 },
+  { Component: LabelFlowMockup,    rotate: -1.5,  delay: 0.9 },
 ];
+
+const floatingChips = [
+  { label: "React",         color: "#61DAFB", tx: "#0a0a0a", x: "8%",  y: "18%" },
+  { label: "Next.js",       color: "#0a0a0a", tx: "#ffffff", x: "78%", y: "12%" },
+  { label: ".NET Core",     color: "#512BD4", tx: "#ffffff", x: "14%", y: "62%" },
+  { label: "TypeScript",    color: "#3178C6", tx: "#ffffff", x: "82%", y: "55%" },
+  { label: "Azure",         color: "#0089D6", tx: "#ffffff", x: "6%",  y: "38%" },
+  { label: "Angular",       color: "#DD0031", tx: "#ffffff", x: "74%", y: "32%" },
+  { label: "Tailwind CSS",  color: "#06B6D4", tx: "#ffffff", x: "88%", y: "76%" },
+  { label: "Docker",        color: "#2496ED", tx: "#ffffff", x: "4%",  y: "80%" },
+  { label: "AI-102 ✦",     color: "#6c3ce1", tx: "#ffffff", x: "50%", y: "8%"  },
+];
+
+function DraggableChip({
+  label, color, tx, x, y, delay,
+}: {
+  label: string; color: string; tx: string; x: string; y: string; delay: number;
+}) {
+  const constraintsRef = useRef<HTMLDivElement>(null);
+  return (
+    <motion.div
+      drag
+      dragMomentum={false}
+      dragElastic={0.1}
+      whileDrag={{ scale: 1.08, zIndex: 50 }}
+      initial={{ opacity: 0, scale: 0.6 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
+      style={{ position: "absolute", left: x, top: y, zIndex: 10, touchAction: "none" }}
+      className="cursor-grab active:cursor-grabbing select-none"
+    >
+      <span
+        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg backdrop-blur-sm border border-white/10 whitespace-nowrap"
+        style={{ backgroundColor: color, color: tx }}
+      >
+        {label}
+      </span>
+    </motion.div>
+  );
+}
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -47,136 +70,90 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      setMousePos({
-        x: e.clientX / window.innerWidth - 0.5,
-        y: e.clientY / window.innerHeight - 0.5,
-      });
-    };
-    window.addEventListener("mousemove", handler);
-    return () => window.removeEventListener("mousemove", handler);
-  }, []);
-
-  const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center pt-24 pb-20"
+      className="relative overflow-hidden pt-28 pb-0"
       style={{
         background:
           "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(108,60,225,0.08), transparent)",
       }}
     >
-      {/* Decorative background blobs */}
+      {/* Violet gradient blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-violet-400/10 blur-[120px]" />
-        <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-violet-300/8 blur-[100px]" />
+        <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-violet-300/[0.08] blur-[100px]" />
       </div>
 
-      {/* Subtle background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Floating chips — desktop only */}
-      <div className="hidden lg:block pointer-events-none absolute inset-0 z-10">
-        {floatingChips.map((chip, i) => {
-          const Icon = chip.icon;
-          return (
-            <motion.div
-              key={chip.label}
-              className={`absolute inline-flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-semibold shadow-sm border ${chip.color}`}
-              style={{ left: `${chip.x}%`, top: `${chip.y}%` }}
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{
-                opacity: 0.92,
-                scale: 1,
-                rotate: chip.rotate,
-                x: mousePos.x * -20,
-                y: mousePos.y * -14,
-              }}
-              transition={{
-                opacity: { delay: chip.delay, duration: 0.6 },
-                scale: { delay: chip.delay, duration: 0.6 },
-                x: { type: "spring", stiffness: 50, damping: 18 },
-                y: { type: "spring", stiffness: 50, damping: 18 },
-              }}
-            >
-              {Icon && <Icon size={14} />}
-              {chip.iconEmoji && <span className="text-[13px] leading-none">{chip.iconEmoji}</span>}
-              {chip.label}
-            </motion.div>
-          );
-        })}
+      {/* Floating draggable chips — behind text */}
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 5 }}>
+        <div className="pointer-events-auto relative w-full h-full">
+          {floatingChips.map((chip, i) => (
+            <DraggableChip key={chip.label} {...chip} delay={0.6 + i * 0.07} />
+          ))}
+        </div>
       </div>
 
       {/* Inner content wrapper */}
-      <div className="relative z-10 max-w-[1280px] mx-auto w-full px-6 md:px-10">
+      <div className="relative max-w-[1280px] mx-auto w-full px-6 md:px-10" style={{ zIndex: 20 }}>
 
-        {/* Label */}
+        {/* Name — Krenil Patel */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: easing }}
-          className="flex items-center gap-3 mb-6"
+          className="flex items-center justify-center mb-3"
         >
-          <span className="w-8 h-px bg-[var(--muted)]" />
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-            Full Stack Engineer · Vadodara, India
+          <span className="text-[1.05rem] md:text-[1.15rem] font-semibold tracking-wide text-[var(--foreground)]">
+            Krenil Patel
           </span>
         </motion.div>
 
-        {/* Name display */}
-        <div className="overflow-hidden mb-4">
-          <motion.h1
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.05, ease: easing }}
-            className="text-[clamp(3rem,7vw,7rem)] font-black tracking-[-0.04em] text-[var(--foreground)] leading-[1]"
-          >
-            KRENIL PATEL
-          </motion.h1>
-        </div>
+        {/* Label — FULL STACK ENGINEER */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.08, ease: easing }}
+          className="flex items-center justify-center gap-3 mb-10"
+        >
+          <span className="w-6 h-px bg-[var(--muted)]" />
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+            Full Stack Engineer · Vadodara, India
+          </span>
+          <span className="w-6 h-px bg-[var(--muted)]" />
+        </motion.div>
 
-        {/* Main headline — 3 lines */}
-        <div className="max-w-5xl mt-6">
-          {/* Line 1 */}
+        {/* Main headline */}
+        <div className="text-center max-w-4xl mx-auto">
           <div className="overflow-hidden">
             <motion.div
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.2, ease: easing }}
-              className="text-[clamp(2.2rem,5vw,5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]"
+              transition={{ duration: 0.85, delay: 0.15, ease: easing }}
+              className="text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.05] text-[var(--foreground)]"
             >
               Turning bold ideas
             </motion.div>
           </div>
 
-          {/* Line 2 */}
           <div className="overflow-hidden">
             <motion.div
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.32, ease: easing }}
-              className="text-[clamp(2.2rem,5vw,5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]"
+              transition={{ duration: 0.85, delay: 0.28, ease: easing }}
+              className="text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.05] text-[var(--foreground)]"
             >
               into digital
             </motion.div>
           </div>
 
-          {/* Line 3 — rotating accent word */}
+          {/* Rotating accent pill */}
           <div className="overflow-hidden mt-1 pb-2">
             <motion.div
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.44, ease: easing }}
+              transition={{ duration: 0.85, delay: 0.41, ease: easing }}
+              className="flex justify-center"
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -185,7 +162,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.35, ease: easing }}
-                  className="inline-block text-[clamp(2.2rem,5vw,5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-white bg-[var(--accent)] px-5 py-1 rounded-2xl"
+                  className="inline-block text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.1] text-white bg-[var(--accent)] px-6 py-1 rounded-2xl"
                 >
                   {rotatingWords[wordIndex]}
                 </motion.span>
@@ -198,8 +175,8 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.9, ease: easing }}
-          className="mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-5"
+          transition={{ duration: 0.7, delay: 0.85, ease: easing }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
             href="#projects"
@@ -207,44 +184,45 @@ export default function Hero() {
               e.preventDefault();
               document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group inline-flex items-center gap-2.5 bg-[var(--foreground)] text-[var(--background)] font-semibold px-7 py-4 rounded-full text-sm hover:opacity-80 transition-opacity"
+            className="inline-flex items-center gap-2 bg-[var(--foreground)] text-[var(--background)] font-semibold px-8 py-3.5 rounded-full text-sm hover:opacity-80 transition-opacity"
           >
-            See My Work
-            <ArrowDown size={14} className="group-hover:translate-y-0.5 transition-transform" />
+            See My Work ↓
           </a>
-
           <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
               document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group inline-flex items-center gap-2.5 border border-[var(--border)] text-[var(--foreground)] font-semibold px-7 py-4 rounded-full text-sm hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
+            className="inline-flex items-center gap-2 border border-[var(--border)] text-[var(--foreground)] font-semibold px-8 py-3.5 rounded-full text-sm hover:border-[var(--foreground)] transition-all"
           >
-            Start a Project
-            <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+            Start a Project →
           </a>
-
-          <p className="text-sm text-[var(--muted)] max-w-xs leading-relaxed hidden md:block">
-            I build scalable apps, AI-powered tools,<br />and beautiful interfaces.
-          </p>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <motion.div
-          animate={{ scaleY: [0.5, 1, 0.5], opacity: [0.3, 1, 0.3] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          className="w-px h-10 bg-[var(--muted)]"
-        />
-        <span className="text-[10px] uppercase tracking-widest text-[var(--muted)]">Scroll</span>
-      </motion.div>
+      {/* Horizontal mockup strip */}
+      <div className="relative mt-14 overflow-hidden" style={{ zIndex: 20 }}>
+        <div className="flex gap-4 items-end justify-center px-4 pb-0">
+          {mockupCards.map(({ Component, rotate, delay }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -40, y: 20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.75, delay, ease: easing }}
+              style={{ rotate: `${rotate}deg` }}
+              className="relative rounded-2xl overflow-hidden shadow-xl border border-[var(--border)] bg-[var(--card-bg)] shrink-0"
+            >
+              <div className="hidden md:block w-[260px] h-[168px]">
+                <Component />
+              </div>
+              <div className="md:hidden w-[180px] h-[116px]">
+                <Component />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

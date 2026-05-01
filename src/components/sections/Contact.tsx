@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle2, Loader2, ArrowUpRight } from "lucide-react";
-import { FiMail, FiClock, FiShield, FiStar, FiExternalLink, FiLinkedin, FiGithub } from "react-icons/fi";
+import { FiMail, FiExternalLink, FiLinkedin, FiGithub } from "react-icons/fi";
 import { SiBehance } from "react-icons/si";
 import type { IconType } from "react-icons";
 
@@ -17,18 +17,6 @@ const schema = z.object({
 });
 type FormData = z.infer<typeof schema>;
 
-interface TrustPoint {
-  icon: IconType;
-  title: string;
-  desc: string;
-}
-
-const trustPoints: TrustPoint[] = [
-  { icon: FiClock,  title: "24h Response",    desc: "I reply fast, every time." },
-  { icon: FiShield, title: "NDA Ready",        desc: "Your ideas stay yours." },
-  { icon: FiStar,   title: "Trusted Quality",  desc: "Production-grade, always." },
-];
-
 interface DirectLink {
   label: string;
   value: string;
@@ -37,11 +25,11 @@ interface DirectLink {
 }
 
 const directLinks: DirectLink[] = [
-  { label: "Email",    value: "patelkrenil150@gmail.com",        href: "mailto:patelkrenil150@gmail.com",        icon: FiMail },
-  { label: "GitHub",   value: "github.com/krenilpatel11",         href: "https://github.com/krenilpatel11",        icon: FiGithub },
-  { label: "LinkedIn", value: "linkedin.com/in/krenilpatel",      href: "https://linkedin.com/in/krenilpatel",     icon: FiLinkedin },
-  { label: "Agency",   value: "labelflow.store",                  href: "https://labelflow.store/",               icon: FiExternalLink },
-  { label: "Behance",  value: "behance.net/krenilpatel2",         href: "https://www.behance.net/krenilpatel2",   icon: SiBehance },
+  { label: "Email",    value: "patelkrenil150@gmail.com",        href: "mailto:patelkrenil150@gmail.com",       icon: FiMail },
+  { label: "GitHub",   value: "github.com/krenilpatel11",         href: "https://github.com/krenilpatel11",       icon: FiGithub },
+  { label: "LinkedIn", value: "linkedin.com/in/krenilpatel",      href: "https://linkedin.com/in/krenilpatel",    icon: FiLinkedin },
+  { label: "Agency",   value: "labelflow.store",                  href: "https://labelflow.store/",              icon: FiExternalLink },
+  { label: "Behance",  value: "behance.net/krenilpatel2",         href: "https://www.behance.net/krenilpatel2",  icon: SiBehance },
 ];
 
 export default function Contact() {
@@ -77,62 +65,58 @@ export default function Contact() {
     <section id="contact" className="py-24 md:py-36 border-t border-[var(--border)]">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
 
-        {/* Big headline */}
+        {/* Two-panel layout */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: easing }}
-          className="mb-10"
+          className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-[var(--border)] mb-0"
         >
-          <h2 className="text-[clamp(3rem,7vw,7rem)] font-bold tracking-[-0.04em] text-[var(--foreground)] font-display leading-[1] mb-4">
-            Let&apos;s build<br />something<br />remarkable
-          </h2>
-          <p className="text-[var(--muted)] text-lg mt-6">
-            Drop me a line →{" "}
-            <a
-              href="mailto:patelkrenil150@gmail.com"
-              className="text-[var(--accent)] hover:underline font-medium"
-            >
-              patelkrenil150@gmail.com
-            </a>
-          </p>
-        </motion.div>
+          {/* LEFT panel — dark */}
+          <div className="bg-[var(--foreground)] text-[var(--background)] p-10 md:p-14 flex flex-col justify-between min-h-[480px]">
+            <div>
+              {/* Available badge */}
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-emerald-400 mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Open for projects
+              </span>
 
-        {/* Trust strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.15, ease: easing }}
-          className="flex flex-col sm:flex-row gap-3 mb-14"
-        >
-          {trustPoints.map((point) => {
-            const Icon = point.icon;
-            return (
-              <div
-                key={point.title}
-                className="bg-[var(--card-bg)] border border-[var(--border)] rounded-xl px-4 py-3 flex items-center gap-3 flex-1"
+              <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold font-display leading-[1.05] mb-6" style={{ color: "var(--background)" }}>
+                Let&apos;s<br />Collaborate
+              </h2>
+
+              <p className="text-sm opacity-60 uppercase tracking-widest mb-2">Drop us a line</p>
+              <a
+                href="mailto:patelkrenil150@gmail.com"
+                className="text-base font-semibold underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity"
+                style={{ color: "var(--background)" }}
               >
-                <Icon size={16} className="text-[var(--accent)] shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-[var(--foreground)] leading-none mb-0.5">
-                    {point.title}
-                  </p>
-                  <p className="text-xs text-[var(--muted)]">{point.desc}</p>
-                </div>
-              </div>
-            );
-          })}
-        </motion.div>
+                patelkrenil150@gmail.com
+              </a>
+            </div>
 
-        <div className="grid md:grid-cols-2 gap-16">
-          {/* Contact Form */}
+            {/* Arrow button at bottom */}
+            <div className="mt-10">
+              <a
+                href="mailto:patelkrenil150@gmail.com"
+                className="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 hover:scale-110 transition-transform"
+                style={{ borderColor: "var(--background)", color: "var(--background)" }}
+                aria-label="Email Krenil"
+              >
+                <ArrowUpRight size={20} />
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT panel — form */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.25, ease: easing }}
+            transition={{ duration: 0.7, delay: 0.2, ease: easing }}
+            className="bg-[var(--card-bg)] p-10 md:p-14"
           >
             {status === "success" ? (
-              <div className="flex flex-col items-center justify-center h-72 gap-4 text-center">
+              <div className="flex flex-col items-center justify-center h-full gap-4 text-center py-16">
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
@@ -152,85 +136,87 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                {/* Name */}
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                    Name
-                  </label>
-                  <input
-                    {...register("name")}
-                    placeholder="Your full name"
-                    className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                  />
-                  {errors.name && (
-                    <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 h-full flex flex-col justify-between">
+                <div className="space-y-5">
+                  {/* Name */}
+                  <div>
+                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
+                      Name
+                    </label>
+                    <input
+                      {...register("name")}
+                      placeholder="Your full name"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
+                    )}
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
+                      Email
+                    </label>
+                    <input
+                      {...register("email")}
+                      type="email"
+                      placeholder="your@email.com"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
+                    )}
+                  </div>
+
+                  {/* Subject */}
+                  <div>
+                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
+                      Subject
+                    </label>
+                    <select
+                      {...register("subject")}
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
+                    >
+                      <option value="">Select a topic</option>
+                      <option>Web Development</option>
+                      <option>AI / Cloud Solutions</option>
+                      <option>UI/UX Design</option>
+                      <option>Graphic Design</option>
+                      <option>Other</option>
+                    </select>
+                    {errors.subject && (
+                      <p className="mt-1 text-xs text-red-500">{errors.subject.message}</p>
+                    )}
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
+                      Message
+                    </label>
+                    <textarea
+                      {...register("message")}
+                      rows={4}
+                      placeholder="Tell me about your project..."
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
+                    />
+                    {errors.message && (
+                      <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>
+                    )}
+                  </div>
+
+                  {status === "error" && (
+                    <p className="text-sm text-red-500">
+                      Something went wrong. Please try again or email directly.
+                    </p>
                   )}
                 </div>
-
-                {/* Email */}
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                    Email
-                  </label>
-                  <input
-                    {...register("email")}
-                    type="email"
-                    placeholder="your@email.com"
-                    className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                  />
-                  {errors.email && (
-                    <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
-                  )}
-                </div>
-
-                {/* Subject */}
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                    Subject
-                  </label>
-                  <select
-                    {...register("subject")}
-                    className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
-                  >
-                    <option value="">Select a topic</option>
-                    <option>Web Development</option>
-                    <option>AI / Cloud Solutions</option>
-                    <option>UI/UX Design</option>
-                    <option>Graphic Design</option>
-                    <option>Other</option>
-                  </select>
-                  {errors.subject && (
-                    <p className="mt-1 text-xs text-red-500">{errors.subject.message}</p>
-                  )}
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                    Message
-                  </label>
-                  <textarea
-                    {...register("message")}
-                    rows={5}
-                    placeholder="Tell me about your project..."
-                    className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
-                  />
-                  {errors.message && (
-                    <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>
-                  )}
-                </div>
-
-                {status === "error" && (
-                  <p className="text-sm text-red-500">
-                    Something went wrong. Please try again or email directly.
-                  </p>
-                )}
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[var(--foreground)] text-[var(--background)] font-semibold py-4 rounded-xl hover:opacity-80 transition-opacity disabled:opacity-50 text-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[var(--foreground)] text-[var(--background)] font-semibold py-4 rounded-xl hover:opacity-80 transition-opacity disabled:opacity-50 text-sm mt-4"
                 >
                   {status === "loading" ? (
                     <>
@@ -245,60 +231,40 @@ export default function Contact() {
               </form>
             )}
           </motion.div>
+        </motion.div>
 
-          {/* Right: Direct contact info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.35, ease: easing }}
-            className="flex flex-col gap-8"
-          >
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-6">
-                Direct Links
-              </p>
-              <div className="space-y-4">
-                {directLinks.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex items-center justify-between group py-3 border-b border-[var(--border)] hover:border-[var(--accent)] transition-colors"
-                    >
-                      <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--muted)]">
-                        <Icon size={13} className="group-hover:text-[var(--accent)] transition-colors" />
-                        {item.label}
-                      </span>
-                      <span className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1.5">
-                        {item.value}
-                        <ArrowUpRight
-                          size={13}
-                          className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                        />
-                      </span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Availability card */}
-            <div className="bg-[var(--accent-light)] dark:bg-[var(--accent-light)] rounded-2xl p-6 border border-[var(--accent)]/20">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-                  Open for exciting projects
+        {/* Horizontal strip of direct links */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4, ease: easing }}
+          className="mt-0 border-t border-[var(--border)]"
+        >
+          {directLinks.map((item) => {
+            const Icon = item.icon;
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="flex items-center justify-between group border-b border-[var(--border)] py-4 hover:border-[var(--accent)] transition-colors"
+              >
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors">
+                  <Icon size={13} />
+                  {item.label}
                 </span>
-              </div>
-              <p className="text-sm text-[var(--foreground)] leading-relaxed">
-                Open to full-time roles, freelance projects, and interesting collaborations. Response within 24 hours.
-              </p>
-            </div>
-          </motion.div>
-        </div>
+                <span className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1.5">
+                  {item.value}
+                  <ArrowUpRight
+                    size={13}
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  />
+                </span>
+              </a>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
