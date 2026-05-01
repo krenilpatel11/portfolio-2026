@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 import {
   FiMonitor, FiServer, FiDatabase, FiCpu,
   FiFeather, FiAward, FiZap, FiCloud, FiExternalLink,
@@ -128,8 +129,11 @@ export default function Skills() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="skills" className="py-24 md:py-36 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
+    <section id="skills" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
+      {/* Pattern background */}
+      <PatternBackground pattern="waves" opacity={0.02} />
+      
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10" ref={ref}>
 
         {/* ── Header ── */}
         <motion.div

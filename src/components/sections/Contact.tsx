@@ -8,6 +8,8 @@ import { CheckCircle2, Loader2, ArrowUpRight } from "lucide-react";
 import { FiMail, FiExternalLink, FiLinkedin, FiGithub } from "react-icons/fi";
 import { SiBehance } from "react-icons/si";
 import type { IconType } from "react-icons";
+import { useMood } from "@/context/MoodContext";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -36,6 +38,7 @@ export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { currentMood } = useMood();
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   const {
@@ -72,35 +75,40 @@ export default function Contact() {
           transition={{ duration: 0.7, ease: easing }}
           className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-[var(--border)] mb-0"
         >
-          {/* LEFT panel — dark */}
-          <div className="bg-[var(--foreground)] text-[var(--background)] p-10 md:p-14 flex flex-col justify-between min-h-[480px]">
-            <div>
+          {/* LEFT panel — accent color with pattern */}
+          <div 
+            className="relative text-white p-10 md:p-14 flex flex-col justify-between min-h-[480px] overflow-hidden transition-colors duration-700"
+            style={{ backgroundColor: currentMood.accentHex }}
+          >
+            {/* Pattern overlay */}
+            <PatternBackground pattern="circuit" opacity={0.08} />
+            
+            {/* Content */}
+            <div className="relative z-10">
               {/* Available badge */}
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-emerald-400 mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 Open for projects
               </span>
 
-              <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold font-display leading-[1.05] mb-6" style={{ color: "var(--background)" }}>
+              <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold font-display leading-[1.05] mb-6 text-white">
                 Let&apos;s<br />Collaborate
               </h2>
 
-              <p className="text-sm opacity-60 uppercase tracking-widest mb-2">Drop us a line</p>
+              <p className="text-sm text-white/70 uppercase tracking-widest mb-2">Drop us a line</p>
               <a
                 href="mailto:patelkrenil150@gmail.com"
-                className="text-base font-semibold underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity"
-                style={{ color: "var(--background)" }}
+                className="text-base font-semibold underline underline-offset-4 text-white/90 hover:text-white transition-opacity"
               >
                 patelkrenil150@gmail.com
               </a>
             </div>
 
             {/* Arrow button at bottom */}
-            <div className="mt-10">
+            <div className="mt-10 relative z-10">
               <a
                 href="mailto:patelkrenil150@gmail.com"
-                className="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 hover:scale-110 transition-transform"
-                style={{ borderColor: "var(--background)", color: "var(--background)" }}
+                className="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/30 hover:border-white text-white hover:scale-110 transition-all"
                 aria-label="Email Krenil"
               >
                 <ArrowUpRight size={20} />

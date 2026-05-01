@@ -9,6 +9,7 @@ import {
   LabelFlowMockup,
 } from "@/components/ProjectMockups";
 import { useMood } from "@/context/MoodContext";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 
 const rotatingWords = ["PRODUCTS", "EXPERIENCES", "SOLUTIONS"];
 
@@ -101,15 +102,28 @@ export default function Hero() {
     <section
       id="hero"
       className="relative overflow-hidden pt-28 pb-0"
-      style={{
-        background:
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(108,60,225,0.08), transparent)",
-      }}
     >
+      {/* Mood-reactive gradient background */}
+      <div 
+        className="absolute inset-0 transition-opacity duration-700"
+        style={{
+          background: `radial-gradient(ellipse 80% 50% at 50% -20%, ${currentMood.accentHex}14, transparent)`,
+        }}
+      />
+      
+      {/* Pattern overlay */}
+      <PatternBackground pattern="dots" opacity={0.025} />
+
       {/* Gradient blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-violet-400/10 blur-[120px]" />
-        <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-violet-300/[0.08] blur-[100px]" />
+        <div 
+          className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] transition-colors duration-700" 
+          style={{ backgroundColor: `${currentMood.accentHex}20` }}
+        />
+        <div 
+          className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] transition-colors duration-700"
+          style={{ backgroundColor: `${currentMood.accentHex}14` }}
+        />
       </div>
 
       {/* Inner content */}

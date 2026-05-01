@@ -13,14 +13,18 @@ import { FounderTile } from "../bento/tiles/FounderTile";
 import { EducationTile } from "../bento/tiles/EducationTile";
 import { AchievementTile } from "../bento/tiles/AchievementTile";
 import { MoodSwitcher } from "../interactive/MoodSwitcher";
+import { PatternBackground } from "../patterns/PatternBackground";
 
 export default function WhoAmI() {
   return (
     <section
       id="about"
-      className="py-24 md:py-36 border-t border-[var(--border)] bg-[var(--background)]"
+      className="relative py-24 md:py-36 border-t border-[var(--border)] bg-[var(--background)] overflow-hidden"
     >
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10">
+      {/* Pattern background */}
+      <PatternBackground pattern="grid" opacity={0.02} />
+      
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
         {/* Section header */}
         <div className="mb-12 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">

@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 import {
   ViewVoiceMockup,
   SecurityGateMockup,
@@ -74,8 +75,11 @@ export default function Projects() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="projects" className="py-24 md:py-36 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10">
+    <section id="projects" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
+      {/* Pattern background */}
+      <PatternBackground pattern="diagonal" opacity={0.015} />
+      
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
 
         {/* Section header — left-aligned, editorial style */}
         <motion.div

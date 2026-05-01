@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FiCode, FiCpu, FiFeather, FiZap, FiGlobe, FiCloud } from "react-icons/fi";
 import type { IconType } from "react-icons";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 
 const cards: {
   icon: IconType;
@@ -146,9 +147,12 @@ export default function DeveloperDeck() {
   return (
     <section
       id="developer-deck"
-      className="py-24 md:py-36 border-t border-[var(--border)] bg-[var(--card-bg)]"
+      className="relative py-24 md:py-36 border-t border-[var(--border)] bg-[var(--card-bg)] overflow-hidden"
     >
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
+      {/* Pattern background */}
+      <PatternBackground pattern="hexagon" opacity={0.02} />
+      
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10" ref={ref}>
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Left: text */}
           <motion.div
