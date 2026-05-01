@@ -76,8 +76,8 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
-      {/* Pattern background */}
-      <PatternBackground pattern="diagonal" opacity={0.015} />
+      {/* Pattern background - more visible */}
+      <PatternBackground pattern="grid" opacity={0.05} />
       
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
 

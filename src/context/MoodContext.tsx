@@ -20,7 +20,9 @@ export function MoodProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const mood = moods[currentMoodId];
     document.documentElement.style.setProperty("--accent-color", mood.accentHex);
+    document.documentElement.style.setProperty("--accent", mood.accentHex);
     document.documentElement.style.setProperty("--accent-glow", mood.accentHex + "4D");
+    document.documentElement.style.setProperty("--accent-light", mood.accentHex + "18"); // 10% opacity for light backgrounds
     
     // Save to cookie
     document.cookie = `mood=${currentMoodId};path=/;max-age=31536000`;

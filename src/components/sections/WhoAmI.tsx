@@ -21,8 +21,8 @@ export default function WhoAmI() {
       id="about"
       className="relative py-24 md:py-36 border-t border-[var(--border)] bg-[var(--background)] overflow-hidden"
     >
-      {/* Pattern background */}
-      <PatternBackground pattern="grid" opacity={0.02} />
+      {/* Pattern background - more visible */}
+      <PatternBackground pattern="geometric" opacity={0.05} />
       
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
         {/* Section header */}

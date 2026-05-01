@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import { ViewVoiceMockup } from "@/components/ProjectMockups";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 
 interface Service {
   title: string;
@@ -44,8 +45,11 @@ export default function Services() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="services" className="py-24 md:py-36 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
+    <section id="services" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
+      {/* Pattern background */}
+      <PatternBackground pattern="diagonal" opacity={0.05} />
+      
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10" ref={ref}>
         <div className="grid md:grid-cols-[40%_55%] gap-12 md:gap-16 items-start">
 
           {/* Left column: heading + visual card */}

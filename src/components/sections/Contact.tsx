@@ -75,13 +75,13 @@ export default function Contact() {
           transition={{ duration: 0.7, ease: easing }}
           className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-[var(--border)] mb-0"
         >
-          {/* LEFT panel — accent color with pattern */}
+          {/* LEFT panel — accent color with abstract pattern */}
           <div 
             className="relative text-white p-10 md:p-14 flex flex-col justify-between min-h-[480px] overflow-hidden transition-colors duration-700"
             style={{ backgroundColor: currentMood.accentHex }}
           >
-            {/* Pattern overlay */}
-            <PatternBackground pattern="circuit" opacity={0.08} />
+            {/* Abstract pattern overlay */}
+            <PatternBackground pattern="abstract" opacity={0.15} />
             
             {/* Content */}
             <div className="relative z-10">

@@ -149,8 +149,8 @@ export default function DeveloperDeck() {
       id="developer-deck"
       className="relative py-24 md:py-36 border-t border-[var(--border)] bg-[var(--card-bg)] overflow-hidden"
     >
-      {/* Pattern background */}
-      <PatternBackground pattern="hexagon" opacity={0.02} />
+      {/* Pattern background - more visible */}
+      <PatternBackground pattern="dots" opacity={0.06} />
       
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10" ref={ref}>
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">

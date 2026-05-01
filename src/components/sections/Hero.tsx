@@ -111,8 +111,8 @@ export default function Hero() {
         }}
       />
       
-      {/* Pattern overlay */}
-      <PatternBackground pattern="dots" opacity={0.025} />
+      {/* Pattern overlay - more visible */}
+      <PatternBackground pattern="organic" opacity={0.06} />
 
       {/* Gradient blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
