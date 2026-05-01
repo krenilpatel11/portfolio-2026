@@ -22,22 +22,41 @@ export function PatternBackground({
 
     switch (pattern) {
       case "abstract":
-        // Complex abstract pattern for Contact card
+        // Complex abstract pattern for Contact card - highly visible
         return (
-          <pattern id="abstract" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-            {/* Flowing curves */}
-            <path d="M0 100 Q 50 50, 100 100 T 200 100" stroke={color} strokeWidth="2" fill="none" opacity="0.4" />
-            <path d="M0 150 Q 50 100, 100 150 T 200 150" stroke={color} strokeWidth="1.5" fill="none" opacity="0.3" />
-            {/* Circles */}
-            <circle cx="50" cy="50" r="30" stroke={color} strokeWidth="1.5" fill="none" opacity="0.25" />
-            <circle cx="150" cy="150" r="40" stroke={color} strokeWidth="2" fill="none" opacity="0.2" />
-            {/* Dots cluster */}
-            <circle cx="180" cy="40" r="3" fill={color} opacity="0.4" />
-            <circle cx="190" cy="50" r="2" fill={color} opacity="0.3" />
-            <circle cx="170" cy="50" r="2.5" fill={color} opacity="0.35" />
-            {/* Lines */}
-            <line x1="20" y1="180" x2="80" y2="180" stroke={color} strokeWidth="1" opacity="0.3" />
-            <line x1="120" y1="20" x2="180" y2="20" stroke={color} strokeWidth="1" opacity="0.25" />
+          <pattern id="abstract" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+            {/* Large flowing curves */}
+            <path d="M0 150 Q 75 50, 150 150 T 300 150" stroke={color} strokeWidth="3" fill="none" opacity="0.5" />
+            <path d="M0 200 Q 75 100, 150 200 T 300 200" stroke={color} strokeWidth="2.5" fill="none" opacity="0.4" />
+            <path d="M0 100 Q 75 0, 150 100 T 300 100" stroke={color} strokeWidth="2" fill="none" opacity="0.35" />
+            
+            {/* Large decorative circles */}
+            <circle cx="75" cy="75" r="50" stroke={color} strokeWidth="2.5" fill="none" opacity="0.35" />
+            <circle cx="225" cy="225" r="60" stroke={color} strokeWidth="3" fill="none" opacity="0.3" />
+            <circle cx="225" cy="75" r="40" stroke={color} strokeWidth="2" fill="none" opacity="0.3" />
+            <circle cx="75" cy="225" r="45" stroke={color} strokeWidth="2.5" fill="none" opacity="0.28" />
+            
+            {/* Small accent circles */}
+            <circle cx="150" cy="150" r="8" fill={color} opacity="0.4" />
+            <circle cx="50" cy="250" r="6" fill={color} opacity="0.35" />
+            <circle cx="250" cy="50" r="7" fill={color} opacity="0.38" />
+            <circle cx="280" cy="120" r="5" fill={color} opacity="0.32" />
+            <circle cx="20" cy="180" r="6" fill={color} opacity="0.36" />
+            
+            {/* Diagonal lines */}
+            <line x1="0" y1="50" x2="100" y2="50" stroke={color} strokeWidth="2" opacity="0.3" />
+            <line x1="200" y1="250" x2="300" y2="250" stroke={color} strokeWidth="2" opacity="0.28" />
+            <line x1="150" y1="0" x2="150" y2="80" stroke={color} strokeWidth="1.5" opacity="0.25" />
+            <line x1="50" y1="150" x2="50" y2="230" stroke={color} strokeWidth="1.5" opacity="0.27" />
+            
+            {/* Dots cluster for texture */}
+            <circle cx="270" cy="60" r="3" fill={color} opacity="0.4" />
+            <circle cx="280" cy="70" r="2.5" fill={color} opacity="0.35" />
+            <circle cx="260" cy="70" r="3" fill={color} opacity="0.38" />
+            <circle cx="270" cy="80" r="2" fill={color} opacity="0.33" />
+            
+            {/* Additional geometric accent */}
+            <rect x="180" y="180" width="40" height="40" stroke={color} strokeWidth="2" fill="none" opacity="0.25" transform="rotate(15 200 200)" />
           </pattern>
         );
 

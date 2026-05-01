@@ -75,13 +75,16 @@ export default function Contact() {
           transition={{ duration: 0.7, ease: easing }}
           className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-[var(--border)] mb-0"
         >
-          {/* LEFT panel — accent color with abstract pattern */}
+          {/* LEFT panel — accent color with highly visible abstract pattern */}
           <div 
             className="relative text-white p-10 md:p-14 flex flex-col justify-between min-h-[480px] overflow-hidden transition-colors duration-700"
             style={{ backgroundColor: currentMood.accentHex }}
           >
-            {/* Abstract pattern overlay */}
-            <PatternBackground pattern="abstract" opacity={0.15} />
+            {/* Subtle darker overlay for better pattern contrast */}
+            <div className="absolute inset-0 bg-black/5" />
+            
+            {/* Abstract pattern overlay - highly visible */}
+            <PatternBackground pattern="abstract" opacity={0.25} />
             
             {/* Content */}
             <div className="relative z-10">
