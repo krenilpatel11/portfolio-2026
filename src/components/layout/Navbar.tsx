@@ -4,8 +4,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Sun, Moon, X } from "lucide-react";
 import { useMood } from "@/context/MoodContext";
-import { MoodSelector } from "@/components/mood/MoodSelector";
 import Image from "next/image";
+import { 
+  FlaskConical, 
+  Terminal, 
+  Palette, 
+  Shield, 
+  Feather, 
+  Compass, 
+  Bike, 
+  Building2, 
+  TrendingUp, 
+  Sparkles 
+} from "lucide-react";
+
+const iconMap = {
+  FlaskConical,
+  Terminal,
+  Palette,
+  Shield,
+  Feather,
+  Compass,
+  Bike,
+  Building2,
+  TrendingUp,
+  Sparkles,
+};
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -20,7 +44,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const { currentMood, nextMood, setMood } = useMood();
+  const { currentMood, nextMood } = useMood();
+  const CurrentMoodIcon = iconMap[currentMood.icon as keyof typeof iconMap];
 
   useEffect(() => {
     setMounted(true);
@@ -100,10 +125,40 @@ export default function Navbar() {
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Right: Mood Selector + Contact Us link + theme toggle */}
+          {/* Right: Current Mood Chip (read-only) + Contact Us + theme toggle */}
           <div className="flex items-center gap-4">
-            {/* Mood Selector */}
-            <MoodSelector currentMoodId={currentMood.id} onMoodChange={setMood} />
+            {/* Current Mood Chip - read-only, shows current mood */}
+            <button
+              onClick={nextMood}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 hover:scale-105"
+              style={{
+                backgroundColor: `${currentMood.accentHex}15`,
+                borderColor: `${currentMood.accentHex}40`,
+              }}
+              title={`Current mood: ${currentMood.label}. Click to cycle!`}
+            >
+              {/* Icon */}
+              <div
+                className="p-1 rounded-md transition-all duration-300"
+                style={{
+                  backgroundColor: currentMood.accentHex,
+                  color: 'white',
+                }}
+              >
+                <CurrentMoodIcon className="w-3 h-3" strokeWidth={2.5} />
+              </div>
+
+              {/* Label - hidden on mobile */}
+              <span 
+                className="text-xs font-semibold hidden sm:inline"
+                style={{ color: currentMood.accentHex }}
+              >
+                {currentMood.label}
+              </span>
+
+              {/* Emoji */}
+              <span className="text-sm">{currentMood.emoji}</span>
+            </button>
             
             <a
               href="#contact"

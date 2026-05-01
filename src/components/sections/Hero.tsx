@@ -19,18 +19,18 @@ const mockupCards = [
   { Component: LabelFlowMockup,    rotate: -1.5, delay: 0.9 },
 ];
 
-// Chips orbit around the headline block — widely spread, slow float
+// Chips orbit around the headline block — MORE widely spread, further from center
 // x/y = offset from center (px), floatX/floatY = drift amplitude, dur = seconds per cycle
 const floatingChips = [
-  { label: "React",        color: "#61DAFB", x: -420, y: -60,  floatX: 8,  floatY: 12, dur: 9.0  },
-  { label: "Next.js",      color: "#0a0a0a", x:  400, y: -80,  floatX: -9, floatY: 10, dur: 10.5 },
-  { label: ".NET Core",    color: "#512BD4", x: -460, y:  60,  floatX: 10, floatY: -11,dur: 8.5  },
-  { label: "TypeScript",   color: "#3178C6", x:  440, y:  50,  floatX: -8, floatY: 13, dur: 11.0 },
-  { label: "Azure",        color: "#0089D6", x: -380, y:  150, floatX: 11, floatY: -9, dur: 9.8  },
-  { label: "Angular",      color: "#DD0031", x:  360, y:  140, floatX: -9, floatY: 10, dur: 10.2 },
-  { label: "Tailwind CSS", color: "#06B6D4", x:  120, y: -160, floatX: 7,  floatY: -12,dur: 8.8  },
-  { label: "Docker",       color: "#2496ED", x: -140, y: -150, floatX: -8, floatY: 11, dur: 11.5 },
-  { label: "AI-102 ✦",    color: "#6c3ce1", x:    0, y: -190, floatX: 6,  floatY: -10,dur: 9.5  },
+  { label: "React",        color: "#61DAFB", x: -520, y: -80,  floatX: 8,  floatY: 12, dur: 9.0  },
+  { label: "Next.js",      color: "#0a0a0a", x:  500, y: -100, floatX: -9, floatY: 10, dur: 10.5 },
+  { label: ".NET Core",    color: "#512BD4", x: -560, y:  80,  floatX: 10, floatY: -11,dur: 8.5  },
+  { label: "TypeScript",   color: "#3178C6", x:  540, y:  70,  floatX: -8, floatY: 13, dur: 11.0 },
+  { label: "Azure",        color: "#0089D6", x: -480, y:  200, floatX: 11, floatY: -9, dur: 9.8  },
+  { label: "Angular",      color: "#DD0031", x:  460, y:  190, floatX: -9, floatY: 10, dur: 10.2 },
+  { label: "Tailwind CSS", color: "#06B6D4", x:  180, y: -220, floatX: 7,  floatY: -12,dur: 8.8  },
+  { label: "Docker",       color: "#2496ED", x: -200, y: -210, floatX: -8, floatY: 11, dur: 11.5 },
+  { label: "AI-102 ✦",    color: "#6c3ce1", x:    0, y: -250, floatX: 6,  floatY: -10,dur: 9.5  },
 ];
 
 function FloatingChip({

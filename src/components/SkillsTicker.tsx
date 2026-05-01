@@ -46,7 +46,7 @@ const duplicatedSkills = [...allSkills, ...allSkills];
 
 export function SkillsTicker() {
   return (
-    <div className="relative py-8 overflow-hidden border-y border-[var(--border)] bg-[var(--card-bg)]/30">
+    <div className="relative py-6 overflow-hidden bg-[var(--card-bg)]/30">
       {/* Left fade */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
       
@@ -55,15 +55,15 @@ export function SkillsTicker() {
 
       {/* Scrolling container */}
       <motion.div
-        className="flex gap-4"
+        className="flex gap-3"
         animate={{
-          x: [0, -1 * (allSkills.length * 180)], // 180px = width per skill chip
+          x: [0, -1 * (allSkills.length * 140)], // 140px = reduced width per skill chip
         }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: allSkills.length * 3, // 3 seconds per skill
+            duration: allSkills.length * 3,
             ease: "linear",
           },
         }}
@@ -73,16 +73,16 @@ export function SkillsTicker() {
           return (
             <div
               key={`${skill.name}-${index}`}
-              className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-[var(--border)] bg-[var(--background)] shrink-0 hover:border-[var(--accent)] hover:bg-[var(--card-bg)] transition-all duration-300 group"
-              style={{ minWidth: "160px" }}
+              className="flex items-center gap-2 px-3 py-2 rounded-full border border-[var(--border)] bg-[var(--background)] shrink-0 hover:border-[var(--accent)] hover:bg-[var(--card-bg)] transition-all duration-300 group"
+              style={{ minWidth: "120px" }}
             >
-              {/* Icon */}
-              <div className="p-1.5 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)] transition-all duration-300">
-                <Icon className="w-4 h-4 text-[var(--muted)] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
+              {/* Icon - smaller */}
+              <div className="p-1 rounded-md bg-[var(--card-bg)] border border-[var(--border)] group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)] transition-all duration-300">
+                <Icon className="w-3 h-3 text-[var(--muted)] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
               </div>
 
-              {/* Skill name */}
-              <span className="text-sm font-semibold text-[var(--foreground)] whitespace-nowrap">
+              {/* Skill name - smaller */}
+              <span className="text-xs font-semibold text-[var(--foreground)] whitespace-nowrap">
                 {skill.name}
               </span>
             </div>

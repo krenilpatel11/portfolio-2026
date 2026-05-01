@@ -1,5 +1,7 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
+import { useMood } from "@/context/MoodContext";
 import { AvatarHeroTile } from "../bento/AvatarHeroTile";
 import { ExperienceTile } from "../bento/tiles/ExperienceTile";
 import { ProjectsTile } from "../bento/tiles/ProjectsTile";
@@ -16,6 +18,8 @@ import { MoodSwitcher } from "../interactive/MoodSwitcher";
 import { PatternBackground } from "../patterns/PatternBackground";
 
 export default function WhoAmI() {
+  const { currentMood } = useMood();
+  
   return (
     <section
       id="about"
@@ -25,18 +29,35 @@ export default function WhoAmI() {
       <PatternBackground pattern="geometric" opacity={0.05} />
       
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
-        {/* Section header */}
+        {/* Section header - mood-reactive */}
         <div className="mb-12 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">
             About
           </p>
-          <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-6">
-            Who am I?
-          </h2>
-          <p className="text-[var(--muted)] leading-relaxed max-w-2xl mx-auto mb-8">
-            I'm a Full Stack Engineer who loves building scalable applications, solving complex problems,
-            and creating beautiful interfaces. Here's a quick snapshot of my journey.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={currentMood.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-6"
+            >
+              The Many Facets
+            </motion.h2>
+          </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={`${currentMood.id}-desc`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-[var(--muted)] leading-relaxed max-w-2xl mx-auto mb-8"
+            >
+              {currentMood.variants.description}
+            </motion.p>
+          </AnimatePresence>
           
           {/* Mood Switcher */}
           <div className="flex justify-center">

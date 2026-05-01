@@ -81,7 +81,7 @@ export default function Services() {
                     isOpen ? "bg-[var(--card-bg)]" : ""
                   } transition-all duration-300 rounded-lg ${isOpen ? "px-4 my-2" : ""}`}
                   style={{
-                    boxShadow: isOpen ? "0 4px 20px -4px var(--accent)" : "none",
+                    boxShadow: isOpen ? "0 2px 12px -4px var(--accent)" : "none",
                   }}
                 >
                   <button

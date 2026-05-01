@@ -40,18 +40,18 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
             boxShadow: '0 0 0 0 var(--accent)',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = '0 8px 32px -8px var(--accent)';
+            e.currentTarget.style.boxShadow = '0 4px 16px -4px var(--accent)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.boxShadow = '0 0 0 0 var(--accent)';
           }}
         >
           <Mockup />
-          <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-[0.05] transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300" />
           
-          {/* Animated accent border overlay */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <div className="absolute inset-0 border-2 border-[var(--accent)] rounded-lg animate-pulse" style={{ animationDuration: '2s' }} />
+          {/* Animated accent border overlay - reduced */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none">
+            <div className="absolute inset-0 border border-[var(--accent)] rounded-lg" />
           </div>
         </motion.div>
       </div>
