@@ -156,7 +156,7 @@ export default function DeveloperDeck() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: easing }}
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">
+            <p className="text-sm font-semibold uppercase tracking-widest text-[var(--accent)] mb-3">
               Who I am
             </p>
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-4">
