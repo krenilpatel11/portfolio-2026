@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
+import { useMood } from "@/context/MoodContext";
 import {
   ViewVoiceMockup,
   SecurityGateMockup,
@@ -144,6 +145,7 @@ export default function Projects() {
   const headerRef = useRef<HTMLDivElement>(null);
   const headerInView = useInView(headerRef, { once: true, amount: 0.3 });
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
+  const { currentMood } = useMood();
 
   return (
     <section id="projects" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
@@ -152,7 +154,7 @@ export default function Projects() {
       
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
 
-        {/* Section header — left-aligned, editorial style */}
+        {/* Section header — mood-reactive */}
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 24 }}
@@ -160,16 +162,40 @@ export default function Projects() {
           transition={{ duration: 0.65, ease: easing }}
           className="flex items-end justify-between mb-12"
         >
-          <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold font-display leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]">
-            Our past<br />project
-          </h2>
+          <div>
+            <motion.h2 
+              key={currentMood.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-[clamp(2.5rem,5vw,4rem)] font-bold font-display leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]"
+            >
+              {currentMood.variants.projects.title}
+            </motion.h2>
+            <motion.p
+              key={`${currentMood.id}-subtitle`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-sm text-[var(--muted)] mt-2"
+            >
+              {currentMood.variants.projects.subtitle}
+            </motion.p>
+          </div>
           <a
             href="https://github.com/krenilpatel11"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 border border-[var(--border)] px-4 py-2 text-sm hover:border-[var(--foreground)] transition-colors rounded-lg text-[var(--foreground)] shrink-0"
           >
-            View All Cases <span>↗</span>
+            <motion.span
+              key={`${currentMood.id}-btn`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              {currentMood.variants.projects.viewAllText}
+            </motion.span>
           </a>
         </motion.div>
 

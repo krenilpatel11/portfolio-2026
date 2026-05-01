@@ -11,8 +11,6 @@ import {
 import { useMood } from "@/context/MoodContext";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
 
-const rotatingWords = ["PRODUCTS", "EXPERIENCES", "SOLUTIONS"];
-
 const mockupCards = [
   { Component: ViewVoiceMockup,    rotate: -2,   delay: 0.5 },
   { Component: SecurityGateMockup, rotate: 1,    delay: 0.6 },
@@ -91,12 +89,15 @@ export default function Hero() {
   const { currentMood } = useMood();
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
+  // Use mood-specific rotating words
+  const rotatingWords = currentMood.variants.heroWords;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((i) => (i + 1) % rotatingWords.length);
-    }, 2400);
+    }, 2500);
     return () => clearInterval(interval);
-  }, []);
+  }, [rotatingWords.length]);
 
   return (
     <section
@@ -151,7 +152,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Label */}
+        {/* Label - mood-reactive subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -160,35 +161,35 @@ export default function Hero() {
           style={{ position: "relative", zIndex: 20 }}
         >
           <span className="w-6 h-px bg-[var(--muted)]" />
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-            Full Stack Engineer · Vadodara, India
-          </span>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={currentMood.id}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.3 }}
+              className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+            >
+              {currentMood.variants.heroSubtitle}
+            </motion.span>
+          </AnimatePresence>
           <span className="w-6 h-px bg-[var(--muted)]" />
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline - mood-reactive title */}
         <div className="text-center max-w-4xl mx-auto" style={{ position: "relative", zIndex: 20 }}>
-          <div className="overflow-hidden">
+          <AnimatePresence mode="wait">
             <motion.div
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.15, ease: easing }}
-              className="text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.05] text-[var(--foreground)]"
+              key={currentMood.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.05] text-[var(--foreground)] mb-4"
             >
-              Turning bold ideas
+              {currentMood.variants.heroTitle}
             </motion.div>
-          </div>
-
-          <div className="overflow-hidden">
-            <motion.div
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.28, ease: easing }}
-              className="text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.05] text-[var(--foreground)]"
-            >
-              into digital
-            </motion.div>
-          </div>
+          </AnimatePresence>
 
           <div className="overflow-hidden mt-1 pb-2">
             <motion.div

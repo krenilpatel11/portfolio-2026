@@ -5,6 +5,7 @@ import { FiArrowUpRight, FiGlobe, FiCpu, FiLayers, FiServer, FiEdit3 } from "rea
 import { ViewVoiceMockup } from "@/components/ProjectMockups";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
 import { services } from "@/lib/services";
+import { useMood } from "@/context/MoodContext";
 
 // Icon mapping
 const iconMap = {
@@ -20,6 +21,7 @@ export default function Services() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
+  const { currentMood } = useMood();
 
   return (
     <section id="services" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
@@ -36,9 +38,26 @@ export default function Services() {
             transition={{ duration: 0.7, ease: easing }}
             className="flex flex-col gap-8"
           >
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display leading-[1.1]">
-              We offer<br />many services
-            </h2>
+            <div>
+              <motion.h2
+                key={currentMood.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display leading-[1.1]"
+              >
+                {currentMood.variants.services.title}
+              </motion.h2>
+              <motion.p
+                key={`${currentMood.id}-services-subtitle`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-sm text-[var(--muted)] mt-2"
+              >
+                {currentMood.variants.services.subtitle}
+              </motion.p>
+            </div>
 
             {/* Visual card — website mockup */}
             <div className="hidden md:block bg-[var(--card-bg)] border border-[var(--border)] rounded-xl p-0 overflow-hidden" style={{ height: "300px" }}>

@@ -94,9 +94,25 @@ export default function Contact() {
                 Open for projects
               </span>
 
-              <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold font-display leading-[1.05] mb-6 text-white">
-                Let&apos;s<br />Collaborate
-              </h2>
+              <motion.h2
+                key={currentMood.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold font-display leading-[1.05] mb-6 text-white"
+              >
+                {currentMood.variants.contact.title}
+              </motion.h2>
+
+              <motion.p
+                key={`${currentMood.id}-contact-subtitle`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-sm text-white/80 mb-6"
+              >
+                {currentMood.variants.contact.subtitle}
+              </motion.p>
 
               <p className="text-sm text-white/70 uppercase tracking-widest mb-2">Drop us a line</p>
               <a
@@ -235,7 +251,15 @@ export default function Contact() {
                     </>
                   ) : (
                     <>
-                      Send Message <ArrowUpRight size={16} />
+                      <motion.span
+                        key={currentMood.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {currentMood.variants.contact.ctaButton}
+                      </motion.span>
+                      <ArrowUpRight size={16} />
                     </>
                   )}
                 </button>
