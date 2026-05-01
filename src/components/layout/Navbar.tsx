@@ -2,34 +2,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, X } from "lucide-react";
+import { Sun, Moon, X, Shuffle } from "lucide-react";
 import { useMood } from "@/context/MoodContext";
 import Image from "next/image";
-import { 
-  FlaskConical, 
-  Terminal, 
-  Palette, 
-  Shield, 
-  Feather, 
-  Compass, 
-  Bike, 
-  Building2, 
-  TrendingUp, 
-  Sparkles 
-} from "lucide-react";
-
-const iconMap = {
-  FlaskConical,
-  Terminal,
-  Palette,
-  Shield,
-  Feather,
-  Compass,
-  Bike,
-  Building2,
-  TrendingUp,
-  Sparkles,
-};
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -42,10 +17,10 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [showMoodTooltip, setShowMoodTooltip] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const { currentMood, nextMood } = useMood();
-  const CurrentMoodIcon = iconMap[currentMood.icon as keyof typeof iconMap];
 
   useEffect(() => {
     setMounted(true);
@@ -125,7 +100,7 @@ export default function Navbar() {
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Right: Contact Us + theme toggle (mood chip hidden) */}
+          {/* Right: Contact Us + mood toggle + theme toggle */}
           <div className="flex items-center gap-4">
             
             <a
@@ -136,6 +111,43 @@ export default function Navbar() {
               Contact Us
             </a>
 
+            {/* Mood Toggle Button with Tooltip */}
+            {mounted && (
+              <div className="relative">
+                <button
+                  onClick={nextMood}
+                  onMouseEnter={() => setShowMoodTooltip(true)}
+                  onMouseLeave={() => setShowMoodTooltip(false)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full border transition-all hover:scale-110"
+                  style={{
+                    borderColor: currentMood.accentHex,
+                    backgroundColor: `${currentMood.accentHex}15`,
+                  }}
+                  aria-label="Toggle mood"
+                  title="Vibe Shift"
+                >
+                  <Shuffle size={14} style={{ color: currentMood.accentHex }} />
+                </button>
+                
+                {/* Tooltip */}
+                <AnimatePresence>
+                  {showMoodTooltip && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 5 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full right-0 mt-2 px-3 py-2 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg shadow-xl text-xs text-[var(--muted)] whitespace-nowrap z-50"
+                    >
+                      Mood changes after 15 mins or{" "}
+                      <span className="font-semibold text-[var(--foreground)]">toggle it</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+
+            {/* Theme Toggle Button */}
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

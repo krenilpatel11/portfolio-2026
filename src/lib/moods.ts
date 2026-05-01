@@ -17,6 +17,7 @@ export interface MoodVariants {
   heroWords: string[]; // Rotating words in background
   
   // About/Tagline
+  aboutTitle: string; // WhoAmI section title
   tagline: string;
   description: string;
   
@@ -95,6 +96,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Data-Driven Engineer",
       heroSubtitle: "Turning hypotheses into production code, one experiment at a time",
       heroWords: ["experimenting", "analyzing", "discovering", "researching", "innovating"],
+      aboutTitle: "The Scientific Method",
       tagline: "Hypothesis-driven development, data-backed decisions",
       description: "Scientific method meets software engineering. I experiment, measure, iterate. Every feature is a controlled test. Every metric tells a story.",
       whoAmI: {
@@ -141,6 +143,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Terminal Warrior",
       heroSubtitle: "Crafting elegant solutions in the command line trenches",
       heroWords: ["coding", "debugging", "refactoring", "optimizing", "shipping"],
+      aboutTitle: "The Terminal Warrior",
       tagline: "10,000+ hours of clean code and caffeine",
       description: "Terminal warrior. Vim enthusiast. Stack Overflow contributor. I speak fluent TypeScript, React, and regex. Dark mode forever.",
       whoAmI: {
@@ -187,6 +190,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Pixel Perfectionist",
       heroSubtitle: "Crafting interfaces that users fall in love with",
       heroWords: ["designing", "crafting", "creating", "prototyping", "illustrating"],
+      aboutTitle: "The Pixel Perfectionist",
       tagline: "Pixels with purpose, interfaces with soul",
       description: "I design experiences that make users smile. Figma wizard. Typography nerd. Color theory obsessed. Every pixel placed with intention.",
       whoAmI: {
@@ -233,6 +237,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Security Specialist",
       heroSubtitle: "Breaking systems to build better defenses",
       heroWords: ["exploiting", "penetrating", "securing", "breaking", "fortifying"],
+      aboutTitle: "The Security Guardian",
       tagline: "Ethical hacking, unethical coffee consumption",
       description: "White hat warrior. OWASP evangelist. Pentester by day, bug bounty hunter by night. I break things so you don't have to worry.",
       whoAmI: {
@@ -279,6 +284,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Digital Wordsmith",
       heroSubtitle: "Where prose meets code, and stories ship to production",
       heroWords: ["writing", "articulating", "storytelling", "composing", "expressing"],
+      aboutTitle: "The Code Poet",
       tagline: "Words that move minds, code that ships products",
       description: "I believe every interface tells a story. Every button is a promise. Every error message is an opportunity for empathy. Code and copy, perfectly balanced.",
       whoAmI: {
@@ -325,6 +331,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Tech Explorer",
       heroSubtitle: "Conquering uncharted territories in the tech landscape",
       heroWords: ["exploring", "discovering", "conquering", "pioneering", "venturing"],
+      aboutTitle: "The Tech Explorer",
       tagline: "Uncharted tech stacks, unexplored territories",
       description: "I thrive on the unknown. New frameworks? Let's try them. Bleeding edge tech? Sign me up. Every project is a mountain to climb.",
       whoAmI: {
@@ -371,6 +378,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Speed Demon",
       heroSubtitle: "Moving fast, breaking things, fixing them faster",
       heroWords: ["riding", "cruising", "accelerating", "drifting", "conquering"],
+      aboutTitle: "The Speed Demon",
       tagline: "Freedom on two wheels, execution at full throttle",
       description: "Triumph Bonneville owner. Weekend warrior. I code fast, ship faster. Life's too short for slow deploys and traffic jams.",
       whoAmI: {
@@ -417,6 +425,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "System Architect",
       heroSubtitle: "Designing infrastructure that scales to millions",
       heroWords: ["architecting", "structuring", "engineering", "blueprinting", "constructing"],
+      aboutTitle: "The System Architect",
       tagline: "Building systems that stand the test of scale",
       description: "I design infrastructure that scales to millions. Microservices. Event-driven. Cloud-native. SOLID principles aren't suggestions—they're law.",
       whoAmI: {
@@ -463,6 +472,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Technical Strategist",
       heroSubtitle: "Three moves ahead, always executing with purpose",
       heroWords: ["strategizing", "planning", "executing", "orchestrating", "leading"],
+      aboutTitle: "The Tech Strategist",
       tagline: "Chess player mentality, product roadmap clarity",
       description: "I think three moves ahead. Technical decisions with business impact. OKRs. North star metrics. Execution that delivers ROI.",
       whoAmI: {
@@ -509,6 +519,7 @@ export const moods: Record<MoodId, Mood> = {
       heroTitle: "Future Builder",
       heroSubtitle: "Creating tomorrow's technology, today",
       heroWords: ["envisioning", "revolutionizing", "disrupting", "transforming", "manifesting"],
+      aboutTitle: "The Future Builder",
       tagline: "Seeing tomorrow's tech, building it today",
       description: "I see patterns before they emerge. Trends before they're trends. I build products that feel like they're from the future.",
       whoAmI: {

@@ -43,7 +43,7 @@ export default function WhoAmI() {
               transition={{ duration: 0.3 }}
               className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-8"
             >
-              The Many Facets
+              {currentMood.variants.aboutTitle}
             </motion.h2>
           </AnimatePresence>
           
