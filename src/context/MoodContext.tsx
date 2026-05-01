@@ -78,7 +78,7 @@ export function MoodProvider({ children }: { children: React.ReactNode }) {
       <MoodChipPopup
         isVisible={showChip}
         moodLabel={currentMood.label}
-        moodIcon={currentMood.icon as any}
+        moodEmoji={currentMood.emoji}
         accentColor={currentMood.accentHex}
       />
     </MoodContext.Provider>

@@ -45,7 +45,7 @@ export default function Introduction() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="about" className="py-0 border-t border-[var(--border)]">
+    <section id="about" className="py-0 ">
 
       {/* Main text block — narrow centered with top/bottom border */}
       <div className="border-b border-[var(--border)] py-16 md:py-24">

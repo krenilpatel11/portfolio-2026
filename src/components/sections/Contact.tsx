@@ -65,7 +65,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 border-t border-[var(--border)]">
+    <section id="contact" className="py-24 md:py-36 ">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
 
         {/* Two-panel layout */}
@@ -81,10 +81,10 @@ export default function Contact() {
             style={{ backgroundColor: currentMood.accentHex }}
           >
             {/* Subtle darker overlay for better pattern contrast */}
-            <div className="absolute inset-0 bg-black/5" />
+            <div className="absolute inset-0 bg-black/10" />
             
-            {/* Abstract pattern overlay - highly visible */}
-            <PatternBackground pattern="abstract" opacity={0.25} />
+            {/* Abstract pattern overlay - MORE visible */}
+            <PatternBackground pattern="abstract" opacity={0.4} />
             
             {/* Content */}
             <div className="relative z-10">
@@ -203,7 +203,13 @@ export default function Contact() {
                     </label>
                     <select
                       {...register("subject")}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors appearance-none h-12"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 1rem center',
+                        backgroundSize: '12px',
+                      }}
                     >
                       <option value="">Select a topic</option>
                       <option>Web Development</option>
@@ -273,7 +279,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4, ease: easing }}
-          className="mt-0 border-t border-[var(--border)]"
+          className="mt-0 "
         >
           {directLinks.map((item) => {
             const Icon = item.icon;

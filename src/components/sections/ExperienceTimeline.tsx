@@ -78,7 +78,7 @@ export default function ExperienceTimeline() {
   return (
     <section
       id="experience"
-      className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden"
+      className="relative py-24 md:py-36  overflow-hidden"
     >
       {/* Pattern background */}
       <PatternBackground pattern="circuit" opacity={0.04} />

@@ -147,7 +147,7 @@ export default function DeveloperDeck() {
   return (
     <section
       id="developer-deck"
-      className="relative py-24 md:py-36 border-t border-[var(--border)] bg-[var(--card-bg)] overflow-hidden"
+      className="relative py-24 md:py-36  bg-[var(--card-bg)] overflow-hidden"
     >
       {/* Pattern background - more visible */}
       <PatternBackground pattern="dots" opacity={0.06} />

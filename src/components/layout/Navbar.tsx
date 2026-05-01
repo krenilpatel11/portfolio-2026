@@ -125,40 +125,8 @@ export default function Navbar() {
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Right: Current Mood Chip (read-only) + Contact Us + theme toggle */}
+          {/* Right: Contact Us + theme toggle (mood chip hidden) */}
           <div className="flex items-center gap-4">
-            {/* Current Mood Chip - read-only, shows current mood */}
-            <button
-              onClick={nextMood}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 hover:scale-105"
-              style={{
-                backgroundColor: `${currentMood.accentHex}15`,
-                borderColor: `${currentMood.accentHex}40`,
-              }}
-              title={`Current mood: ${currentMood.label}. Click to cycle!`}
-            >
-              {/* Icon */}
-              <div
-                className="p-1 rounded-md transition-all duration-300"
-                style={{
-                  backgroundColor: currentMood.accentHex,
-                  color: 'white',
-                }}
-              >
-                <CurrentMoodIcon className="w-3 h-3" strokeWidth={2.5} />
-              </div>
-
-              {/* Label - hidden on mobile */}
-              <span 
-                className="text-xs font-semibold hidden sm:inline"
-                style={{ color: currentMood.accentHex }}
-              >
-                {currentMood.label}
-              </span>
-
-              {/* Emoji */}
-              <span className="text-sm">{currentMood.emoji}</span>
-            </button>
             
             <a
               href="#contact"

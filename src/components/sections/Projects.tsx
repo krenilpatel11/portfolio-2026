@@ -148,7 +148,7 @@ export default function Projects() {
   const { currentMood } = useMood();
 
   return (
-    <section id="projects" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
+    <section id="projects" className="relative py-24 md:py-36  overflow-hidden">
       {/* Pattern background - more visible */}
       <PatternBackground pattern="grid" opacity={0.05} />
       

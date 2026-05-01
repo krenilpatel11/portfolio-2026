@@ -24,7 +24,7 @@ export default function Services() {
   const { currentMood } = useMood();
 
   return (
-    <section id="services" className="relative py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
+    <section id="services" className="relative py-24 md:py-36  overflow-hidden">
       {/* Pattern background */}
       <PatternBackground pattern="diagonal" opacity={0.05} />
       

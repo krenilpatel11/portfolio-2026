@@ -23,14 +23,14 @@ export default function WhoAmI() {
   return (
     <section
       id="about"
-      className="relative py-24 md:py-36 border-t border-[var(--border)] bg-[var(--background)] overflow-hidden"
+      className="relative py-24 md:py-36  bg-[var(--background)] overflow-hidden"
     >
       {/* Pattern background - more visible */}
       <PatternBackground pattern="geometric" opacity={0.05} />
       
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
         {/* Section header - mood-reactive */}
-        <div className="mb-12 text-center">
+        <div className="mb-16 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">
             About
           </p>
@@ -41,22 +41,29 @@ export default function WhoAmI() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-6"
+              className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-8"
             >
               The Many Facets
             </motion.h2>
           </AnimatePresence>
+          
+          {/* Expanded description area */}
           <AnimatePresence mode="wait">
-            <motion.p
-              key={`${currentMood.id}-desc`}
+            <motion.div
+              key={`${currentMood.id}-desc-container`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="text-[var(--muted)] leading-relaxed max-w-2xl mx-auto mb-8"
+              className="max-w-3xl mx-auto mb-10"
             >
-              {currentMood.variants.description}
-            </motion.p>
+              <p className="text-lg leading-relaxed text-[var(--foreground)] mb-4">
+                {currentMood.variants.description}
+              </p>
+              <p className="text-base leading-relaxed text-[var(--muted)]">
+                {currentMood.variants.tagline}
+              </p>
+            </motion.div>
           </AnimatePresence>
           
           {/* Mood Switcher */}
