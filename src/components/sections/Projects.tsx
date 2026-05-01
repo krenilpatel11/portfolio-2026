@@ -137,8 +137,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-36 px-6 md:px-10 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] mx-auto">
+    <section id="projects" className="py-24 md:py-36 border-t border-[var(--border)]">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">

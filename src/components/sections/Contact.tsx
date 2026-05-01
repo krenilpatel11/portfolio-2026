@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle2, Loader2, ArrowUpRight } from "lucide-react";
+import { FiMail, FiClock, FiShield, FiStar, FiExternalLink, FiLinkedin, FiGithub } from "react-icons/fi";
+import { SiBehance } from "react-icons/si";
+import type { IconType } from "react-icons";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -13,6 +16,33 @@ const schema = z.object({
   message: z.string().min(20, "Message must be at least 20 characters"),
 });
 type FormData = z.infer<typeof schema>;
+
+interface TrustPoint {
+  icon: IconType;
+  title: string;
+  desc: string;
+}
+
+const trustPoints: TrustPoint[] = [
+  { icon: FiClock,  title: "24h Response",    desc: "I reply fast, every time." },
+  { icon: FiShield, title: "NDA Ready",        desc: "Your ideas stay yours." },
+  { icon: FiStar,   title: "Trusted Quality",  desc: "Production-grade, always." },
+];
+
+interface DirectLink {
+  label: string;
+  value: string;
+  href: string;
+  icon: IconType;
+}
+
+const directLinks: DirectLink[] = [
+  { label: "Email",    value: "patelkrenil150@gmail.com",        href: "mailto:patelkrenil150@gmail.com",        icon: FiMail },
+  { label: "GitHub",   value: "github.com/krenilpatel11",         href: "https://github.com/krenilpatel11",        icon: FiGithub },
+  { label: "LinkedIn", value: "linkedin.com/in/krenilpatel",      href: "https://linkedin.com/in/krenilpatel",     icon: FiLinkedin },
+  { label: "Agency",   value: "labelflow.store",                  href: "https://labelflow.store/",               icon: FiExternalLink },
+  { label: "Behance",  value: "behance.net/krenilpatel2",         href: "https://www.behance.net/krenilpatel2",   icon: SiBehance },
+];
 
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,18 +74,18 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 px-6 md:px-10 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] mx-auto" ref={ref}>
+    <section id="contact" className="py-24 md:py-36 border-t border-[var(--border)]">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
 
         {/* Big headline */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: easing }}
-          className="mb-16"
+          className="mb-10"
         >
-          <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-bold tracking-[-0.04em] text-[var(--foreground)] font-display leading-[1] mb-4">
-            Let&apos;s<br />Collaborate
+          <h2 className="text-[clamp(3rem,7vw,7rem)] font-bold tracking-[-0.04em] text-[var(--foreground)] font-display leading-[1] mb-4">
+            Let&apos;s build<br />something<br />remarkable
           </h2>
           <p className="text-[var(--muted)] text-lg mt-6">
             Drop me a line →{" "}
@@ -68,12 +98,38 @@ export default function Contact() {
           </p>
         </motion.div>
 
+        {/* Trust strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.15, ease: easing }}
+          className="flex flex-col sm:flex-row gap-3 mb-14"
+        >
+          {trustPoints.map((point) => {
+            const Icon = point.icon;
+            return (
+              <div
+                key={point.title}
+                className="bg-[var(--card-bg)] border border-[var(--border)] rounded-xl px-4 py-3 flex items-center gap-3 flex-1"
+              >
+                <Icon size={16} className="text-[var(--accent)] shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-[var(--foreground)] leading-none mb-0.5">
+                    {point.title}
+                  </p>
+                  <p className="text-xs text-[var(--muted)]">{point.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2, ease: easing }}
+            transition={{ duration: 0.7, delay: 0.25, ease: easing }}
           >
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center h-72 gap-4 text-center">
@@ -166,7 +222,9 @@ export default function Contact() {
                 </div>
 
                 {status === "error" && (
-                  <p className="text-sm text-red-500">Something went wrong. Please try again or email directly.</p>
+                  <p className="text-sm text-red-500">
+                    Something went wrong. Please try again or email directly.
+                  </p>
                 )}
 
                 <button
@@ -192,7 +250,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.3, ease: easing }}
+            transition={{ duration: 0.7, delay: 0.35, ease: easing }}
             className="flex flex-col gap-8"
           >
             <div>
@@ -200,29 +258,30 @@ export default function Contact() {
                 Direct Links
               </p>
               <div className="space-y-4">
-                {[
-                  { label: "Email", value: "patelkrenil150@gmail.com", href: "mailto:patelkrenil150@gmail.com" },
-                  { label: "GitHub", value: "github.com/krenilpatel11", href: "https://github.com/krenilpatel11" },
-                  { label: "LinkedIn", value: "linkedin.com/in/krenilpatel", href: "https://linkedin.com/in/krenilpatel" },
-                  { label: "Agency", value: "labelflow.store", href: "https://labelflow.store/" },
-                  { label: "Behance", value: "behance.net/krenilpatel2", href: "https://www.behance.net/krenilpatel2" },
-                ].map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center justify-between group py-3 border-b border-[var(--border)] hover:border-[var(--accent)] transition-colors"
-                  >
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)]">
-                      {item.label}
-                    </span>
-                    <span className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1.5">
-                      {item.value}
-                      <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </span>
-                  </a>
-                ))}
+                {directLinks.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="flex items-center justify-between group py-3 border-b border-[var(--border)] hover:border-[var(--accent)] transition-colors"
+                    >
+                      <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--muted)]">
+                        <Icon size={13} className="group-hover:text-[var(--accent)] transition-colors" />
+                        {item.label}
+                      </span>
+                      <span className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1.5">
+                        {item.value}
+                        <ArrowUpRight
+                          size={13}
+                          className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                        />
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
@@ -231,7 +290,7 @@ export default function Contact() {
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-                  Available for Work
+                  Open for exciting projects
                 </span>
               </div>
               <p className="text-sm text-[var(--foreground)] leading-relaxed">

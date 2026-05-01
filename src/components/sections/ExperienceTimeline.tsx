@@ -1,8 +1,22 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { FiBriefcase, FiEdit, FiBook, FiExternalLink } from "react-icons/fi";
+import type { IconType } from "react-icons";
 
-const experiences = [
+const experiences: {
+  period: string;
+  role: string;
+  company: string;
+  location: string;
+  type: string;
+  highlights: string[];
+  tags: string[];
+  color: string;
+  bg: string;
+  CompanyIcon: IconType;
+  website?: string;
+}[] = [
   {
     period: "Feb 2024 – Present",
     role: "Software Engineer",
@@ -19,6 +33,8 @@ const experiences = [
     tags: ["Angular", "React", "Azure AI", ".NET Core", "Chart.js"],
     color: "#6C3CE1",
     bg: "bg-violet-50 dark:bg-violet-950/20",
+    CompanyIcon: FiBriefcase,
+    website: "https://www.imriel.com",
   },
   {
     period: "Oct 2023 – Jan 2024",
@@ -34,6 +50,7 @@ const experiences = [
     tags: ["React", "Tailwind CSS", "Figma", "HTML5"],
     color: "#3b82f6",
     bg: "bg-blue-50 dark:bg-blue-950/20",
+    CompanyIcon: FiEdit,
   },
   {
     period: "Jan 2023 – Jul 2023",
@@ -48,6 +65,7 @@ const experiences = [
     tags: ["Photoshop", "Illustrator", "CorelDraw", "Branding"],
     color: "#f97316",
     bg: "bg-orange-50 dark:bg-orange-950/20",
+    CompanyIcon: FiBook,
   },
 ];
 
@@ -57,22 +75,30 @@ export default function ExperienceTimeline() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="experience" className="py-24 md:py-36 px-6 md:px-10 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] mx-auto" ref={ref}>
+    <section
+      id="experience"
+      className="py-24 md:py-36 border-t border-[var(--border)]"
+    >
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: easing }}
           className="mb-16"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">Career</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-3">
+            Career
+          </p>
           <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight text-[var(--foreground)]">
-            Experience
+            Work Experience
           </h2>
+          <p className="text-[var(--muted)] mt-3 text-base">
+            A track record of shipping real things.
+          </p>
         </motion.div>
 
         <div className="relative">
-          {/* Vertical line */}
+          {/* Vertical connecting line */}
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-[var(--border)]" />
 
           <div className="space-y-10">
@@ -85,27 +111,55 @@ export default function ExperienceTimeline() {
                 transition={{ duration: 0.6, delay: i * 0.1, ease: easing }}
                 className="flex gap-8 pl-10 relative"
               >
-                {/* Dot */}
+                {/* Dot — accent purple */}
                 <div
                   className="absolute left-0 top-5 w-[15px] h-[15px] rounded-full border-2 border-[var(--background)] shadow"
-                  style={{ backgroundColor: exp.color }}
+                  style={{ backgroundColor: "var(--accent)" }}
                 >
                   <motion.div
                     animate={{ scale: [1, 1.6, 1], opacity: [0.6, 0, 0.6] }}
-                    transition={{ repeat: Infinity, duration: 2.5, delay: i * 0.5 }}
-                    className="absolute inset-0 rounded-full"
-                    style={{ backgroundColor: exp.color }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 2.5,
+                      delay: i * 0.5,
+                    }}
+                    className="absolute inset-0 rounded-full bg-[var(--accent)]"
                   />
                 </div>
 
                 {/* Card */}
-                <div className="flex-1 bg-[var(--card-bg)] border border-[var(--border)] rounded-2xl p-6 md:p-8 hover:border-[var(--accent)]/40 transition-colors shadow-sm">
+                <div className="flex-1 bg-[var(--card-bg)] border border-[var(--border)] rounded-2xl p-6 md:p-8 hover:border-[var(--accent)]/30 hover:shadow-lg hover:shadow-[var(--accent)]/5 transition-all duration-300 shadow-sm">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-5">
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--foreground)]">{exp.role}</h3>
-                      <p className="text-sm text-[var(--muted)] mt-0.5">
-                        {exp.company} · {exp.location}
-                      </p>
+                      {/* Company icon + name row */}
+                      <div className="flex items-center gap-2 mb-1">
+                        <div
+                          className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                          style={{ backgroundColor: `${exp.color}18` }}
+                        >
+                          <exp.CompanyIcon
+                            size={14}
+                            style={{ color: exp.color }}
+                          />
+                        </div>
+                        <p className="text-sm text-[var(--muted)] flex items-center gap-1.5">
+                          {exp.company} · {exp.location}
+                          {exp.website && (
+                            <a
+                              href={exp.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-[var(--accent)] hover:opacity-70 transition-opacity"
+                              aria-label={`Visit ${exp.company} website`}
+                            >
+                              <FiExternalLink size={12} />
+                            </a>
+                          )}
+                        </p>
+                      </div>
+                      <h3 className="text-xl font-bold text-[var(--foreground)]">
+                        {exp.role}
+                      </h3>
                     </div>
                     <div className="flex gap-2 shrink-0">
                       <span className="text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--border)] text-[var(--muted)]">
@@ -122,10 +176,12 @@ export default function ExperienceTimeline() {
 
                   <ul className="space-y-2 mb-5">
                     {exp.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2.5 text-sm text-[var(--muted)] leading-relaxed">
+                      <li
+                        key={h}
+                        className="flex items-start gap-2.5 text-sm text-[var(--muted)] leading-relaxed"
+                      >
                         <span
-                          className="mt-2 w-1.5 h-1.5 rounded-full shrink-0"
-                          style={{ backgroundColor: exp.color }}
+                          className="mt-2 w-1.5 h-1.5 rounded-full shrink-0 bg-[var(--accent)]"
                         />
                         {h}
                       </li>
