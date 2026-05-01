@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Sun, Moon, X } from "lucide-react";
+import { useMood } from "@/context/MoodContext";
+import Image from "next/image";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -17,6 +19,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { currentMood, nextMood } = useMood();
 
   useEffect(() => {
     setMounted(true);
@@ -45,8 +48,23 @@ export default function Navbar() {
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
 
-          {/* Left: Menu button (desktop: nav links; mobile: hamburger "Menu" text) */}
-          <div className="flex items-center">
+          {/* Left: Avatar + Menu */}
+          <div className="flex items-center gap-4">
+            {/* Avatar - click to cycle moods */}
+            <button
+              onClick={nextMood}
+              className="relative w-8 h-8 rounded-full overflow-hidden ring-2 transition-all hover:scale-105 accent-reactive"
+              style={{ ringColor: currentMood.accentHex }}
+              title={`Current mood: ${currentMood.label}. Click to switch!`}
+            >
+              <Image
+                src={currentMood.avatar.placeholder}
+                alt={currentMood.label}
+                fill
+                className="object-cover"
+              />
+            </button>
+
             {/* Desktop nav links */}
             <nav className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
