@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence, useDragControls } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ViewVoiceMockup,
   SecurityGateMockup,
@@ -12,42 +12,63 @@ import {
 const rotatingWords = ["PRODUCTS", "EXPERIENCES", "SOLUTIONS"];
 
 const mockupCards = [
-  { Component: ViewVoiceMockup,    rotate: -2,    delay: 0.5 },
-  { Component: SecurityGateMockup, rotate: 1,     delay: 0.6 },
-  { Component: TrainingMockup,     rotate: -1,    delay: 0.7 },
-  { Component: SportMockup,        rotate: 2,     delay: 0.8 },
-  { Component: LabelFlowMockup,    rotate: -1.5,  delay: 0.9 },
+  { Component: ViewVoiceMockup,    rotate: -2,   delay: 0.5 },
+  { Component: SecurityGateMockup, rotate: 1,    delay: 0.6 },
+  { Component: TrainingMockup,     rotate: -1,   delay: 0.7 },
+  { Component: SportMockup,        rotate: 2,    delay: 0.8 },
+  { Component: LabelFlowMockup,    rotate: -1.5, delay: 0.9 },
 ];
 
+// Chips orbit around the headline block
+// x/y are % offsets within the hero content div
+// floatX/floatY = gentle random drift amplitude in px
 const floatingChips = [
-  { label: "React",         color: "#61DAFB", tx: "#0a0a0a", x: "8%",  y: "18%" },
-  { label: "Next.js",       color: "#0a0a0a", tx: "#ffffff", x: "78%", y: "12%" },
-  { label: ".NET Core",     color: "#512BD4", tx: "#ffffff", x: "14%", y: "62%" },
-  { label: "TypeScript",    color: "#3178C6", tx: "#ffffff", x: "82%", y: "55%" },
-  { label: "Azure",         color: "#0089D6", tx: "#ffffff", x: "6%",  y: "38%" },
-  { label: "Angular",       color: "#DD0031", tx: "#ffffff", x: "74%", y: "32%" },
-  { label: "Tailwind CSS",  color: "#06B6D4", tx: "#ffffff", x: "88%", y: "76%" },
-  { label: "Docker",        color: "#2496ED", tx: "#ffffff", x: "4%",  y: "80%" },
-  { label: "AI-102 ✦",     color: "#6c3ce1", tx: "#ffffff", x: "50%", y: "8%"  },
+  { label: "React",        color: "#61DAFB", tx: "#0a0a0a", x: -260, y: -30,  floatX: 6,  floatY: 10, dur: 5.2 },
+  { label: "Next.js",      color: "#0a0a0a", tx: "#ffffff", x: 240,  y: -50,  floatX: -8, floatY: 8,  dur: 6.1 },
+  { label: ".NET Core",    color: "#512BD4", tx: "#ffffff", x: -300, y: 40,   floatX: 7,  floatY: -9, dur: 4.8 },
+  { label: "TypeScript",   color: "#3178C6", tx: "#ffffff", x: 280,  y: 30,   floatX: -6, floatY: 11, dur: 5.6 },
+  { label: "Azure",        color: "#0089D6", tx: "#ffffff", x: -240, y: 100,  floatX: 9,  floatY: -7, dur: 6.4 },
+  { label: "Angular",      color: "#DD0031", tx: "#ffffff", x: 220,  y: 90,   floatX: -7, floatY: 8,  dur: 5.0 },
+  { label: "Tailwind CSS", color: "#06B6D4", tx: "#ffffff", x: 80,   y: -90,  floatX: 5,  floatY: -10,dur: 5.8 },
+  { label: "Docker",       color: "#2496ED", tx: "#ffffff", x: -80,  y: -80,  floatX: -6, floatY: 9,  dur: 6.7 },
+  { label: "AI-102 ✦",    color: "#6c3ce1", tx: "#ffffff", x: 0,    y: -120, floatX: 4,  floatY: -8, dur: 4.5 },
 ];
 
-function DraggableChip({
-  label, color, tx, x, y, delay,
+function FloatingChip({
+  label, color, tx, x, y, floatX, floatY, dur, delay,
 }: {
-  label: string; color: string; tx: string; x: string; y: string; delay: number;
+  label: string; color: string; tx: string;
+  x: number; y: number; floatX: number; floatY: number; dur: number; delay: number;
 }) {
-  const constraintsRef = useRef<HTMLDivElement>(null);
   return (
     <motion.div
       drag
       dragMomentum={false}
-      dragElastic={0.1}
-      whileDrag={{ scale: 1.08, zIndex: 50 }}
-      initial={{ opacity: 0, scale: 0.6 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
-      style={{ position: "absolute", left: x, top: y, zIndex: 10, touchAction: "none" }}
-      className="cursor-grab active:cursor-grabbing select-none"
+      dragElastic={0.08}
+      whileDrag={{ scale: 1.1, zIndex: 50 }}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        x: [x, x + floatX, x - floatX * 0.5, x + floatX * 0.3, x],
+        y: [y, y + floatY, y - floatY * 0.6, y + floatY * 0.4, y],
+      }}
+      transition={{
+        opacity: { duration: 0.5, delay },
+        scale:   { duration: 0.5, delay },
+        x: { duration: dur, delay: delay + 0.5, repeat: Infinity, ease: "easeInOut" },
+        y: { duration: dur * 1.2, delay: delay + 0.5, repeat: Infinity, ease: "easeInOut" },
+      }}
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        zIndex: 8,
+        touchAction: "none",
+        cursor: "grab",
+      }}
+      whileHover={{ scale: 1.08 }}
+      className="active:cursor-grabbing select-none"
     >
       <span
         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg backdrop-blur-sm border border-white/10 whitespace-nowrap"
@@ -79,42 +100,44 @@ export default function Hero() {
           "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(108,60,225,0.08), transparent)",
       }}
     >
-      {/* Violet gradient blobs */}
+      {/* Gradient blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-violet-400/10 blur-[120px]" />
         <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-violet-300/[0.08] blur-[100px]" />
       </div>
 
-      {/* Floating draggable chips — behind text */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 5 }}>
-        <div className="pointer-events-auto relative w-full h-full">
-          {floatingChips.map((chip, i) => (
-            <DraggableChip key={chip.label} {...chip} delay={0.6 + i * 0.07} />
-          ))}
-        </div>
-      </div>
-
-      {/* Inner content wrapper */}
+      {/* Inner content */}
       <div className="relative max-w-[1280px] mx-auto w-full px-6 md:px-10" style={{ zIndex: 20 }}>
 
-        {/* Name — Krenil Patel */}
+        {/* Floating chips — anchored relative to this block */}
+        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 10 }}>
+          <div className="pointer-events-auto relative w-full h-full">
+            {floatingChips.map((chip, i) => (
+              <FloatingChip key={chip.label} {...chip} delay={0.8 + i * 0.08} />
+            ))}
+          </div>
+        </div>
+
+        {/* Name */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: easing }}
           className="flex items-center justify-center mb-3"
+          style={{ position: "relative", zIndex: 20 }}
         >
           <span className="text-[1.05rem] md:text-[1.15rem] font-semibold tracking-wide text-[var(--foreground)]">
             Krenil Patel
           </span>
         </motion.div>
 
-        {/* Label — FULL STACK ENGINEER */}
+        {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08, ease: easing }}
           className="flex items-center justify-center gap-3 mb-10"
+          style={{ position: "relative", zIndex: 20 }}
         >
           <span className="w-6 h-px bg-[var(--muted)]" />
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
@@ -123,8 +146,8 @@ export default function Hero() {
           <span className="w-6 h-px bg-[var(--muted)]" />
         </motion.div>
 
-        {/* Main headline */}
-        <div className="text-center max-w-4xl mx-auto">
+        {/* Headline */}
+        <div className="text-center max-w-4xl mx-auto" style={{ position: "relative", zIndex: 20 }}>
           <div className="overflow-hidden">
             <motion.div
               initial={{ y: "110%" }}
@@ -147,7 +170,6 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Rotating accent pill */}
           <div className="overflow-hidden mt-1 pb-2">
             <motion.div
               initial={{ y: "110%" }}
@@ -177,6 +199,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85, ease: easing }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          style={{ position: "relative", zIndex: 20 }}
         >
           <a
             href="#projects"
@@ -201,7 +224,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Horizontal mockup strip */}
+      {/* Mockup strip */}
       <div className="relative mt-14 overflow-hidden" style={{ zIndex: 20 }}>
         <div className="flex gap-4 items-end justify-center px-4 pb-0">
           {mockupCards.map(({ Component, rotate, delay }, i) => (
@@ -213,12 +236,8 @@ export default function Hero() {
               style={{ rotate: `${rotate}deg` }}
               className="relative rounded-2xl overflow-hidden shadow-xl border border-[var(--border)] bg-[var(--card-bg)] shrink-0"
             >
-              <div className="hidden md:block w-[260px] h-[168px]">
-                <Component />
-              </div>
-              <div className="md:hidden w-[180px] h-[116px]">
-                <Component />
-              </div>
+              <div className="hidden md:block w-[260px] h-[168px]"><Component /></div>
+              <div className="md:hidden w-[180px] h-[116px]"><Component /></div>
             </motion.div>
           ))}
         </div>
