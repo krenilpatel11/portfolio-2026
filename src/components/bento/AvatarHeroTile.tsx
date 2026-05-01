@@ -37,11 +37,11 @@ export function AvatarHeroTile() {
               onClick={() => setMood(moodId)}
               className={`w-8 h-8 rounded-full flex items-center justify-center text-lg transition-all ${
                 isActive
-                  ? "scale-110 ring-2"
+                  ? "scale-110"
                   : "opacity-40 hover:opacity-100 hover:scale-105"
               }`}
               style={{
-                ringColor: isActive ? mood.accentHex : "transparent",
+                boxShadow: isActive ? `0 0 0 2px ${mood.accentHex}` : "none",
                 backgroundColor: isActive ? `${mood.accentHex}20` : "transparent",
               }}
               title={mood.label}

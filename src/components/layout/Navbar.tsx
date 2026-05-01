@@ -53,8 +53,8 @@ export default function Navbar() {
             {/* Avatar - click to cycle moods */}
             <button
               onClick={nextMood}
-              className="relative w-8 h-8 rounded-full overflow-hidden ring-2 transition-all hover:scale-105 accent-reactive"
-              style={{ ringColor: currentMood.accentHex }}
+              className="relative w-8 h-8 rounded-full overflow-hidden transition-all hover:scale-105 accent-reactive"
+              style={{ boxShadow: `0 0 0 2px ${currentMood.accentHex}` }}
               title={`Current mood: ${currentMood.label}. Click to switch!`}
             >
               <Image
