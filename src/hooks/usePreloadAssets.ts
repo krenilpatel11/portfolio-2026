@@ -6,7 +6,7 @@ import { moods, type MoodId } from "@/lib/moods";
 export function usePreloadAssets(moodId: MoodId) {
   useEffect(() => {
     const mood = moods[moodId];
-    if (!mood) return;
+    if (!mood || !mood.avatar) return; // Skip if no avatar assets
 
     // Preload video files
     const linkWebm = document.createElement("link");

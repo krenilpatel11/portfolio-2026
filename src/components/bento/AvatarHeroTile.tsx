@@ -69,7 +69,7 @@ export function AvatarHeroTile() {
             transition={{ duration: 0.3 }}
             className="text-sm text-[var(--muted)] mb-4"
           >
-            {currentMood.tagline}
+            {currentMood.variants.tagline}
           </motion.p>
         </AnimatePresence>
 

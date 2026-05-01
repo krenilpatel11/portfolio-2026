@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Sun, Moon, X } from "lucide-react";
 import { useMood } from "@/context/MoodContext";
+import { MoodSelector } from "@/components/mood/MoodSelector";
 import Image from "next/image";
 
 const navLinks = [
@@ -19,7 +20,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const { currentMood, nextMood } = useMood();
+  const { currentMood, nextMood, setMood } = useMood();
 
   useEffect(() => {
     setMounted(true);
@@ -53,16 +54,20 @@ export default function Navbar() {
             {/* Avatar - click to cycle moods */}
             <button
               onClick={nextMood}
-              className="relative w-8 h-8 rounded-full overflow-hidden transition-all hover:scale-105 accent-reactive"
+              className="relative w-8 h-8 rounded-full overflow-hidden transition-all hover:scale-105 accent-reactive flex items-center justify-center bg-[var(--card-bg)]"
               style={{ boxShadow: `0 0 0 2px ${currentMood.accentHex}` }}
               title={`Current mood: ${currentMood.label}. Click to switch!`}
             >
-              <Image
-                src={currentMood.avatar.placeholder}
-                alt={currentMood.label}
-                fill
-                className="object-cover"
-              />
+              {currentMood.avatar ? (
+                <Image
+                  src={currentMood.avatar.placeholder}
+                  alt={currentMood.label}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <span className="text-lg">{currentMood.emoji}</span>
+              )}
             </button>
 
             {/* Desktop nav links */}
@@ -95,12 +100,15 @@ export default function Navbar() {
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Right: Contact Us link + theme toggle */}
+          {/* Right: Mood Selector + Contact Us link + theme toggle */}
           <div className="flex items-center gap-4">
+            {/* Mood Selector */}
+            <MoodSelector currentMoodId={currentMood.id} onMoodChange={setMood} />
+            
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
-              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors tracking-wide"
+              className="hidden sm:block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors tracking-wide"
             >
               Contact Us
             </a>

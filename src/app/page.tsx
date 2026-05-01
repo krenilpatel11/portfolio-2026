@@ -10,6 +10,7 @@ import Skills from "@/components/sections/Skills";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import { FloatingMoodToggle } from "@/components/interactive/FloatingMoodToggle";
+import { SkillsTicker } from "@/components/SkillsTicker";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhoAmI />
+      <SkillsTicker />
       <Projects />
       <Services />
       <DeveloperDeck />

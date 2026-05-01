@@ -64,8 +64,8 @@ export function AvatarDisplay({
             : undefined,
         }}
       >
-        {/* Video avatar with fallback */}
-        {!preferReducedMotion ? (
+        {/* Avatar display - video/image or emoji fallback */}
+        {currentMood.avatar && !preferReducedMotion ? (
           <video
             autoPlay
             loop
@@ -85,13 +85,20 @@ export function AvatarDisplay({
               className="object-cover rounded-full"
             />
           </video>
-        ) : (
+        ) : currentMood.avatar ? (
           <Image
             src={currentMood.avatar.placeholder}
             alt={currentMood.label}
             fill
             className="object-cover rounded-full"
           />
+        ) : (
+          /* Emoji fallback for moods without avatar assets */
+          <div className="w-full h-full flex items-center justify-center rounded-full bg-[var(--card-bg)] border-2 border-[var(--border)]">
+            <span className="text-[calc(var(--avatar-size)*0.5)] leading-none">
+              {currentMood.emoji}
+            </span>
+          </div>
         )}
       </motion.div>
     </AnimatePresence>

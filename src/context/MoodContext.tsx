@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, useMemo, useEffect } from "react";
 import { moods, getNextMood, getPrevMood, type MoodId, type Mood } from "@/lib/moods";
+import { MoodChipPopup } from "@/components/mood/MoodChipPopup";
 
 interface MoodContextType {
   currentMoodId: MoodId;
@@ -14,7 +15,8 @@ interface MoodContextType {
 const MoodContext = createContext<MoodContextType | undefined>(undefined);
 
 export function MoodProvider({ children }: { children: React.ReactNode }) {
-  const [currentMoodId, setCurrentMoodId] = useState<MoodId>("developer");
+  const [currentMoodId, setCurrentMoodId] = useState<MoodId>("coder");
+  const [showChip, setShowChip] = useState(false);
 
   // Update CSS variables when mood changes
   useEffect(() => {
@@ -26,6 +28,11 @@ export function MoodProvider({ children }: { children: React.ReactNode }) {
     
     // Save to cookie
     document.cookie = `mood=${currentMoodId};path=/;max-age=31536000`;
+    
+    // Show chip popup for 2 seconds
+    setShowChip(true);
+    const timer = setTimeout(() => setShowChip(false), 2000);
+    return () => clearTimeout(timer);
   }, [currentMoodId]);
 
   // Restore from cookie on mount
@@ -65,7 +72,17 @@ export function MoodProvider({ children }: { children: React.ReactNode }) {
     [currentMoodId, currentMood, setMood, handleNextMood, handlePrevMood]
   );
 
-  return <MoodContext.Provider value={value}>{children}</MoodContext.Provider>;
+  return (
+    <MoodContext.Provider value={value}>
+      {children}
+      <MoodChipPopup
+        isVisible={showChip}
+        moodLabel={currentMood.label}
+        moodIcon={currentMood.icon as any}
+        accentColor={currentMood.accentHex}
+      />
+    </MoodContext.Provider>
+  );
 }
 
 export function useMood() {

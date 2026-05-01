@@ -1,42 +1,19 @@
 "use client";
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight, FiGlobe, FiCpu, FiLayers, FiServer, FiEdit3 } from "react-icons/fi";
 import { ViewVoiceMockup } from "@/components/ProjectMockups";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
+import { services } from "@/lib/services";
 
-interface Service {
-  title: string;
-  detail: string;
-}
-
-const services: Service[] = [
-  {
-    title: "Web Application Development",
-    detail:
-      "I architect and ship full-stack web applications that handle real load — React, Angular, Next.js, and .NET Core. Clean code, 90%+ test coverage, built to scale from day one.",
-  },
-  {
-    title: "AI & Cloud Solutions",
-    detail:
-      "3× Azure certified. I build AI pipelines that process documents at 95% accuracy, automate workflows, and surface insights your team can actually act on.",
-  },
-  {
-    title: "UI/UX Design",
-    detail:
-      "Pixel-perfect from Figma to code. I design interfaces that convert visitors into clients — beautiful, accessible, fast.",
-  },
-  {
-    title: "Backend & API Development",
-    detail:
-      "Rock-solid APIs with ASP.NET Core and Node.js. Authentication, rate limiting, documentation — the boring stuff done right so your product never fails.",
-  },
-  {
-    title: "Graphic Design & Branding",
-    detail:
-      "50+ brand identities delivered. From logo to launch, I build brands that mean something. Photoshop, Illustrator, CorelDraw, Figma.",
-  },
-];
+// Icon mapping
+const iconMap = {
+  Globe: FiGlobe,
+  Brain: FiCpu, // Using CPU icon for AI/Brain
+  Palette: FiLayers,
+  Server: FiServer,
+  PenTool: FiEdit3,
+};
 
 export default function Services() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -71,53 +48,100 @@ export default function Services() {
 
           {/* Right column: service accordion */}
           <div className="md:pt-2">
-            {services.map((service, i) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 16 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease: easing }}
-                className="border-b border-[var(--border)]"
-              >
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between py-5 group text-left"
-                  aria-expanded={openIndex === i}
+            {services.map((service, i) => {
+              const Icon = iconMap[service.icon as keyof typeof iconMap] || FiGlobe;
+              const isOpen = openIndex === i;
+              
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease: easing }}
+                  className={`border-b border-[var(--border)] group relative ${
+                    isOpen ? "bg-[var(--card-bg)]" : ""
+                  } transition-all duration-300 rounded-lg ${isOpen ? "px-4 my-2" : ""}`}
+                  style={{
+                    boxShadow: isOpen ? "0 4px 20px -4px var(--accent)" : "none",
+                  }}
                 >
-                  <span
-                    className={`text-lg font-semibold transition-colors ${
-                      openIndex === i
-                        ? "text-[var(--accent)]"
-                        : "text-[var(--foreground)] group-hover:text-[var(--accent)]"
-                    }`}
+                  <button
+                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                    className="w-full flex items-center justify-between py-5 text-left"
+                    aria-expanded={isOpen}
                   >
-                    {service.title}
-                  </span>
-                  <FiArrowUpRight
-                    size={18}
-                    className={`shrink-0 ml-4 transition-all duration-300 text-[var(--muted)] group-hover:text-[var(--accent)] ${
-                      openIndex === i ? "rotate-45 text-[var(--accent)]" : ""
-                    }`}
-                  />
-                </button>
+                    {/* Number + Icon + Title */}
+                    <div className="flex items-center gap-4">
+                      {/* Number indicator */}
+                      <span className={`text-sm font-mono font-semibold transition-colors ${
+                        isOpen ? "text-[var(--accent)]" : "text-[var(--muted)] group-hover:text-[var(--accent)]"
+                      }`}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      
+                      {/* Icon */}
+                      <div className={`p-2 rounded-lg transition-all duration-300 ${
+                        isOpen 
+                          ? "bg-[var(--accent)] text-white" 
+                          : "bg-[var(--card-bg)] text-[var(--muted)] group-hover:bg-[var(--accent)] group-hover:text-white"
+                      }`}>
+                        <Icon size={20} />
+                      </div>
+                      
+                      {/* Title */}
+                      <span
+                        className={`text-lg font-semibold transition-colors ${
+                          isOpen
+                            ? "text-[var(--accent)]"
+                            : "text-[var(--foreground)] group-hover:text-[var(--accent)]"
+                        }`}
+                      >
+                        {service.title}
+                      </span>
+                    </div>
+                    
+                    {/* Arrow */}
+                    <FiArrowUpRight
+                      size={18}
+                      className={`shrink-0 ml-4 transition-all duration-300 ${
+                        isOpen 
+                          ? "rotate-45 text-[var(--accent)]" 
+                          : "text-[var(--muted)] group-hover:text-[var(--accent)]"
+                      }`}
+                    />
+                  </button>
 
-                <AnimatePresence initial={false}>
-                  {openIndex === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: easing }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-5 text-sm text-[var(--muted)] leading-relaxed">
-                        {service.detail}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: easing }}
+                        className="overflow-hidden"
+                      >
+                        {/* Description */}
+                        <p className="pb-4 text-sm text-[var(--muted)] leading-relaxed">
+                          {service.description}
+                        </p>
+                        
+                        {/* Tech Tags */}
+                        <div className="flex flex-wrap gap-2 pb-5">
+                          {service.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3 py-1.5 text-xs font-medium rounded-full bg-[var(--background)] border border-[var(--accent)] text-[var(--accent)] transition-all duration-300"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
