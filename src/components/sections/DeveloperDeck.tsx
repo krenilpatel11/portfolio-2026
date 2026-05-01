@@ -17,9 +17,9 @@ const cards: {
   {
     icon: FiCode,
     title: "The Engineer",
-    front: "2.5+ yrs · Enterprise Web Apps",
+    front: "2.5+ yrs · Enterprise Scale",
     detail:
-      "2.5+ years shipping enterprise web apps for 500+ users. Angular, React, .NET Core. 5+ production modules. 90%+ test coverage. I write code that lasts.",
+      "Built enterprise systems serving 500+ users daily. React, Angular, .NET Core. 5+ production modules from scratch. Clean code isn't a goal—it's a standard.",
     gradient: "from-violet-500/20 to-violet-300/10",
     accent: "#6C3CE1",
     barColor: "from-violet-500 to-violet-300",
@@ -27,9 +27,9 @@ const cards: {
   {
     icon: FiCloud,
     title: "The AI Builder",
-    front: "3× Microsoft Azure Certified",
+    front: "3× Azure Certified · AI-102",
     detail:
-      "3× Azure certified (AI-102, AZ-900, AI-900). 95% accuracy on AI document pipelines. Hackathon runner-up. I don't just use AI — I build with it.",
+      "Triple Azure certified: AI-102, AZ-900, AI-900. Built document intelligence systems with 95% accuracy. I don't just prompt AI—I architect it.",
     gradient: "from-blue-500/20 to-blue-300/10",
     accent: "#3b82f6",
     barColor: "from-blue-500 to-blue-300",
@@ -39,7 +39,7 @@ const cards: {
     title: "The Problem Solver",
     front: "400+ DSA · 3★ CodeChef",
     detail:
-      "400+ DSA problems. 3★ CodeChef. I think in systems, not just syntax. Every line I write has a reason.",
+      "Solved 400+ algorithm challenges. 3-star CodeChef rating. I see patterns others miss. Every bug is a puzzle waiting to be solved.",
     gradient: "from-orange-500/20 to-orange-300/10",
     accent: "#f97316",
     barColor: "from-orange-500 to-orange-300",
@@ -47,9 +47,9 @@ const cards: {
   {
     icon: FiFeather,
     title: "The Designer",
-    front: "50+ Brand Assets · Figma",
+    front: "50+ Brands · Pixel Perfect",
     detail:
-      "50+ brand assets. Figma → pixel-perfect code. I see design as a conversation between logic and beauty.",
+      "Designed 50+ brand identities. Figma mockups to production code—pixel-perfect. I believe great engineering starts with great design.",
     gradient: "from-pink-500/20 to-pink-300/10",
     accent: "#ec4899",
     barColor: "from-pink-500 to-pink-300",
@@ -57,9 +57,9 @@ const cards: {
   {
     icon: FiZap,
     title: "The Founder",
-    front: "Founded LabelFlow Agency",
+    front: "Built LabelFlow from 0 to 1",
     detail:
-      "Founded LabelFlow — a digital agency. Solo to brand in 12 months. If there's a gap in the market, I build the product.",
+      "Founded and scaled LabelFlow—a digital agency. Solo founder to profitable brand in 12 months. When I see a gap, I build the solution.",
     gradient: "from-green-500/20 to-green-300/10",
     accent: "#22c55e",
     barColor: "from-green-500 to-green-300",
@@ -67,9 +67,9 @@ const cards: {
   {
     icon: FiGlobe,
     title: "The Human",
-    front: "Vadodara, Gujarat · 8.46 CGPA",
+    front: "Vadodara · 8.46 CGPA · Chai Lover",
     detail:
-      "Based in Vadodara, Gujarat. B.Tech CSE (AI) — 8.46 CGPA. School topper. Fluent in 3 languages. Runs on chai and curiosity.",
+      "Based in Vadodara, Gujarat. B.Tech CSE (AI)—8.46 CGPA. School topper. Fluent in English, Hindi, Gujarati. Powered by chai, driven by curiosity.",
     gradient: "from-amber-500/20 to-amber-300/10",
     accent: "#f59e0b",
     barColor: "from-amber-500 to-amber-300",
@@ -164,10 +164,10 @@ export default function DeveloperDeck() {
               Who I am
             </p>
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight text-[var(--foreground)] font-display mb-4">
-              Six sides of me.
+              My Developer DNA
             </h2>
             <p className="text-[var(--muted)] leading-relaxed mb-8 max-w-md">
-              Click through to explore every dimension.
+              Six dimensions. One engineer. Swipe through to discover what drives my code.
             </p>
 
             {/* Dot navigation */}
