@@ -34,10 +34,24 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
         <motion.div
           whileHover={{ scale: 1.015, y: -3 }}
           transition={{ duration: 0.35, ease: easing }}
-          className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[var(--card-bg)] border border-[var(--border)] cursor-pointer group"
+          className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[var(--card-bg)] border border-[var(--border)] cursor-pointer group hover:border-[var(--accent)] transition-all duration-300"
+          style={{
+            boxShadow: '0 0 0 0 var(--accent)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = '0 8px 32px -8px var(--accent)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '0 0 0 0 var(--accent)';
+          }}
         >
           <Mockup />
-          <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-[0.05] transition-opacity duration-300" />
+          
+          {/* Animated accent border overlay */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <div className="absolute inset-0 border-2 border-[var(--accent)] rounded-lg animate-pulse" style={{ animationDuration: '2s' }} />
+          </div>
         </motion.div>
       </div>
 
@@ -54,16 +68,73 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
           {project.description}
         </p>
 
-        {/* Category — plain text, no pill */}
-        <p className="text-sm text-[var(--muted)] mb-6">{project.category}</p>
+        {/* Tech stack tags with mood-reactive styling */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.tech.map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1.5 text-xs font-medium rounded-full bg-[var(--card-bg)] border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
 
-        {/* Single link */}
-        <Link
-          href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors group"
-        >
-          Case Study <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform inline-block">↗</span>
-        </Link>
+        {/* Metrics (if available) with mood-reactive accents */}
+        {project.metrics && project.metrics.length > 0 && (
+          <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]">
+            {project.metrics.map((metric) => (
+              <div key={metric.label} className="text-center">
+                <p className="text-2xl font-bold text-[var(--accent)] mb-1 transition-colors duration-700">
+                  {metric.value}
+                </p>
+                <p className="text-xs text-[var(--muted)] uppercase tracking-wider">
+                  {metric.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Links with icons - GitHub & Live */}
+        <div className="flex items-center gap-4">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors group"
+          >
+            Case Study <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform inline-block">↗</span>
+          </Link>
+          
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--muted)] hover:text-[var(--accent)] transition-colors group"
+              aria-label="View GitHub repository"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+              </svg>
+              GitHub
+            </a>
+          )}
+          
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--muted)] hover:text-[var(--accent)] transition-colors group"
+              aria-label="View live project"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+              Live
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
   );
