@@ -14,7 +14,6 @@ import { QuoteTile } from "../bento/tiles/QuoteTile";
 import { FounderTile } from "../bento/tiles/FounderTile";
 import { EducationTile } from "../bento/tiles/EducationTile";
 import { AchievementTile } from "../bento/tiles/AchievementTile";
-import { MoodSwitcher } from "../interactive/MoodSwitcher";
 import { PatternBackground } from "../patterns/PatternBackground";
 
 export default function WhoAmI() {
@@ -55,7 +54,7 @@ export default function WhoAmI() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="max-w-3xl mx-auto mb-10"
+              className="max-w-3xl mx-auto"
             >
               <p className="text-lg leading-relaxed text-[var(--foreground)] mb-4">
                 {currentMood.variants.description}
@@ -65,11 +64,6 @@ export default function WhoAmI() {
               </p>
             </motion.div>
           </AnimatePresence>
-          
-          {/* Mood Switcher */}
-          <div className="flex justify-center">
-            <MoodSwitcher />
-          </div>
         </div>
 
         {/* Bento Grid - improved spacing */}
