@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import Introduction from "@/components/sections/Introduction";
+import WhoAmI from "@/components/sections/WhoAmI";
 import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 import DeveloperDeck from "@/components/sections/DeveloperDeck";
@@ -16,7 +16,7 @@ export default function Home() {
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Introduction />
+      <WhoAmI />
       <Projects />
       <Services />
       <DeveloperDeck />
