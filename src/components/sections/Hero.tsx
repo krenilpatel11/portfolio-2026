@@ -8,6 +8,7 @@ import {
   SportMockup,
   LabelFlowMockup,
 } from "@/components/ProjectMockups";
+import { useMood } from "@/context/MoodContext";
 
 const rotatingWords = ["PRODUCTS", "EXPERIENCES", "SOLUTIONS"];
 
@@ -86,6 +87,7 @@ function FloatingChip({
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
+  const { currentMood } = useMood();
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   useEffect(() => {
@@ -188,7 +190,8 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.35, ease: easing }}
-                  className="inline-block text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.1] text-white bg-[var(--accent)] px-6 py-1 rounded-2xl"
+                  className="inline-block text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.1] text-white px-6 py-1 rounded-2xl accent-reactive"
+                  style={{ backgroundColor: currentMood.accentHex }}
                 >
                   {rotatingWords[wordIndex]}
                 </motion.span>
