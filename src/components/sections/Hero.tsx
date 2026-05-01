@@ -19,25 +19,24 @@ const mockupCards = [
   { Component: LabelFlowMockup,    rotate: -1.5, delay: 0.9 },
 ];
 
-// Chips orbit around the headline block
-// x/y are % offsets within the hero content div
-// floatX/floatY = gentle random drift amplitude in px
+// Chips orbit around the headline block — widely spread, slow float
+// x/y = offset from center (px), floatX/floatY = drift amplitude, dur = seconds per cycle
 const floatingChips = [
-  { label: "React",        color: "#61DAFB", tx: "#0a0a0a", x: -260, y: -30,  floatX: 6,  floatY: 10, dur: 5.2 },
-  { label: "Next.js",      color: "#0a0a0a", tx: "#ffffff", x: 240,  y: -50,  floatX: -8, floatY: 8,  dur: 6.1 },
-  { label: ".NET Core",    color: "#512BD4", tx: "#ffffff", x: -300, y: 40,   floatX: 7,  floatY: -9, dur: 4.8 },
-  { label: "TypeScript",   color: "#3178C6", tx: "#ffffff", x: 280,  y: 30,   floatX: -6, floatY: 11, dur: 5.6 },
-  { label: "Azure",        color: "#0089D6", tx: "#ffffff", x: -240, y: 100,  floatX: 9,  floatY: -7, dur: 6.4 },
-  { label: "Angular",      color: "#DD0031", tx: "#ffffff", x: 220,  y: 90,   floatX: -7, floatY: 8,  dur: 5.0 },
-  { label: "Tailwind CSS", color: "#06B6D4", tx: "#ffffff", x: 80,   y: -90,  floatX: 5,  floatY: -10,dur: 5.8 },
-  { label: "Docker",       color: "#2496ED", tx: "#ffffff", x: -80,  y: -80,  floatX: -6, floatY: 9,  dur: 6.7 },
-  { label: "AI-102 ✦",    color: "#6c3ce1", tx: "#ffffff", x: 0,    y: -120, floatX: 4,  floatY: -8, dur: 4.5 },
+  { label: "React",        color: "#61DAFB", x: -420, y: -60,  floatX: 8,  floatY: 12, dur: 9.0  },
+  { label: "Next.js",      color: "#0a0a0a", x:  400, y: -80,  floatX: -9, floatY: 10, dur: 10.5 },
+  { label: ".NET Core",    color: "#512BD4", x: -460, y:  60,  floatX: 10, floatY: -11,dur: 8.5  },
+  { label: "TypeScript",   color: "#3178C6", x:  440, y:  50,  floatX: -8, floatY: 13, dur: 11.0 },
+  { label: "Azure",        color: "#0089D6", x: -380, y:  150, floatX: 11, floatY: -9, dur: 9.8  },
+  { label: "Angular",      color: "#DD0031", x:  360, y:  140, floatX: -9, floatY: 10, dur: 10.2 },
+  { label: "Tailwind CSS", color: "#06B6D4", x:  120, y: -160, floatX: 7,  floatY: -12,dur: 8.8  },
+  { label: "Docker",       color: "#2496ED", x: -140, y: -150, floatX: -8, floatY: 11, dur: 11.5 },
+  { label: "AI-102 ✦",    color: "#6c3ce1", x:    0, y: -190, floatX: 6,  floatY: -10,dur: 9.5  },
 ];
 
 function FloatingChip({
-  label, color, tx, x, y, floatX, floatY, dur, delay,
+  label, color, x, y, floatX, floatY, dur, delay,
 }: {
-  label: string; color: string; tx: string;
+  label: string; color: string;
   x: number; y: number; floatX: number; floatY: number; dur: number; delay: number;
 }) {
   return (
@@ -54,10 +53,10 @@ function FloatingChip({
         y: [y, y + floatY, y - floatY * 0.6, y + floatY * 0.4, y],
       }}
       transition={{
-        opacity: { duration: 0.5, delay },
-        scale:   { duration: 0.5, delay },
-        x: { duration: dur, delay: delay + 0.5, repeat: Infinity, ease: "easeInOut" },
-        y: { duration: dur * 1.2, delay: delay + 0.5, repeat: Infinity, ease: "easeInOut" },
+        opacity: { duration: 0.6, delay },
+        scale:   { duration: 0.6, delay },
+        x: { duration: dur, delay: delay + 0.6, repeat: Infinity, ease: "easeInOut" },
+        y: { duration: dur * 1.3, delay: delay + 0.6, repeat: Infinity, ease: "easeInOut" },
       }}
       style={{
         position: "absolute",
@@ -71,8 +70,13 @@ function FloatingChip({
       className="active:cursor-grabbing select-none"
     >
       <span
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg backdrop-blur-sm border border-white/10 whitespace-nowrap"
-        style={{ backgroundColor: color, color: tx }}
+        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-md"
+        style={{
+          backgroundColor: `${color}12`,
+          color: color,
+          border: `1px solid ${color}40`,
+          boxShadow: `0 2px 12px ${color}18`,
+        }}
       >
         {label}
       </span>
@@ -113,7 +117,7 @@ export default function Hero() {
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 10 }}>
           <div className="pointer-events-auto relative w-full h-full">
             {floatingChips.map((chip, i) => (
-              <FloatingChip key={chip.label} {...chip} delay={0.8 + i * 0.08} />
+              <FloatingChip key={chip.label} {...chip} delay={0.8 + i * 0.1} />
             ))}
           </div>
         </div>
