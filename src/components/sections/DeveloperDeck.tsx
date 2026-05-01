@@ -112,9 +112,9 @@ export default function DeveloperDeck() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-24 md:py-36 px-6 md:px-10 border-t border-[var(--border)] bg-[var(--card-bg)]">
+    <section id="developer-deck" className="py-24 md:py-36 px-6 md:px-10 border-t border-[var(--border)] bg-[var(--card-bg)]">
       <div className="max-w-[1280px] mx-auto" ref={ref}>
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

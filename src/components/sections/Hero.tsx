@@ -37,9 +37,9 @@ export default function Hero() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 pt-24 pb-20 max-w-[1280px] mx-auto">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center pt-24 pb-20">
 
-      {/* Subtle background grid */}
+      {/* Subtle background grid — full viewport width */}
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
@@ -74,6 +74,9 @@ export default function Hero() {
           </motion.div>
         ))}
       </div>
+
+      {/* Inner content wrapper */}
+      <div className="relative max-w-[1280px] mx-auto w-full px-6 md:px-10">
 
       {/* Label */}
       <motion.div
@@ -166,6 +169,8 @@ export default function Hero() {
           I build scalable apps, AI-powered tools,<br/>and beautiful interfaces.
         </p>
       </motion.div>
+
+      </div>{/* end inner content wrapper */}
 
       {/* Scroll indicator */}
       <motion.div

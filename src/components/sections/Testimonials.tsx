@@ -11,7 +11,7 @@ export default function Testimonials() {
   const doubled = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
+    <section id="testimonials" className="py-24 md:py-36 border-t border-[var(--border)] overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 mb-14" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

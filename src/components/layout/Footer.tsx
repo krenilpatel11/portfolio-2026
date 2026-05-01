@@ -25,7 +25,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--border)] overflow-hidden">
+    <footer id="footer" className="border-t border-[var(--border)] overflow-hidden">
       {/* Marquee */}
       <div className="py-8 overflow-hidden border-b border-[var(--border)]">
         <div className="flex whitespace-nowrap">
