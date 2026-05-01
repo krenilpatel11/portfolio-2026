@@ -1,9 +1,13 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
+import { useMood } from "@/context/MoodContext";
 import { BentoTile } from "../BentoTile";
 import { Code2 } from "lucide-react";
 
 export function ProblemSolverTile({ delay = 0 }: { delay?: number }) {
+  const { currentMood } = useMood();
+  
   return (
     <BentoTile delay={delay}>
       <div className="flex items-start gap-3 mb-3">
@@ -14,8 +18,19 @@ export function ProblemSolverTile({ delay = 0 }: { delay?: number }) {
           <div className="text-3xl md:text-4xl font-bold font-display accent-reactive" style={{ color: "var(--accent-color)" }}>
             400+
           </div>
-          <h3 className="text-lg font-semibold mb-1">DSA Problems</h3>
-          <p className="text-sm text-[var(--muted)]">LeetCode & competitive coding</p>
+          <h3 className="text-lg font-semibold mb-1">Problem Solver</h3>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentMood.id}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.3 }}
+              className="text-sm text-[var(--muted)]"
+            >
+              {currentMood.variants.whoAmI.problemSolver}
+            </motion.p>
+          </AnimatePresence>
         </div>
       </div>
 

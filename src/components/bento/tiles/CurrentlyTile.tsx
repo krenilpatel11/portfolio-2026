@@ -1,9 +1,13 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
+import { useMood } from "@/context/MoodContext";
 import { BentoTile } from "../BentoTile";
 import { Briefcase } from "lucide-react";
 
 export function CurrentlyTile({ delay = 0 }: { delay?: number }) {
+  const { currentMood } = useMood();
+  
   return (
     <BentoTile delay={delay}>
       <div className="flex items-start gap-3 mb-2">
@@ -12,7 +16,18 @@ export function CurrentlyTile({ delay = 0 }: { delay?: number }) {
         </div>
         <div className="flex-1">
           <h3 className="text-lg font-semibold mb-1">Currently</h3>
-          <p className="text-sm text-[var(--muted)]">Software Engineer</p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentMood.id}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.3 }}
+              className="text-sm text-[var(--muted)]"
+            >
+              {currentMood.variants.whoAmI.currently}
+            </motion.p>
+          </AnimatePresence>
           <p className="text-base font-medium mt-1">@ IMRIEL Software</p>
         </div>
       </div>
