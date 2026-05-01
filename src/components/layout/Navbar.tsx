@@ -91,7 +91,7 @@ export default function Navbar() {
               Contact Us
             </a>
 
-            {/* Shuffle Theme Button with Tooltip */}
+            {/* Shuffle Persona Button with Tooltip */}
             {mounted && (
               <div className="relative">
                 <button
@@ -99,14 +99,14 @@ export default function Navbar() {
                   onMouseEnter={() => setShowThemeTooltip(true)}
                   onMouseLeave={() => setShowThemeTooltip(false)}
                   className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border)] transition-all hover:scale-105 hover:border-[var(--accent)] bg-[var(--card-bg)]"
-                  aria-label="Shuffle theme"
-                  title="Shuffle Theme"
+                  aria-label="Shuffle persona"
+                  title="Shuffle Persona"
                 >
                   <span className="text-sm">{currentTheme.emoji}</span>
-                  <Shuffle size={14} className="text-[var(--muted)]" />
                   <span className="text-xs font-semibold text-[var(--foreground)] hidden sm:inline">
-                    Shuffle
+                    {currentTheme.label}
                   </span>
+                  <Shuffle size={14} className="text-[var(--muted)]" />
                 </button>
                 
                 {/* Tooltip */}
@@ -119,7 +119,7 @@ export default function Navbar() {
                       transition={{ duration: 0.2 }}
                       className="absolute top-full right-0 mt-2 px-3 py-2 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg shadow-xl text-xs text-[var(--muted)] whitespace-nowrap z-50"
                     >
-                      Theme changes every 10 mins or{" "}
+                      Persona shifts every 10 mins or{" "}
                       <span className="font-semibold text-[var(--foreground)]">shuffle it</span>
                     </motion.div>
                   )}

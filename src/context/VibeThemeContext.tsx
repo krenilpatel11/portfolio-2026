@@ -12,6 +12,7 @@ interface VibeThemeContextType {
   currentVibeId: VibeId;
   setVibe: (vibeId: VibeId) => void;
   nextVibe: () => void;
+  cycleVibe: () => void; // Same as nextVibe, just clearer naming for button
   
   // Theme (portfolio style - auto-changes every 10 mins)
   currentTheme: Theme;
@@ -150,6 +151,7 @@ export function VibeThemeProvider({ children }: { children: ReactNode }) {
         currentVibeId,
         setVibe,
         nextVibe,
+        cycleVibe: nextVibe, // Alias for clarity
         currentTheme,
         currentThemeId,
         setTheme,

@@ -66,28 +66,28 @@ export const themes: Record<ThemeId, Theme> = {
     emoji: "🔧",
     variants: {
       heroTitle: "Full Stack Engineer",
-      heroSubtitle: "Building end-to-end solutions from database to deployment",
-      heroWords: ["architecting", "developing", "deploying", "scaling", "optimizing"],
+      heroSubtitle: "Crafting complete digital experiences from database to pixel",
+      heroWords: ["architecting", "shipping", "deploying", "scaling", "optimizing"],
       aboutTitle: "The Complete Engineer",
-      description: "I build complete systems. Front to back, database to UI, local to cloud. Angular, React, .NET Core, Azure—I speak all dialects fluently.",
-      tagline: "Full stack mastery, zero gaps in the pipeline",
+      description: "I build complete systems. Front to back, database to UI, local to cloud. Angular, React, .NET Core, Azure—I speak all dialects fluently and connect them seamlessly.",
+      tagline: "Full ownership from idea to production",
       whoAmI: {
-        currently: "Architecting a microservices ecosystem with 99.9% uptime",
-        problemSolver: "Connecting frontend dreams to backend reality through clean APIs and scalable architecture",
-        quote: "Real engineers ship entire features, not just pieces. Full stack means full ownership."
+        currently: "Architecting a microservices ecosystem with 99.9% uptime that handles millions of requests daily",
+        problemSolver: "Connecting frontend dreams to backend reality through elegant APIs and bulletproof architecture",
+        quote: "Real engineers ship entire features, not just pieces. Full stack means full ownership—and I own it all."
       },
       projects: {
-        title: "Full Stack Solutions",
-        subtitle: "Complete applications from concept to production",
+        title: "Complete Solutions",
+        subtitle: "End-to-end applications that solve real problems",
         viewAllText: "View Full Stack Work →"
       },
       services: {
-        title: "End-to-End Development",
-        subtitle: "From requirement gathering to deployment and beyond"
+        title: "End-to-End Engineering",
+        subtitle: "From first line of code to production deployment"
       },
       contact: {
         title: "Build Something Complete",
-        subtitle: "Need a full-featured application? Let's architect it together.",
+        subtitle: "Need a full-featured application? Let's architect it together from the ground up.",
         ctaButton: "Start Full Stack Project"
       }
     },
@@ -98,29 +98,29 @@ export const themes: Record<ThemeId, Theme> = {
     label: "Frontend Specialist",
     emoji: "🎨",
     variants: {
-      heroTitle: "Frontend Architect",
-      heroSubtitle: "Crafting pixel-perfect interfaces that users love",
-      heroWords: ["designing", "animating", "optimizing", "prototyping", "polishing"],
+      heroTitle: "Frontend Specialist",
+      heroSubtitle: "Crafting pixel-perfect interfaces that users actually enjoy using",
+      heroWords: ["animating", "perfecting", "polishing", "optimizing", "delighting"],
       aboutTitle: "The Interface Craftsman",
-      description: "I transform designs into responsive, accessible, performant web experiences. React, Angular, TypeScript—I build UIs that feel native and scale to millions.",
-      tagline: "Component libraries, design systems, 60fps animations",
+      description: "I turn designs into buttery-smooth reality. React. Angular. TypeScript. Tailwind. Framer Motion. Every animation timed perfectly. Every interaction delightfully responsive. 60fps or bust.",
+      tagline: "Beautiful code that creates beautiful experiences",
       whoAmI: {
-        currently: "Building a brutalist design system with accessibility at its core",
-        problemSolver: "Turning complex user flows into intuitive interfaces through atomic design and user testing",
-        quote: "A beautiful UI is worthless if it's not fast. Performance is a feature, not a luxury."
+        currently: "Building a component library that makes developers smile and users convert",
+        problemSolver: "Transforming complex UI requirements into intuitive interfaces through modern component architecture and smart state management",
+        quote: "A beautiful UI is worthless if it's not fast. A fast UI is worthless if it's not beautiful. I deliver both."
       },
       projects: {
-        title: "Interface Gallery",
-        subtitle: "Responsive, accessible, performant web experiences",
-        viewAllText: "Explore UI Projects →"
+        title: "Interface Showcase",
+        subtitle: "Responsive, accessible, and impossibly smooth web apps",
+        viewAllText: "View Frontend Work →"
       },
       services: {
         title: "Frontend Excellence",
-        subtitle: "Modern web experiences built with cutting-edge frameworks"
+        subtitle: "Modern web apps that feel native and load instantly"
       },
       contact: {
-        title: "Design to Code",
-        subtitle: "Have a design? I'll bring it to life, pixel-perfect.",
+        title: "Craft Perfect Interfaces",
+        subtitle: "Have a design that needs to come alive? Let's make it pixel-perfect.",
         ctaButton: "Start Frontend Project"
       }
     },
@@ -297,19 +297,19 @@ export const themes: Record<ThemeId, Theme> = {
     emoji: "🤖",
     variants: {
       heroTitle: "AI Engineer",
-      heroSubtitle: "Building intelligent systems that learn and adapt",
-      heroWords: ["training", "fine-tuning", "deploying", "optimizing", "architecting"],
+      heroSubtitle: "Building intelligent systems that learn, adapt, and amaze",
+      heroWords: ["training", "fine-tuning", "deploying", "optimizing", "innovating"],
       aboutTitle: "The AI Architect",
-      description: "Azure AI certified. Computer vision, NLP, neural networks—I don't just use AI, I architect intelligent systems. 95% accuracy on production models serving millions.",
-      tagline: "Machine learning pipelines, model optimization, real-time inference",
+      description: "Azure AI certified. Computer vision, NLP, RAG systems, neural networks—I don't just use AI APIs, I architect production-grade intelligent systems. 95%+ accuracy on models serving millions.",
+      tagline: "From raw data to production intelligence",
       whoAmI: {
-        currently: "Fine-tuning LLMs for domain-specific enterprise applications",
-        problemSolver: "Building document intelligence systems that extract structured data from unstructured inputs with 95%+ accuracy",
-        quote: "AI isn't magic—it's math, data, and architecture. Get those right, and magic happens."
+        currently: "Fine-tuning LLMs and building RAG pipelines for enterprise-scale document intelligence",
+        problemSolver: "Architecting AI systems that extract structured insights from chaos—turning messy documents into actionable data with 95%+ accuracy",
+        quote: "AI isn't magic—it's math, data, and killer architecture. Master all three, and you build magic."
       },
       projects: {
-        title: "AI Solutions",
-        subtitle: "Intelligent systems powered by machine learning",
+        title: "Intelligent Systems",
+        subtitle: "AI-powered solutions that actually work in production",
         viewAllText: "View AI Projects →"
       },
       services: {
@@ -318,7 +318,7 @@ export const themes: Record<ThemeId, Theme> = {
       },
       contact: {
         title: "Build Intelligence",
-        subtitle: "Ready to integrate AI into your product? Let's architect it.",
+        subtitle: "Ready to add AI superpowers to your product? Let's architect it.",
         ctaButton: "Start AI Project"
       }
     },
@@ -363,29 +363,29 @@ export const themes: Record<ThemeId, Theme> = {
     emoji: "🚀",
     variants: {
       heroTitle: "Technical Founder",
-      heroSubtitle: "From zero to one, from idea to execution, from code to customers",
-      heroWords: ["building", "launching", "scaling", "iterating", "executing"],
+      heroSubtitle: "From zero to one, from MVP to millions, from idea to inevitable",
+      heroWords: ["building", "launching", "scaling", "iterating", "dominating"],
       aboutTitle: "The Builder",
-      description: "Founded LabelFlow from scratch. Solo to profitable in 12 months. I wear all hats—developer, designer, marketer, salesperson. Execution over perfection.",
-      tagline: "MVP to market fit, rapid iteration, customer-driven development",
+      description: "Founded LabelFlow from scratch. Solo to profitable in 12 months. I wear every hat—developer, designer, marketer, closer. Execution is my religion. Speed is my weapon.",
+      tagline: "Ship fast, learn faster, scale smartest",
       whoAmI: {
-        currently: "Scaling a SaaS from 100 to 1000 users through product-led growth",
-        problemSolver: "Turning ideas into MVPs in weeks, then iterating to product-market fit through relentless customer feedback",
-        quote: "Ideas are worthless. Execution is everything. Ship fast, learn faster, iterate relentlessly."
+        currently: "Scaling a SaaS from 100 to 10,000 users through product-led growth and viral loops",
+        problemSolver: "Turning napkin sketches into MVPs in weeks, then iterating to product-market fit through obsessive customer obsession",
+        quote: "Ideas are cheap. Execution is priceless. Ship fast, learn faster, win hardest."
       },
       projects: {
         title: "Built & Launched",
-        subtitle: "Products that found product-market fit",
-        viewAllText: "View Launches →"
+        subtitle: "Products I've taken from zero to revenue",
+        viewAllText: "See Ventures →"
       },
       services: {
         title: "Startup Consulting",
-        subtitle: "MVP development and technical co-founding"
+        subtitle: "From MVP to traction to scale—been there, done that"
       },
       contact: {
-        title: "Build Your Startup",
-        subtitle: "Have an idea? Let's turn it into a business together.",
-        ctaButton: "Start Building"
+        title: "Build the Next Big Thing",
+        subtitle: "Got an idea? Let's turn it into revenue. Fast.",
+        ctaButton: "Let's Build & Ship"
       }
     },
   },
