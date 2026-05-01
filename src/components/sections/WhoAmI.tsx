@@ -22,7 +22,7 @@ export default function WhoAmI() {
   return (
     <section
       id="about"
-      className="relative py-24 md:py-36  bg-[var(--background)] overflow-hidden"
+      className="relative py-24 md:py-36 bg-[var(--background)] overflow-hidden scroll-mt-0"
     >
       {/* Pattern background - more visible */}
       <PatternBackground pattern="geometric" opacity={0.05} />

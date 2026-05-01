@@ -16,6 +16,8 @@ export interface Vibe {
     video2: string; // Second WebM video
   };
   poster: string; // Poster image for video
+  description: string; // Short vibe-specific description
+  motto: string; // Personal motto for this vibe
 }
 
 export const vibes: Record<VibeId, Vibe> = {
@@ -32,6 +34,8 @@ export const vibes: Record<VibeId, Vibe> = {
       video2: "/avatars/gifs/coder2.webm",
     },
     poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903716406.webp",
+    description: "Deep in the zone, writing clean code that solves real problems. This is where logic meets creativity.",
+    motto: "Code is poetry. Every function tells a story.",
   },
   designing: {
     id: "designing",
@@ -46,6 +50,8 @@ export const vibes: Record<VibeId, Vibe> = {
       video2: "/avatars/gifs/designer2.webm",
     },
     poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903722568.webp",
+    description: "Crafting pixel-perfect interfaces in Figma. Every color, every spacing, every interaction—obsessively intentional.",
+    motto: "Design is not just what it looks like. It's how it works.",
   },
   gyming: {
     id: "gyming",
@@ -60,6 +66,8 @@ export const vibes: Record<VibeId, Vibe> = {
       video2: "/avatars/gifs/gymer2.webm",
     },
     poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903885679.webp",
+    description: "Building strength and discipline. The gym teaches lessons that translate to everything—consistency, patience, progress.",
+    motto: "Strong body, strong mind, strong code.",
   },
   riding: {
     id: "riding",
@@ -74,6 +82,8 @@ export const vibes: Record<VibeId, Vibe> = {
       video2: "/avatars/gifs/rider2.webm",
     },
     poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903734519.webp",
+    description: "Freedom on two wheels. Every ride clears the mind and fuels creativity. Speed, focus, and living in the moment.",
+    motto: "Life is a journey. Enjoy the ride.",
   },
   swimming: {
     id: "swimming",
@@ -88,6 +98,8 @@ export const vibes: Record<VibeId, Vibe> = {
       video2: "/avatars/gifs/swimmer2.webm",
     },
     poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903887646.webp",
+    description: "Finding flow in the water. Swimming is meditation in motion—breath, rhythm, and pure focus.",
+    motto: "Like water, adapt to any challenge and flow forward.",
   },
 };
 

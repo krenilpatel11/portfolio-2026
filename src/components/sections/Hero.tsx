@@ -9,6 +9,7 @@ import {
   LabelFlowMockup,
 } from "@/components/ProjectMockups";
 import { useMood } from "@/context/MoodContext";
+import { useVibeTheme } from "@/context/VibeThemeContext";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
 
 const mockupCards = [
@@ -87,6 +88,7 @@ function FloatingChip({
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
   const { currentMood } = useMood();
+  const { currentVibe } = useVibeTheme();
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   // Use mood-specific rotating words
@@ -102,7 +104,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-28 pb-0"
+      className="relative overflow-hidden min-h-screen flex flex-col justify-between"
     >
       {/* Mood-reactive gradient background */}
       <div 
@@ -128,7 +130,7 @@ export default function Hero() {
       </div>
 
       {/* Inner content */}
-      <div className="relative max-w-[1280px] mx-auto w-full px-6 md:px-10" style={{ zIndex: 20 }}>
+      <div className="relative max-w-[1280px] mx-auto w-full px-6 md:px-10 flex-1 flex flex-col justify-center pt-20 pb-12" style={{ zIndex: 20 }}>
 
         {/* Floating chips — anchored relative to this block */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 10 }}>
@@ -177,7 +179,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Headline - mood-reactive title */}
-        <div className="text-center max-w-4xl mx-auto" style={{ position: "relative", zIndex: 20 }}>
+        <div className="text-center max-w-4xl mx-auto mb-8" style={{ position: "relative", zIndex: 20 }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={currentMood.id}
@@ -215,12 +217,32 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Vibe-specific description and motto */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentVibe.id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="text-center max-w-2xl mx-auto mb-10"
+            style={{ position: "relative", zIndex: 20 }}
+          >
+            <p className="text-base md:text-lg text-[var(--foreground)] mb-3 leading-relaxed">
+              {currentVibe.description}
+            </p>
+            <p className="text-sm text-[var(--muted)] italic font-medium">
+              "{currentVibe.motto}"
+            </p>
+          </motion.div>
+        </AnimatePresence>
+
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85, ease: easing }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ position: "relative", zIndex: 20 }}
         >
           <a
@@ -247,8 +269,8 @@ export default function Hero() {
       </div>
 
       {/* Mockup strip */}
-      <div className="relative mt-14 overflow-hidden" style={{ zIndex: 20 }}>
-        <div className="flex gap-4 items-end justify-center px-4 pb-0">
+      <div className="relative overflow-hidden pb-16" style={{ zIndex: 20 }}>
+        <div className="flex gap-4 items-end justify-center px-4">
           {mockupCards.map(({ Component, rotate, delay }, i) => (
             <motion.div
               key={i}
@@ -264,6 +286,24 @@ export default function Hero() {
           ))}
         </div>
       </div>
+
+      {/* Vertical Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ zIndex: 30 }}
+      >
+        <span className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-1">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-px h-12 bg-gradient-to-b from-[var(--muted)] to-transparent"
+        />
+      </motion.div>
     </section>
   );
 }
