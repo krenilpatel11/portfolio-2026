@@ -91,51 +91,51 @@ export default function WhoAmI() {
           </AnimatePresence>
         </div>
 
-        {/* Bento Grid - improved spacing */}
-        <div className="grid grid-cols-12 gap-5 auto-rows-[200px]">
+        {/* Bento Grid - improved spacing and alignment */}
+        <div className="grid grid-cols-12 gap-4 auto-rows-[180px]">
           {/* Row 1-3: Avatar Hero (8 cols, 3 rows) + Experience (4 cols, 1 row) */}
-          <div className="col-span-12 md:col-span-8 row-span-3">
+          <div className="col-span-12 md:col-span-8 row-span-3 h-full">
             <AvatarHeroTile />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <ExperienceTile delay={0.1} />
           </div>
 
           {/* Row 2-3: Projects (4 cols, 2 rows) */}
-          <div className="col-span-12 md:col-span-4 row-span-2">
+          <div className="col-span-12 md:col-span-4 row-span-2 h-full">
             <ProjectsTile delay={0.15} />
           </div>
 
           {/* Row 4: Certifications, Currently, Brands (4 cols each) */}
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <CertificationsTile delay={0.2} />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <CurrentlyTile delay={0.25} />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <BrandsDesignedTile delay={0.3} />
           </div>
 
           {/* Row 5: Problem Solver, Based In, Quote (4, 4, 4 cols) */}
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <ProblemSolverTile delay={0.35} />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <BasedInTile delay={0.4} />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <QuoteTile delay={0.45} />
           </div>
 
           {/* Row 6: Founder, Education, Achievement (4 cols each) */}
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <FounderTile delay={0.5} />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <EducationTile delay={0.55} />
           </div>
-          <div className="col-span-12 md:col-span-4 row-span-1">
+          <div className="col-span-12 md:col-span-4 row-span-1 h-full">
             <AchievementTile delay={0.6} />
           </div>
         </div>

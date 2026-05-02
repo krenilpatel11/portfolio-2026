@@ -11,7 +11,6 @@ export function QuoteTile({ delay = 0 }: { delay?: number }) {
     <BentoTile delay={delay} className="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-neutral-950">
       <div className="relative">
         <div className="text-6xl md:text-7xl font-serif accent-reactive mb-4 leading-none" style={{ color: "var(--accent-color)", opacity: 0.2 }}>
-          "
         </div>
         <AnimatePresence mode="wait">
           <motion.blockquote

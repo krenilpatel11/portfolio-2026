@@ -11,7 +11,7 @@ const sizeMap: Record<AvatarSize, string> = {
   md: "w-24 h-24",
   lg: "w-48 h-48",
   xl: "w-64 h-64",
-  hero: "w-80 h-80 md:w-96 md:h-96",
+  hero: "w-[280px] h-[280px] md:w-[360px] md:h-[360px]",
 };
 
 interface AvatarDisplayProps {

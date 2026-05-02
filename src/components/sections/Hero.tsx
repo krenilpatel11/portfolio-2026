@@ -4,28 +4,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMood } from "@/context/MoodContext";
 import { useVibeTheme } from "@/context/VibeThemeContext";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
-
-// Mockup cards configuration - scattered grid layout
-const mockupCards = [
-  { src: "/images/projects/viewvoice_float.webp",     alt: "ViewVoice AI Invoice Analytics",  rotate: -2,   delay: 0.5 },
-  { src: "/images/projects/neighborlyhub_float.webp", alt: "SecurityGate Community Platform", rotate: 1,    delay: 0.6 },
-  { src: "/images/projects/protfolio1.webp",          alt: "Training Management System",      rotate: -1.5, delay: 0.7 },
-  { src: "/images/projects/protfolio2.webp",          alt: "Sport Management Platform",       rotate: 2,    delay: 0.8 },
-  { src: "/images/projects/labelflow_float.webp",     alt: "LabelFlow SaaS Platform",         rotate: -1,   delay: 0.9 },
-];
+import { floatingProjects } from "@/lib/floating-projects";
 
 // Chips orbit around the headline block — VERY widely spread, far from center
 // x/y = offset from center (px), floatX/floatY = drift amplitude, dur = seconds per cycle
 const floatingChips = [
   { label: "React",        color: "#61DAFB", x: -720, y: -150, floatX: 8,  floatY: 12, dur: 9.0  },
-  { label: "Next.js",      color: "#0a0a0a", x:  700, y: -170, floatX: -9, floatY: 10, dur: 10.5 },
+  { label: "Next.js",      color: "#9ca3af", x:  700, y: -170, floatX: -9, floatY: 10, dur: 10.5 },
   { label: ".NET Core",    color: "#512BD4", x: -760, y:  150, floatX: 10, floatY: -11,dur: 8.5  },
   { label: "TypeScript",   color: "#3178C6", x:  740, y:  140, floatX: -8, floatY: 13, dur: 11.0 },
   { label: "Azure",        color: "#0089D6", x: -680, y:  300, floatX: 11, floatY: -9, dur: 9.8  },
   { label: "Angular",      color: "#DD0031", x:  660, y:  290, floatX: -9, floatY: 10, dur: 10.2 },
   { label: "Tailwind CSS", color: "#06B6D4", x:  260, y: -330, floatX: 7,  floatY: -12,dur: 8.8  },
   { label: "Docker",       color: "#2496ED", x: -280, y: -320, floatX: -8, floatY: 11, dur: 11.5 },
-  { label: "AI-102 ✦",    color: "#6c3ce1", x:    0, y: -360, floatX: 6,  floatY: -10,dur: 9.5  },
+  { label: "AI-102 ✦",    color: "#6c3ce1", x: -680, y:  -50, floatX: 6,  floatY: -10,dur: 9.5  },
 ];
 
 function FloatingChip({
@@ -263,14 +255,14 @@ export default function Hero() {
       </div>
 
       {/* Mockup grid - scattered arrangement with actual project images */}
-      <div className="relative overflow-visible pb-20 -mt-8" style={{ zIndex: 20 }}>
-        <div className="relative max-w-[1000px] mx-auto px-4" style={{ height: "280px" }}>
+      <div className="relative overflow-visible pb-20 -mt-8" style={{ zIndex: 20, transformStyle: "preserve-3d" }}>
+        <div className="relative max-w-[1000px] mx-auto px-4" style={{ height: "280px", transformStyle: "preserve-3d" }}>
           {/* Row 1 - Top scattered (first 3 cards) */}
-          {mockupCards.slice(0, 3).map((card, index) => {
+          {floatingProjects.slice(0, 3).map((card, index) => {
             const positions = [
-              "left-[5%] top-0 w-[220px] md:w-[280px]",
-              "left-[28%] top-[20px] w-[200px] md:w-[260px]",
-              "right-[5%] top-[10px] w-[210px] md:w-[270px]",
+              "left-[8%] top-0 w-[220px] md:w-[280px]",
+              "left-[32%] top-[20px] w-[200px] md:w-[260px]",
+              "right-[8%] top-[10px] w-[210px] md:w-[270px]",
             ];
             return (
               <motion.div
@@ -279,12 +271,21 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0, rotate: card.rotate }}
                 transition={{ duration: 0.75, delay: card.delay, ease: easing }}
                 className={`absolute ${positions[index]}`}
+                style={{ 
+                  willChange: "transform, opacity",
+                  WebkitTransform: `rotate(${card.rotate}deg)`,
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden"
+                }}
               >
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
                   <img 
                     src={card.src}
                     alt={card.alt}
-                    className="w-full h-auto"
+                    width={280}
+                    height={200}
+                    className="w-full h-auto object-cover"
+                    loading="eager"
                   />
                 </div>
               </motion.div>
@@ -292,10 +293,10 @@ export default function Hero() {
           })}
 
           {/* Row 2 - Bottom scattered (last 2 cards) */}
-          {mockupCards.slice(3).map((card, index) => {
+          {floatingProjects.slice(3).map((card, index) => {
             const positions = [
-              "left-[15%] bottom-0 w-[190px] md:w-[240px]",
-              "right-[20%] bottom-[20px] w-[200px] md:w-[250px]",
+              "left-[18%] bottom-0 w-[190px] md:w-[240px]",
+              "right-[23%] bottom-[20px] w-[200px] md:w-[250px]",
             ];
             return (
               <motion.div
@@ -304,12 +305,21 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0, rotate: card.rotate }}
                 transition={{ duration: 0.75, delay: card.delay, ease: easing }}
                 className={`absolute ${positions[index]}`}
+                style={{ 
+                  willChange: "transform, opacity",
+                  WebkitTransform: `rotate(${card.rotate}deg)`,
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden"
+                }}
               >
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
                   <img 
                     src={card.src}
                     alt={card.alt}
-                    className="w-full h-auto"
+                    width={250}
+                    height={180}
+                    className="w-full h-auto object-cover"
+                    loading="eager"
                   />
                 </div>
               </motion.div>

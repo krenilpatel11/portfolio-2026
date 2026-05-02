@@ -32,42 +32,49 @@ const VIBE_AUTO_CHANGE_MS = 5 * 60 * 1000; // 5 minutes
 const THEME_AUTO_CHANGE_MS = 10 * 60 * 1000; // 10 minutes
 
 export function VibeThemeProvider({ children }: { children: ReactNode }) {
-  const [currentVibeId, setCurrentVibeId] = useState<VibeId>("coding");
-  const [currentThemeId, setCurrentThemeId] = useState<ThemeId>("fullstack");
-  const [vibeCounter, setVibeCounter] = useState<Record<VibeId, number>>({
+  const defaultVibeCounter: Record<VibeId, number> = {
     coding: 0,
     designing: 0,
     gyming: 0,
     riding: 0,
     swimming: 0,
-  });
+  };
+
+  const getInitialVibeId = (): VibeId => {
+    const savedVibe = Cookies.get(VIBE_COOKIE) as VibeId | undefined;
+    return savedVibe && vibes[savedVibe] ? savedVibe : "coding";
+  };
+
+  const getInitialThemeId = (): ThemeId => {
+    const savedTheme = Cookies.get(THEME_COOKIE) as ThemeId | undefined;
+    return savedTheme && themes[savedTheme] ? savedTheme : "fullstack";
+  };
+
+  const getInitialVibeCounter = (): Record<VibeId, number> => {
+    const savedCounter = Cookies.get(VIBE_COUNTER_COOKIE);
+    if (!savedCounter) {
+      return defaultVibeCounter;
+    }
+
+    try {
+      const parsed = JSON.parse(savedCounter);
+      return {
+        ...defaultVibeCounter,
+        ...parsed,
+      };
+    } catch {
+      return defaultVibeCounter;
+    }
+  };
+
+  const [currentVibeId, setCurrentVibeId] = useState<VibeId>(getInitialVibeId);
+  const [currentThemeId, setCurrentThemeId] = useState<ThemeId>(getInitialThemeId);
+  const [vibeCounter, setVibeCounter] = useState<Record<VibeId, number>>(getInitialVibeCounter);
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState<"vibe" | "theme">("vibe");
 
   const currentVibe = vibes[currentVibeId];
   const currentTheme = themes[currentThemeId];
-
-  // Load from cookies on mount
-  useEffect(() => {
-    const savedVibe = Cookies.get(VIBE_COOKIE) as VibeId | undefined;
-    const savedTheme = Cookies.get(THEME_COOKIE) as ThemeId | undefined;
-    const savedCounter = Cookies.get(VIBE_COUNTER_COOKIE);
-    
-    if (savedVibe && vibes[savedVibe]) {
-      setCurrentVibeId(savedVibe);
-    }
-    if (savedTheme && themes[savedTheme]) {
-      setCurrentThemeId(savedTheme);
-    }
-    if (savedCounter) {
-      try {
-        const parsed = JSON.parse(savedCounter);
-        setVibeCounter(parsed);
-      } catch (e) {
-        // Invalid JSON, ignore
-      }
-    }
-  }, []);
 
   // Auto-change vibe every 5 minutes
   useEffect(() => {
