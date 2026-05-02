@@ -50,7 +50,12 @@ interface LegacyMood {
 }
 
 export function useMood() {
-  const { currentVibe, currentTheme, nextVibe } = useVibeTheme();
+  const { currentVibe, currentTheme, nextVibe, vibeCounter } = useVibeTheme();
+  
+  // Determine which video to use based on counter (even = video1, odd = video2)
+  const videoIndex = vibeCounter[currentVibe.id as keyof typeof vibeCounter] || 0;
+  const useVideo2 = videoIndex % 2 === 1;
+  const videoUrl = useVideo2 ? currentVibe.videos.video2 : currentVibe.videos.video1;
   
   // Merge vibe and theme into legacy mood format
   const currentMood: LegacyMood = {
@@ -79,10 +84,10 @@ export function useMood() {
       static: currentVibe.poster,
       placeholder: currentVibe.poster,
       video: { 
-        webm: currentVibe.videos.video1, 
-        mp4: currentVibe.videos.video1 
+        webm: videoUrl, 
+        mp4: videoUrl 
       },
-      gif: currentVibe.videos.video1,
+      gif: videoUrl,
       poster: currentVibe.poster,
     },
   };

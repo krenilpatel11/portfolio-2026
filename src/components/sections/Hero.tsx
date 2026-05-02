@@ -1,23 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ViewVoiceMockup,
-  SecurityGateMockup,
-  TrainingMockup,
-  SportMockup,
-  LabelFlowMockup,
-} from "@/components/ProjectMockups";
 import { useMood } from "@/context/MoodContext";
 import { useVibeTheme } from "@/context/VibeThemeContext";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
 
+// Mockup cards configuration - scattered grid layout
 const mockupCards = [
-  { Component: ViewVoiceMockup,    rotate: -2,   delay: 0.5 },
-  { Component: SecurityGateMockup, rotate: 1,    delay: 0.6 },
-  { Component: TrainingMockup,     rotate: -1,   delay: 0.7 },
-  { Component: SportMockup,        rotate: 2,    delay: 0.8 },
-  { Component: LabelFlowMockup,    rotate: -1.5, delay: 0.9 },
+  { src: "/images/projects/viewvoice_float.webp",     alt: "ViewVoice AI Invoice Analytics",  rotate: -2,   delay: 0.5 },
+  { src: "/images/projects/neighborlyhub_float.webp", alt: "SecurityGate Community Platform", rotate: 1,    delay: 0.6 },
+  { src: "/images/projects/protfolio1.webp",          alt: "Training Management System",      rotate: -1.5, delay: 0.7 },
+  { src: "/images/projects/protfolio2.webp",          alt: "Sport Management Platform",       rotate: 2,    delay: 0.8 },
+  { src: "/images/projects/labelflow_float.webp",     alt: "LabelFlow SaaS Platform",         rotate: -1,   delay: 0.9 },
 ];
 
 // Chips orbit around the headline block — VERY widely spread, far from center
@@ -268,65 +262,59 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Mockup grid - scattered arrangement like reference */}
+      {/* Mockup grid - scattered arrangement with actual project images */}
       <div className="relative overflow-visible pb-20 -mt-8" style={{ zIndex: 20 }}>
         <div className="relative max-w-[1000px] mx-auto px-4" style={{ height: "280px" }}>
-          {/* Row 1 - Top scattered */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, rotate: -3 }}
-            animate={{ opacity: 1, y: 0, rotate: -2 }}
-            transition={{ duration: 0.75, delay: 0.5, ease: easing }}
-            className="absolute left-[5%] top-0 w-[220px] md:w-[280px]"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
-              <ViewVoiceMockup />
-            </div>
-          </motion.div>
+          {/* Row 1 - Top scattered (first 3 cards) */}
+          {mockupCards.slice(0, 3).map((card, index) => {
+            const positions = [
+              "left-[5%] top-0 w-[220px] md:w-[280px]",
+              "left-[28%] top-[20px] w-[200px] md:w-[260px]",
+              "right-[5%] top-[10px] w-[210px] md:w-[270px]",
+            ];
+            return (
+              <motion.div
+                key={card.src}
+                initial={{ opacity: 0, y: 30, rotate: card.rotate - 1 }}
+                animate={{ opacity: 1, y: 0, rotate: card.rotate }}
+                transition={{ duration: 0.75, delay: card.delay, ease: easing }}
+                className={`absolute ${positions[index]}`}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
+                  <img 
+                    src={card.src}
+                    alt={card.alt}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
 
-          <motion.div
-            initial={{ opacity: 0, y: 30, rotate: 2 }}
-            animate={{ opacity: 1, y: 0, rotate: 1 }}
-            transition={{ duration: 0.75, delay: 0.6, ease: easing }}
-            className="absolute left-[28%] top-[20px] w-[200px] md:w-[260px]"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
-              <SecurityGateMockup />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30, rotate: -1 }}
-            animate={{ opacity: 1, y: 0, rotate: -1.5 }}
-            transition={{ duration: 0.75, delay: 0.7, ease: easing }}
-            className="absolute right-[5%] top-[10px] w-[210px] md:w-[270px]"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
-              <TrainingMockup />
-            </div>
-          </motion.div>
-
-          {/* Row 2 - Bottom scattered */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, rotate: 3 }}
-            animate={{ opacity: 1, y: 0, rotate: 2 }}
-            transition={{ duration: 0.75, delay: 0.8, ease: easing }}
-            className="absolute left-[15%] bottom-0 w-[190px] md:w-[240px]"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
-              <SportMockup />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30, rotate: -2 }}
-            animate={{ opacity: 1, y: 0, rotate: -1 }}
-            transition={{ duration: 0.75, delay: 0.9, ease: easing }}
-            className="absolute right-[20%] bottom-[20px] w-[200px] md:w-[250px]"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
-              <LabelFlowMockup />
-            </div>
-          </motion.div>
+          {/* Row 2 - Bottom scattered (last 2 cards) */}
+          {mockupCards.slice(3).map((card, index) => {
+            const positions = [
+              "left-[15%] bottom-0 w-[190px] md:w-[240px]",
+              "right-[20%] bottom-[20px] w-[200px] md:w-[250px]",
+            ];
+            return (
+              <motion.div
+                key={card.src}
+                initial={{ opacity: 0, y: 30, rotate: card.rotate + 1 }}
+                animate={{ opacity: 1, y: 0, rotate: card.rotate }}
+                transition={{ duration: 0.75, delay: card.delay, ease: easing }}
+                className={`absolute ${positions[index]}`}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
+                  <img 
+                    src={card.src}
+                    alt={card.alt}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 

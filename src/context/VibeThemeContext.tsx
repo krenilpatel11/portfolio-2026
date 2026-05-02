@@ -13,6 +13,7 @@ interface VibeThemeContextType {
   setVibe: (vibeId: VibeId) => void;
   nextVibe: () => void;
   cycleVibe: () => void; // Same as nextVibe, just clearer naming for button
+  vibeCounter: Record<VibeId, number>; // Track how many times each vibe has been shown
   
   // Theme (portfolio style - auto-changes every 10 mins)
   currentTheme: Theme;
@@ -26,12 +27,20 @@ const VibeThemeContext = createContext<VibeThemeContextType | undefined>(undefin
 
 const VIBE_COOKIE = "krenil-vibe";
 const THEME_COOKIE = "krenil-theme";
+const VIBE_COUNTER_COOKIE = "krenil-vibe-counter";
 const VIBE_AUTO_CHANGE_MS = 5 * 60 * 1000; // 5 minutes
 const THEME_AUTO_CHANGE_MS = 10 * 60 * 1000; // 10 minutes
 
 export function VibeThemeProvider({ children }: { children: ReactNode }) {
   const [currentVibeId, setCurrentVibeId] = useState<VibeId>("coding");
   const [currentThemeId, setCurrentThemeId] = useState<ThemeId>("fullstack");
+  const [vibeCounter, setVibeCounter] = useState<Record<VibeId, number>>({
+    coding: 0,
+    designing: 0,
+    gyming: 0,
+    riding: 0,
+    swimming: 0,
+  });
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState<"vibe" | "theme">("vibe");
 
@@ -42,12 +51,21 @@ export function VibeThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const savedVibe = Cookies.get(VIBE_COOKIE) as VibeId | undefined;
     const savedTheme = Cookies.get(THEME_COOKIE) as ThemeId | undefined;
+    const savedCounter = Cookies.get(VIBE_COUNTER_COOKIE);
     
     if (savedVibe && vibes[savedVibe]) {
       setCurrentVibeId(savedVibe);
     }
     if (savedTheme && themes[savedTheme]) {
       setCurrentThemeId(savedTheme);
+    }
+    if (savedCounter) {
+      try {
+        const parsed = JSON.parse(savedCounter);
+        setVibeCounter(parsed);
+      } catch (e) {
+        // Invalid JSON, ignore
+      }
     }
   }, []);
 
@@ -59,6 +77,12 @@ export function VibeThemeProvider({ children }: { children: ReactNode }) {
         const nextIndex = (currentIndex + 1) % vibeOrder.length;
         const nextVibe = vibeOrder[nextIndex];
         Cookies.set(VIBE_COOKIE, nextVibe, { expires: 365 });
+        // Increment counter
+        setVibeCounter((prevCounter) => {
+          const newCounter = { ...prevCounter, [nextVibe]: prevCounter[nextVibe] + 1 };
+          Cookies.set(VIBE_COUNTER_COOKIE, JSON.stringify(newCounter), { expires: 365 });
+          return newCounter;
+        });
         return nextVibe;
       });
       setPopupType("vibe");
@@ -98,6 +122,12 @@ export function VibeThemeProvider({ children }: { children: ReactNode }) {
   const setVibe = (vibeId: VibeId) => {
     setCurrentVibeId(vibeId);
     Cookies.set(VIBE_COOKIE, vibeId, { expires: 365 });
+    // Increment counter for this vibe
+    setVibeCounter((prev) => {
+      const newCounter = { ...prev, [vibeId]: prev[vibeId] + 1 };
+      Cookies.set(VIBE_COUNTER_COOKIE, JSON.stringify(newCounter), { expires: 365 });
+      return newCounter;
+    });
     setPopupType("vibe");
     setShowPopup(true);
     setTimeout(() => setShowPopup(false), 2000);
@@ -109,6 +139,12 @@ export function VibeThemeProvider({ children }: { children: ReactNode }) {
       const nextIndex = (currentIndex + 1) % vibeOrder.length;
       const nextVibe = vibeOrder[nextIndex];
       Cookies.set(VIBE_COOKIE, nextVibe, { expires: 365 });
+      // Increment counter for next vibe
+      setVibeCounter((prevCounter) => {
+        const newCounter = { ...prevCounter, [nextVibe]: prevCounter[nextVibe] + 1 };
+        Cookies.set(VIBE_COUNTER_COOKIE, JSON.stringify(newCounter), { expires: 365 });
+        return newCounter;
+      });
       return nextVibe;
     });
     setPopupType("vibe");
@@ -152,6 +188,7 @@ export function VibeThemeProvider({ children }: { children: ReactNode }) {
         setVibe,
         nextVibe,
         cycleVibe: nextVibe, // Alias for clarity
+        vibeCounter,
         currentTheme,
         currentThemeId,
         setTheme,

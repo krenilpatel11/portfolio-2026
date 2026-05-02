@@ -1,0 +1,90 @@
+{
+  "version": 4,
+  "project": {
+    "name": "portfolio",
+    "provider": "github",
+    "org": "krenilpatel11",
+    "adoProject": "",
+    "team": "",
+    "repos": [
+      {
+        "name": "krenil portfolio 2026",
+        "description": "krenil portfolio 2026",
+        "techStack": "Next.js + TypeScript",
+        "defaultBranch": "main"
+      }
+    ],
+    "prReviewer": "",
+    "testerAssignee": ""
+  },
+  "techStack": {
+    "frontend": "nextjs-typescript",
+    "backend": "node-express",
+    "database": "mongodb",
+    "cloud": "self-hosted",
+    "iac": "terraform",
+    "testing": {
+      "unitTestFrontend": "npx jest",
+      "unitTestBackend": "npx jest",
+      "e2eCommand": "npx playwright test",
+      "devServerCommand": "npm run dev",
+      "devServerUrl": "http://localhost:3000",
+      "backendServerCommand": "npm start",
+      "backendServerUrl": "http://localhost:3001"
+    }
+  },
+  "agents": {
+    "enableOrchestrator": true,
+    "enablePlanner": true,
+    "enableSeniorDev": true,
+    "enableTestEngineer": true,
+    "enableDbAgent": true,
+    "enableSecurityScanner": true,
+    "enableCodeReviewer": true,
+    "enableRefactor": true,
+    "enableLiveDemo": true,
+    "enableInfraAgent": true,
+    "enableDocAgent": false,
+    "developers": [
+      {
+        "name": "Atlas",
+        "specialty": "fullstack",
+        "color": "#1A936F"
+      },
+      {
+        "name": "Nova",
+        "specialty": "fullstack",
+        "color": "#E76F51"
+      }
+    ],
+    "seniorDevName": "Mack",
+    "testEngineerName": "Sentinel"
+  },
+  "models": {
+    "orchestrator": "github-copilot/claude-opus-4.6",
+    "developer": "github-copilot/claude-sonnet-4.5",
+    "small": "github-copilot/claude-haiku-4.5",
+    "escalation": "github-copilot/claude-opus-4.6"
+  },
+  "mcpServers": [
+    "playwright",
+    "memory",
+    "sequential-thinking",
+    "github-mcp"
+  ],
+  "notifications": {
+    "enabled": false
+  },
+  "codingPatterns": {
+    "validation": null,
+    "stateManagement": null,
+    "dataFetching": null,
+    "orm": null,
+    "linter": null,
+    "formatter": null,
+    "apiStyle": null,
+    "auth": null,
+    "componentStyle": null,
+    "importStyle": "direct"
+  }
+}
