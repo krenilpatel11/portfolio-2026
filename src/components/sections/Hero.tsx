@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useMood } from "@/context/MoodContext";
 import { useVibeTheme } from "@/context/VibeThemeContext";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
@@ -253,12 +254,12 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ position: "relative", zIndex: 20 }}
         >
-          <a
+          <Link
             href="/projects"
             className="inline-flex items-center gap-2 bg-[var(--foreground)] text-[var(--background)] font-semibold px-8 py-3.5 rounded-full text-sm hover:opacity-80 transition-opacity"
           >
             See My Work ↓
-          </a>
+          </Link>
           <button
             onClick={openCalModal}
             className="inline-flex items-center gap-2 border border-[var(--border)] text-[var(--foreground)] font-semibold px-8 py-3.5 rounded-full text-sm hover:border-[var(--foreground)] transition-all"
