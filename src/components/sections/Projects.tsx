@@ -2,25 +2,16 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { projects } from "@/lib/projects";
+import Image from "next/image";
+import { projects, featuredProjects } from "@/lib/projects";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
 import { useMood } from "@/context/MoodContext";
-import {
-  ViewVoiceMockup,
-  SecurityGateMockup,
-  TrainingMockup,
-  SportMockup,
-  LabelFlowMockup,
-} from "@/components/ProjectMockups";
-
-const mockups = [ViewVoiceMockup, SecurityGateMockup, TrainingMockup, SportMockup, LabelFlowMockup];
 
 function ProjectRow({ project, index }: { project: typeof projects[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
   const isEven = index % 2 === 0;
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
-  const Mockup = mockups[index] ?? mockups[0];
 
   return (
     <motion.div
@@ -30,7 +21,7 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       transition={{ duration: 0.7, ease: easing }}
       className="grid md:grid-cols-[45fr_50fr] gap-10 md:gap-16 items-center py-14 border-b border-[var(--border)] last:border-0"
     >
-      {/* Mockup image */}
+      {/* Project image */}
       <div className={!isEven ? "md:order-2" : ""}>
         <motion.div
           whileHover={{ scale: 1.015, y: -3 }}
@@ -46,7 +37,13 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
             e.currentTarget.style.boxShadow = '0 0 0 0 var(--accent)';
           }}
         >
-          <Mockup />
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
           <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300" />
           
           {/* Animated accent border overlay - reduced */}
@@ -81,18 +78,37 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
           ))}
         </div>
 
-        {/* Metrics (if available) with mood-reactive accents */}
+        {/* Metrics (if available) with minimal chip design */}
         {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]">
+          <div className="flex flex-wrap gap-2 mb-6">
             {project.metrics.map((metric) => (
-              <div key={metric.label} className="text-center">
-                <p className="text-2xl font-bold text-[var(--accent)] mb-1 transition-colors duration-700">
+              <motion.div
+                key={metric.label}
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)] hover:border-[var(--accent)] transition-all duration-300 group"
+              >
+                {/* Icon based on metric type */}
+                <span className="text-[var(--accent)] group-hover:scale-110 transition-transform duration-300">
+                  {metric.label.toLowerCase().includes('user') && '👥'}
+                  {metric.label.toLowerCase().includes('accuracy') && '🎯'}
+                  {metric.label.toLowerCase().includes('speed') && '⚡'}
+                  {metric.label.toLowerCase().includes('uptime') && '✅'}
+                  {metric.label.toLowerCase().includes('performance') && '📊'}
+                  {metric.label.toLowerCase().includes('time') && '⏱️'}
+                  {metric.label.toLowerCase().includes('save') && '💰'}
+                  {metric.label.toLowerCase().includes('reduction') && '📉'}
+                  {metric.label.toLowerCase().includes('growth') && '📈'}
+                  {metric.label.toLowerCase().includes('rating') && '⭐'}
+                  {!metric.label.toLowerCase().match(/user|accuracy|speed|uptime|performance|time|save|reduction|growth|rating/) && '📌'}
+                </span>
+                <span className="text-sm font-bold text-[var(--accent)] transition-colors duration-700">
                   {metric.value}
-                </p>
-                <p className="text-xs text-[var(--muted)] uppercase tracking-wider">
+                </span>
+                <span className="text-xs text-[var(--muted)] font-medium">
                   {metric.label}
-                </p>
-              </div>
+                </span>
+              </motion.div>
             ))}
           </div>
         )}
@@ -147,8 +163,11 @@ export default function Projects() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const { currentMood } = useMood();
 
+  // Show only featured projects, or all if viewing all projects page
+  const displayProjects = featuredProjects;
+
   return (
-    <section id="projects" className="relative py-24 md:py-36  overflow-hidden">
+    <section id="projects" className="relative py-16 md:py-20 scroll-mt-20 overflow-hidden">
       {/* Pattern background - more visible */}
       <PatternBackground pattern="grid" opacity={0.05} />
       
@@ -170,7 +189,7 @@ export default function Projects() {
               transition={{ duration: 0.5 }}
               className="text-[clamp(2.5rem,5vw,4rem)] font-bold font-display leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]"
             >
-              {currentMood.variants.projects.title}
+              Featured Projects
             </motion.h2>
             <motion.p
               key={`${currentMood.id}-subtitle`}
@@ -179,29 +198,21 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-sm text-[var(--muted)] mt-2"
             >
-              {currentMood.variants.projects.subtitle}
+              Showcasing my best work across web development, AI, and agency projects
             </motion.p>
           </div>
-          <a
-            href="https://github.com/krenilpatel11"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 border border-[var(--border)] px-4 py-2 text-sm hover:border-[var(--foreground)] transition-colors rounded-lg text-[var(--foreground)] shrink-0"
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 border border-[var(--border)] px-4 py-2 text-sm hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors rounded-lg text-[var(--foreground)] shrink-0 group"
           >
-            <motion.span
-              key={`${currentMood.id}-btn`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              {currentMood.variants.projects.viewAllText}
-            </motion.span>
-          </a>
+            View All Projects
+            <span className="group-hover:translate-x-0.5 transition-transform inline-block">→</span>
+          </Link>
         </motion.div>
 
         {/* Project rows */}
         <div>
-          {projects.map((project, i) => (
+          {displayProjects.map((project, i) => (
             <ProjectRow key={project.slug} project={project} index={i} />
           ))}
         </div>

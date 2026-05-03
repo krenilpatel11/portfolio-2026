@@ -31,33 +31,55 @@ export interface FloatingProject {
   delay: number;
 }
 
-// Hardcoded project list - to make it truly dynamic, we'd need a server-side script
-// or use Next.js dynamic imports, but for simplicity we'll keep it manual with clear instructions
-export const floatingProjects: FloatingProject[] = [
+// All available project images from public/images/projects folder
+export const floatingProjects: FloatingProject[] = [ 
   { 
     src: "/images/projects/viewvoice_float.webp", 
-    alt: "ViewVoice AI Invoice Analytics",  
-    rotate: -2,   
+    alt: "ViewVoice Dashboard Interface",      
+    rotate: 4, 
     delay: 0.5 
   },
   { 
-    src: "/images/projects/neighborlyhub_float.webp", 
-    alt: "SecurityGate Community Platform", 
-    rotate: 1,    
-    delay: 0.6 
+    src: "/images/projects/agency/ViewVoice.webp", 
+    alt: "ViewVoice AI Invoice Analytics",  
+    rotate: -4,   
+    delay: 0 
   },
   { 
-    src: "/images/projects/protfolio1.webp", 
-    alt: "Training Management System",      
-    rotate: -1.5, 
+    src: "/images/projects/agency/communityhub.webp", 
+    alt: "NeighborlyHub Community Platform", 
+    rotate: 3,    
+    delay: 0.1 
+  },
+  { 
+    src: "/images/projects/labelflow_feature.webp", 
+    alt: "LabelFlow Digital Agency",         
+    rotate: -3,   
+    delay: 0.2 
+  },
+  { 
+    src: "/images/projects/agency/sports.webp", 
+    alt: "Sport Dynamic Website",         
+    rotate: 3,   
+    delay: 0.3 
+  },
+  { 
+    src: "/images/projects/agency/trafalgar.webp", 
+    alt: "Trafalgar Healthcare Platform",         
+    rotate: -4,   
+    delay: 0.4 
+  },
+  { 
+    src: "/images/projects/agency/portfolio_V1.webp", 
+    alt: "Portfolio Website V1",         
+    rotate: 2,   
     delay: 0.7 
   },
-
   { 
-    src: "/images/projects/labelflow_float.webp", 
-    alt: "LabelFlow SaaS Platform",         
-    rotate: -1,   
-    delay: 0.9 
+    src: "/images/projects/neighborlyhubdark_float.webp", 
+    alt: "NeighborlyHub Dark Mode",         
+    rotate: -3,   
+    delay: 0.6 
   },
 ];
 
@@ -65,7 +87,7 @@ export const floatingProjects: FloatingProject[] = [
  * Get random rotation for new project cards
  */
 export function getRandomRotation(): number {
-  return Math.random() * 4 - 2; // Random between -2 and 2 degrees
+  return Math.random() * 3 - 1; // Random between -2 and 2 degrees
 }
 
 /**

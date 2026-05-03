@@ -1,6 +1,7 @@
 "use client";
 
 import { useMood } from "@/context/MoodContext";
+import { useTheme } from "next-themes";
 
 type PatternType = "dots" | "grid" | "diagonal" | "hexagon" | "waves" | "circuit" | "abstract" | "organic" | "geometric";
 
@@ -12,10 +13,14 @@ interface PatternBackgroundProps {
 
 export function PatternBackground({
   pattern = "dots",
-  opacity = 0.06,
+  opacity,
   className = "",
 }: PatternBackgroundProps) {
   const { currentMood } = useMood();
+  const { theme } = useTheme();
+
+  // Use CSS variable opacity if not specified, with higher values for light theme
+  const finalOpacity = opacity !== undefined ? opacity : (theme === "light" ? 0.15 : 0.06);
 
   const renderPattern = () => {
     const color = currentMood.accentHex;
@@ -84,12 +89,20 @@ export function PatternBackground({
         );
 
       case "geometric":
-        // Geometric shapes pattern
+        // Enhanced geometric shapes pattern - more visible
         return (
-          <pattern id="geometric" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-            <rect x="10" y="10" width="30" height="30" stroke={color} strokeWidth="1.5" fill="none" opacity="0.3" />
-            <circle cx="75" cy="75" r="15" stroke={color} strokeWidth="1.5" fill="none" opacity="0.25" />
-            <polygon points="75,25 85,45 65,45" stroke={color} strokeWidth="1.5" fill="none" opacity="0.28" />
+          <pattern id="geometric" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+            {/* Larger shapes for better visibility */}
+            <rect x="8" y="8" width="25" height="25" stroke={color} strokeWidth="2" fill="none" opacity="0.5" />
+            <circle cx="60" cy="60" r="18" stroke={color} strokeWidth="2" fill="none" opacity="0.45" />
+            <polygon points="60,18 72,38 48,38" stroke={color} strokeWidth="2" fill="none" opacity="0.48" />
+            
+            {/* Additional accent shapes */}
+            <line x1="8" y1="60" x2="33" y2="60" stroke={color} strokeWidth="1.5" opacity="0.4" />
+            <line x1="60" y1="8" x2="60" y2="33" stroke={color} strokeWidth="1.5" opacity="0.4" />
+            
+            {/* Small decorative dots */}
+            <circle cx="40" cy="40" r="3" fill={color} opacity="0.5" />
           </pattern>
         );
 

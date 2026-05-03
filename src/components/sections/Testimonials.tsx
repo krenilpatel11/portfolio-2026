@@ -14,7 +14,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-24 md:py-36  overflow-hidden"
+      className="relative py-16 md:py-20 scroll-mt-20  overflow-hidden"
     >
       {/* Pattern background */}
       <PatternBackground pattern="waves" opacity={0.05} />

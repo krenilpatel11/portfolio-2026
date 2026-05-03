@@ -61,6 +61,11 @@ export interface Theme {
   label: string;
   emoji: string;
   variants: ThemeVariants;
+  avatar?: {
+    video1: string; // First GIF video
+    video2: string; // Second GIF video (alternates)
+    poster: string; // Poster image
+  };
 }
 
 export const themes: Record<ThemeId, Theme> = {
@@ -68,6 +73,11 @@ export const themes: Record<ThemeId, Theme> = {
     id: "fullstack",
     label: "Full Stack Engineer",
     emoji: "🔧",
+    avatar: {
+      video1: "/avatars/gifs/coder1.webm",
+      video2: "/avatars/gifs/coder2.webm",
+      poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903716406.webp",
+    },
     variants: {
       heroTitle: "Full Stack Engineer",
       heroSubtitle: "Crafting complete digital experiences from database to pixel",
@@ -105,6 +115,11 @@ export const themes: Record<ThemeId, Theme> = {
     id: "frontend",
     label: "Frontend Specialist",
     emoji: "🎨",
+    avatar: {
+      video1: "/avatars/gifs/designer1.webm",
+      video2: "/avatars/gifs/designer2.webm",
+      poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903722568.webp",
+    },
     variants: {
       heroTitle: "Frontend Specialist",
       heroSubtitle: "Crafting pixel-perfect interfaces that users actually enjoy using",
@@ -142,6 +157,11 @@ export const themes: Record<ThemeId, Theme> = {
     id: "backend",
     label: "Backend Engineer",
     emoji: "⚙️",
+    avatar: {
+      video1: "/avatars/gifs/coder2.webm",
+      video2: "/avatars/gifs/coder1.webm",
+      poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903716406.webp",
+    },
     variants: {
       heroTitle: "Backend Architect",
       heroSubtitle: "Engineering scalable APIs and bulletproof databases",
@@ -179,6 +199,11 @@ export const themes: Record<ThemeId, Theme> = {
     id: "devops",
     label: "DevOps Engineer",
     emoji: "🚀",
+    avatar: {
+      video1: "/avatars/gifs/gymer1.webm",
+      video2: "/avatars/gifs/gymer2.webm",
+      poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903885679.webp",
+    },
     variants: {
       heroTitle: "DevOps Specialist",
       heroSubtitle: "Automating deployments, monitoring everything, sleeping peacefully",

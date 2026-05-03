@@ -130,7 +130,7 @@ export default function Skills() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="skills" className="relative py-24 md:py-36  overflow-hidden">
+    <section id="skills" className="relative py-16 md:py-20 scroll-mt-20  overflow-hidden">
       {/* Pattern background - more visible */}
       <PatternBackground pattern="hexagon" opacity={0.05} />
       

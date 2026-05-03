@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -11,8 +13,13 @@ import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import { FloatingMoodToggle } from "@/components/interactive/FloatingMoodToggle";
 import { SkillsTicker } from "@/components/SkillsTicker";
+import { useSmoothScrollMagnet, useEnhancedSmoothScroll } from "@/hooks/useSmoothScrollMagnet";
 
 export default function Home() {
+  // Enable smooth scroll magnet effect
+  useSmoothScrollMagnet();
+  useEnhancedSmoothScroll();
+
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] overflow-x-hidden">
       <Navbar />
@@ -27,7 +34,6 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
-      <FloatingMoodToggle />
     </div>
   );
 }

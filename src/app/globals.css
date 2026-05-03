@@ -12,15 +12,16 @@
 }
 
 :root {
-  --background: #fafafa;
+  /* Light theme - improved for better glow visibility */
+  --background: #f5f5f7;
   --foreground: #0a0a0a;
-  --muted: #737373;
+  --muted: #6b7280;
   --accent-color: #6c3ce1;
-  --accent-glow: rgba(108, 60, 225, 0.3);
+  --accent-glow: rgba(108, 60, 225, 0.6);
   --accent: #6c3ce1;
-  --accent-light: #ede5ff;
-  --card-bg: #ffffff;
-  --border: #e5e5e5;
+  --accent-light: #f0ebff;
+  --card-bg: #fefefe;
+  --border: #d4d4d8;
   --success: #22c55e;
   --accent-transition: color 0.6s ease, background-color 0.6s ease,
                        border-color 0.6s ease, box-shadow 0.6s ease,
@@ -41,6 +42,16 @@
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --radius: 0.75rem;
+  
+  /* Enhanced light theme shadows for better glow visibility */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 20px -5px rgba(0, 0, 0, 0.12), 0 4px 8px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 30px -7px rgba(0, 0, 0, 0.15), 0 10px 15px -7px rgba(0, 0, 0, 0.12);
+  --shadow-accent: 0 0 40px rgba(108, 60, 225, 0.35), 0 0 80px rgba(108, 60, 225, 0.2);
+  
+  /* Pattern visibility multiplier for light theme */
+  --pattern-opacity: 0.15;
 }
 
 .dark {
@@ -68,6 +79,9 @@
   --destructive: oklch(0.704 0.191 22.216);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
+  
+  /* Pattern visibility for dark theme */
+  --pattern-opacity: 0.06;
 }
 
 @theme inline {

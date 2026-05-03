@@ -24,7 +24,7 @@ export default function Services() {
   const { currentMood } = useMood();
 
   return (
-    <section id="services" className="relative py-24 md:py-36  overflow-hidden">
+    <section id="services" className="relative py-16 md:py-20 scroll-mt-20  overflow-hidden">
       {/* Pattern background */}
       <PatternBackground pattern="diagonal" opacity={0.05} />
       
@@ -77,11 +77,12 @@ export default function Services() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease: easing }}
+                  whileTap={{ scale: 0.995 }}
                   className={`border-b border-[var(--border)] group relative ${
                     isOpen ? "bg-[var(--card-bg)]" : ""
-                  } transition-all duration-300 rounded-lg ${isOpen ? "px-4 my-2" : ""}`}
+                  } transition-all duration-300 rounded-lg ${isOpen ? "px-3 my-1" : ""}`}
                   style={{
-                    boxShadow: isOpen ? "0 2px 12px -4px var(--accent)" : "none",
+                    boxShadow: isOpen ? "0 1px 8px -3px var(--accent)" : "none",
                   }}
                 >
                   <button
@@ -99,13 +100,17 @@ export default function Services() {
                       </span>
                       
                       {/* Icon */}
-                      <div className={`p-2 rounded-lg transition-all duration-300 ${
-                        isOpen 
-                          ? "bg-[var(--accent)] text-white" 
-                          : "bg-[var(--card-bg)] text-[var(--muted)] group-hover:bg-[var(--accent)] group-hover:text-white"
-                      }`}>
+                      <motion.div 
+                        whileTap={{ scale: 0.9, rotate: 5 }}
+                        transition={{ duration: 0.2 }}
+                        className={`p-2 rounded-lg transition-all duration-300 ${
+                          isOpen 
+                            ? "bg-[var(--accent)] text-white" 
+                            : "bg-[var(--card-bg)] text-[var(--muted)] group-hover:bg-[var(--accent)] group-hover:text-white"
+                        }`}
+                      >
                         <Icon size={20} />
-                      </div>
+                      </motion.div>
                       
                       {/* Title */}
                       <span
@@ -120,14 +125,19 @@ export default function Services() {
                     </div>
                     
                     {/* Arrow */}
-                    <FiArrowUpRight
-                      size={18}
-                      className={`shrink-0 ml-4 transition-all duration-300 ${
-                        isOpen 
-                          ? "rotate-45 text-[var(--accent)]" 
-                          : "text-[var(--muted)] group-hover:text-[var(--accent)]"
-                      }`}
-                    />
+                    <motion.div
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.3, ease: easing }}
+                    >
+                      <FiArrowUpRight
+                        size={18}
+                        className={`shrink-0 ml-4 transition-colors duration-300 ${
+                          isOpen 
+                            ? "text-[var(--accent)]" 
+                            : "text-[var(--muted)] group-hover:text-[var(--accent)]"
+                        }`}
+                      />
+                    </motion.div>
                   </button>
 
                   <AnimatePresence initial={false}>

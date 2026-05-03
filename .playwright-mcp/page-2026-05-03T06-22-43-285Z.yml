@@ -1,0 +1,1095 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7]:
+      - img [ref=e8]
+    - generic [ref=e11]:
+      - button "Open issues overlay" [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: "1"
+          - generic [ref=e15]: "2"
+        - generic [ref=e16]:
+          - text: Issue
+          - generic [ref=e17]: s
+      - button "Collapse issues badge" [ref=e18]:
+        - img [ref=e19]
+  - generic [ref=e21]:
+    - banner [ref=e22]:
+      - generic [ref=e23]:
+        - navigation [ref=e25]:
+          - button "About" [ref=e26]
+          - button "Projects" [ref=e27]
+          - button "Services" [ref=e28]
+          - button "Experience" [ref=e29]
+          - button "Contact" [ref=e30]
+        - link "KP." [ref=e31] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e32]:
+          - button "Start Design Project" [ref=e33]:
+            - img [ref=e34]
+            - generic [ref=e36]: Start Design Project
+          - button "Shuffle persona" [ref=e38]:
+            - generic [ref=e39]: ✨
+            - generic [ref=e40]: UI/UX Designer
+            - img [ref=e41]
+          - button "Toggle theme" [ref=e47]:
+            - img [ref=e48]
+    - generic [ref=e54]:
+      - generic:
+        - img
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - generic [ref=e59]: React
+          - generic [ref=e61]: Next.js
+          - generic [ref=e63]: .NET Core
+          - generic [ref=e65]: TypeScript
+          - generic [ref=e67]: Azure
+          - generic [ref=e69]: Angular
+          - generic [ref=e71]: Tailwind CSS
+          - generic [ref=e73]: Docker
+          - generic [ref=e75]: AI-102 ✦
+        - generic [ref=e77]: Krenil Patel
+        - generic [ref=e80]: Creating interfaces that feel intuitive and look stunning
+        - generic [ref=e82]:
+          - generic [ref=e83]: UI/UX Designer
+          - generic [ref=e86]: designing
+        - generic [ref=e87]:
+          - paragraph [ref=e88]: Ten lenses. One designer. Experience my creative process.
+          - paragraph [ref=e89]: Figma wizard. Typography obsessed. Color theory nerd. I design systems, not just screens. Every pixel placed with purpose. Every interaction choreographed for delight.
+          - paragraph [ref=e90]: Design systems, micro-interactions, accessibility-first
+        - generic [ref=e91]:
+          - link "See My Work ↓" [ref=e92] [cursor=pointer]:
+            - /url: /projects
+          - button "Start a Project →" [ref=e93]
+      - generic [ref=e95]:
+        - img "ViewVoice AI Invoice Analytics" [ref=e99] [cursor=pointer]
+        - img "NeighborlyHub Community Platform" [ref=e103] [cursor=pointer]
+        - img "LabelFlow Digital Agency" [ref=e107] [cursor=pointer]
+        - img "Sport Dynamic Website" [ref=e111] [cursor=pointer]
+        - img "Trafalgar Healthcare Platform" [ref=e115] [cursor=pointer]
+        - img "ViewVoice Dashboard Interface" [ref=e119] [cursor=pointer]
+        - img "NeighborlyHub Dark Mode" [ref=e123] [cursor=pointer]
+        - img "Portfolio Website V1" [ref=e127] [cursor=pointer]
+    - generic [ref=e130]:
+      - generic:
+        - img
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - paragraph [ref=e133]: Currently Swimming 🏊
+          - heading "Like water, adapt to any challenge and flow forward." [level=2] [ref=e134]
+          - paragraph [ref=e136]: Finding flow in the water. Swimming is meditation in motion—breath, rhythm, and pure focus.
+        - generic [ref=e137]:
+          - generic [ref=e138]:
+            - generic [ref=e139]: $ whoami
+            - generic [ref=e140]:
+              - button "💻" [ref=e141]
+              - button "🎨" [ref=e142]
+              - button "💪" [ref=e143]
+              - button "🏍️" [ref=e144]
+              - button "🏊" [ref=e145]
+              - button "🥾" [ref=e146]
+            - generic [ref=e150]:
+              - heading "Krenil Patel" [level=3] [ref=e151]
+              - paragraph [ref=e152]: Swimming Mode 🏊
+              - generic [ref=e157]: Available for work
+          - generic [ref=e160]:
+            - generic [ref=e161]: 3+
+            - heading "Years Experience" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Enterprise DevOps Specialist
+            - generic [ref=e164]:
+              - generic [ref=e165]:
+                - generic "Enterprise" [ref=e166]
+                - generic "Full Stack" [ref=e167]
+                - generic "AI/Cloud" [ref=e168]
+                - generic "Design" [ref=e169]
+                - generic "Leadership" [ref=e170]
+              - generic [ref=e171]:
+                - generic [ref=e174]: Enterprise
+                - generic [ref=e177]: Full Stack
+                - generic [ref=e180]: AI/Cloud
+                - generic [ref=e183]: Design
+                - generic [ref=e186]: Leadership
+          - generic [ref=e189]:
+            - generic [ref=e190]: 20+
+            - heading "Projects Delivered" [level=3] [ref=e191]
+            - paragraph [ref=e192]: Web apps, dashboards & AI tools
+            - generic [ref=e193]:
+              - generic [ref=e194]: React
+              - generic [ref=e195]: Angular
+              - generic [ref=e196]: Next.js
+              - generic [ref=e197]: TypeScript
+              - generic [ref=e198]: .NET Core
+              - generic [ref=e199]: Azure AI
+              - generic [ref=e200]: Node.js
+              - generic [ref=e201]: SQL Server
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - img [ref=e207]
+              - generic [ref=e210]:
+                - generic [ref=e211]: 3×
+                - heading "Microsoft Certified" [level=3] [ref=e212]
+            - generic [ref=e213]:
+              - generic [ref=e214] [cursor=pointer]:
+                - generic [ref=e215]: 🤖
+                - generic [ref=e216]:
+                  - generic [ref=e217]:
+                    - generic [ref=e218]: AI-102
+                    - img [ref=e219]
+                  - paragraph [ref=e222]: Azure AI Engineer
+              - generic [ref=e223] [cursor=pointer]:
+                - generic [ref=e224]: ☁️
+                - generic [ref=e225]:
+                  - generic [ref=e226]:
+                    - generic [ref=e227]: AZ-900
+                    - img [ref=e228]
+                  - paragraph [ref=e231]: Azure Fundamentals
+              - generic [ref=e232] [cursor=pointer]:
+                - generic [ref=e233]: 🧠
+                - generic [ref=e234]:
+                  - generic [ref=e235]:
+                    - generic [ref=e236]: AI-900
+                    - img [ref=e237]
+                  - paragraph [ref=e240]: Azure AI Fundamentals
+          - generic [ref=e243]:
+            - generic [ref=e244]:
+              - img [ref=e246]
+              - generic [ref=e249]:
+                - heading "Currently" [level=3] [ref=e250]
+                - paragraph [ref=e251]: Designing a design system that bridges brand and engineering
+                - paragraph [ref=e252]: "@ IMRIEL Software"
+            - generic [ref=e257]: Active · Feb 2024 - Present
+          - generic [ref=e261]:
+            - img [ref=e263]
+            - generic [ref=e269]:
+              - generic [ref=e270]: 50+
+              - heading "Brand Assets" [level=3] [ref=e271]
+              - paragraph [ref=e272]: Logos, identities & print designs
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - img [ref=e278]
+              - generic [ref=e282]:
+                - generic [ref=e283]: 400+
+                - heading "Problem Solver" [level=3] [ref=e284]
+                - paragraph [ref=e285]: Transforming complex enterprise workflows into simple, delightful user experiences through iterative prototyping
+            - generic [ref=e286]:
+              - generic [ref=e287]: 3★
+              - generic [ref=e288]: CodeChef
+          - generic [ref=e292]:
+            - img [ref=e294]
+            - generic [ref=e297]:
+              - heading "Based in" [level=3] [ref=e298]
+              - paragraph [ref=e299]: Vadodara
+              - paragraph [ref=e300]: Gujarat, India 🇮🇳
+              - paragraph [ref=e301]: Open to remote opportunities
+          - generic [ref=e305]:
+            - blockquote [ref=e306]: Good design is invisible. Great design is unforgettable. Perfect design makes people smile.
+            - generic [ref=e307]: — My guiding principle
+          - link "Founder LabelFlow Digital agency for web dev, design & marketing Visit" [ref=e309] [cursor=pointer]:
+            - /url: https://labelflow.store/
+            - generic [ref=e311]:
+              - img [ref=e313]
+              - generic [ref=e318]:
+                - heading "Founder" [level=3] [ref=e319]
+                - paragraph [ref=e320]: LabelFlow
+                - paragraph [ref=e321]: Digital agency for web dev, design & marketing
+                - generic [ref=e322]:
+                  - generic [ref=e323]: Visit
+                  - img [ref=e324]
+          - generic [ref=e331]:
+            - img [ref=e333]
+            - generic [ref=e336]:
+              - heading "Education" [level=3] [ref=e337]
+              - generic [ref=e338]:
+                - generic [ref=e339]:
+                  - paragraph [ref=e340]: B.Tech CSE (AI)
+                  - paragraph [ref=e341]: Parul University
+                - generic [ref=e342]:
+                  - img [ref=e343]
+                  - generic [ref=e345]: 2019 - 2023
+                - generic [ref=e347]:
+                  - generic [ref=e348]: Artificial Intelligence
+                  - generic [ref=e349]: Machine Learning
+          - generic [ref=e353]:
+            - img [ref=e355]
+            - generic [ref=e361]:
+              - heading "Achievement" [level=3] [ref=e362]
+              - paragraph [ref=e363]: 🏆 AI Hackathon
+              - paragraph [ref=e364]: Runner-Up · Document Intelligence Project
+    - generic [ref=e366]:
+      - generic [ref=e367]:
+        - img [ref=e369]
+        - generic [ref=e373]: React
+      - generic [ref=e374]:
+        - img [ref=e376]
+        - generic [ref=e381]: TypeScript
+      - generic [ref=e382]:
+        - img [ref=e384]
+        - generic [ref=e388]: Next.js
+      - generic [ref=e389]:
+        - img [ref=e391]
+        - generic [ref=e395]: Angular
+      - generic [ref=e396]:
+        - img [ref=e398]
+        - generic [ref=e401]: Node.js
+      - generic [ref=e402]:
+        - img [ref=e404]
+        - generic [ref=e407]: ASP.NET Core
+      - generic [ref=e408]:
+        - img [ref=e410]
+        - generic [ref=e413]: Docker
+      - generic [ref=e414]:
+        - img [ref=e416]
+        - generic [ref=e420]: Kubernetes
+      - generic [ref=e421]:
+        - img [ref=e423]
+        - generic [ref=e425]: AWS
+      - generic [ref=e426]:
+        - img [ref=e428]
+        - generic [ref=e430]: Azure
+      - generic [ref=e431]:
+        - img [ref=e433]
+        - generic [ref=e437]: Redis
+      - generic [ref=e438]:
+        - img [ref=e440]
+        - generic [ref=e444]: MongoDB
+      - generic [ref=e445]:
+        - img [ref=e447]
+        - generic [ref=e451]: SQL Server
+      - generic [ref=e452]:
+        - img [ref=e454]
+        - generic [ref=e458]: MySQL
+      - generic [ref=e459]:
+        - img [ref=e461]
+        - generic [ref=e465]: Git
+      - generic [ref=e466]:
+        - img [ref=e468]
+        - generic [ref=e472]: CI/CD
+      - generic [ref=e473]:
+        - img [ref=e475]
+        - generic [ref=e481]: Tailwind CSS
+      - generic [ref=e482]:
+        - img [ref=e484]
+        - generic [ref=e490]: Figma
+      - generic [ref=e491]:
+        - img [ref=e493]
+        - generic [ref=e496]: Azure AI
+      - generic [ref=e497]:
+        - img [ref=e499]
+        - generic [ref=e501]: REST APIs
+      - generic [ref=e502]:
+        - img [ref=e504]
+        - generic [ref=e508]: Microservices
+      - generic [ref=e509]:
+        - img [ref=e511]
+        - generic [ref=e515]: Clean Architecture
+      - generic [ref=e516]:
+        - img [ref=e518]
+        - generic [ref=e522]: React
+      - generic [ref=e523]:
+        - img [ref=e525]
+        - generic [ref=e530]: TypeScript
+      - generic [ref=e531]:
+        - img [ref=e533]
+        - generic [ref=e537]: Next.js
+      - generic [ref=e538]:
+        - img [ref=e540]
+        - generic [ref=e544]: Angular
+      - generic [ref=e545]:
+        - img [ref=e547]
+        - generic [ref=e550]: Node.js
+      - generic [ref=e551]:
+        - img [ref=e553]
+        - generic [ref=e556]: ASP.NET Core
+      - generic [ref=e557]:
+        - img [ref=e559]
+        - generic [ref=e562]: Docker
+      - generic [ref=e563]:
+        - img [ref=e565]
+        - generic [ref=e569]: Kubernetes
+      - generic [ref=e570]:
+        - img [ref=e572]
+        - generic [ref=e574]: AWS
+      - generic [ref=e575]:
+        - img [ref=e577]
+        - generic [ref=e579]: Azure
+      - generic [ref=e580]:
+        - img [ref=e582]
+        - generic [ref=e586]: Redis
+      - generic [ref=e587]:
+        - img [ref=e589]
+        - generic [ref=e593]: MongoDB
+      - generic [ref=e594]:
+        - img [ref=e596]
+        - generic [ref=e600]: SQL Server
+      - generic [ref=e601]:
+        - img [ref=e603]
+        - generic [ref=e607]: MySQL
+      - generic [ref=e608]:
+        - img [ref=e610]
+        - generic [ref=e614]: Git
+      - generic [ref=e615]:
+        - img [ref=e617]
+        - generic [ref=e621]: CI/CD
+      - generic [ref=e622]:
+        - img [ref=e624]
+        - generic [ref=e630]: Tailwind CSS
+      - generic [ref=e631]:
+        - img [ref=e633]
+        - generic [ref=e639]: Figma
+      - generic [ref=e640]:
+        - img [ref=e642]
+        - generic [ref=e645]: Azure AI
+      - generic [ref=e646]:
+        - img [ref=e648]
+        - generic [ref=e650]: REST APIs
+      - generic [ref=e651]:
+        - img [ref=e653]
+        - generic [ref=e657]: Microservices
+      - generic [ref=e658]:
+        - img [ref=e660]
+        - generic [ref=e664]: Clean Architecture
+    - generic [ref=e665]:
+      - generic:
+        - img
+      - generic [ref=e666]:
+        - generic [ref=e667]:
+          - generic [ref=e668]:
+            - heading "Featured Projects" [level=2] [ref=e669]
+            - paragraph [ref=e670]: Showcasing my best work across web development, AI, and agency projects
+          - link "View All Projects →" [ref=e671] [cursor=pointer]:
+            - /url: /projects
+            - text: View All Projects
+            - generic [ref=e672]: →
+        - generic [ref=e673]:
+          - generic [ref=e674]:
+            - img "ViewVoice" [ref=e677] [cursor=pointer]
+            - generic [ref=e679]:
+              - paragraph [ref=e680]: "2024"
+              - heading "ViewVoice" [level=3] [ref=e681]
+              - paragraph [ref=e682]: AI-Powered Invoice Intelligence Platform
+              - paragraph [ref=e683]: Full-stack AI-powered document intelligence platform conceptualized and developed by LabelFlow to automate invoice and receipt processing. Features Azure AI Document Intelligence, real-time analytics, and concurrent upload processing with 95% extraction accuracy.
+              - generic [ref=e684]:
+                - generic [ref=e685]: React
+                - generic [ref=e686]: TypeScript
+                - generic [ref=e687]: ShadCN/UI
+                - generic [ref=e688]: Azure AI
+                - generic [ref=e689]: Node.js
+                - generic [ref=e690]: Vercel
+              - generic [ref=e691]:
+                - generic [ref=e692]:
+                  - generic [ref=e693]: 🎯
+                  - generic [ref=e694]: 95%
+                  - generic [ref=e695]: Extraction Accuracy
+                - generic [ref=e696]:
+                  - generic [ref=e697]: ⏱️
+                  - generic [ref=e698]: 60% faster
+                  - generic [ref=e699]: Processing Time
+                - generic [ref=e700]:
+                  - generic [ref=e701]: 📉
+                  - generic [ref=e702]: 40%
+                  - generic [ref=e703]: Cost Reduction
+              - generic [ref=e704]:
+                - link "Case Study ↗" [ref=e705] [cursor=pointer]:
+                  - /url: /projects/viewvoice-ai-invoice-analytics
+                  - text: Case Study
+                  - generic [ref=e706]: ↗
+                - link "View GitHub repository" [ref=e707] [cursor=pointer]:
+                  - /url: https://github.com/krenilpatel11/ViewVoiceUI
+                  - img [ref=e708]
+                  - text: GitHub
+                - link "View live project" [ref=e710] [cursor=pointer]:
+                  - /url: https://view-voice-ui.vercel.app/
+                  - img [ref=e711]
+                  - text: Live
+          - generic [ref=e713]:
+            - img "LabelFlow" [ref=e716] [cursor=pointer]
+            - generic [ref=e718]:
+              - paragraph [ref=e719]: "2024"
+              - heading "LabelFlow" [level=3] [ref=e720]
+              - paragraph [ref=e721]: Digital Agency & Creative Studio
+              - paragraph [ref=e722]: Founded and built LabelFlow — a full-service digital agency providing web development, UI/UX design, branding, and creative marketing solutions. Features service showcases, dynamic project portfolios, client testimonials, and integrated booking system.
+              - generic [ref=e723]:
+                - generic [ref=e724]: Angular
+                - generic [ref=e725]: TypeScript
+                - generic [ref=e726]: Tailwind CSS
+                - generic [ref=e727]: GSAP
+                - generic [ref=e728]: Node.js
+              - generic [ref=e729]:
+                - generic [ref=e730]:
+                  - generic [ref=e731]: 📌
+                  - generic [ref=e732]: 15+
+                  - generic [ref=e733]: Client Projects
+                - generic [ref=e734]:
+                  - generic [ref=e735]: 📌
+                  - generic [ref=e736]: "6"
+                  - generic [ref=e737]: Services Offered
+                - generic [ref=e738]:
+                  - generic [ref=e739]: 📌
+                  - generic [ref=e740]: 98%
+                  - generic [ref=e741]: Client Satisfaction
+              - generic [ref=e742]:
+                - link "Case Study ↗" [ref=e743] [cursor=pointer]:
+                  - /url: /projects/labelflow-digital-agency
+                  - text: Case Study
+                  - generic [ref=e744]: ↗
+                - link "View GitHub repository" [ref=e745] [cursor=pointer]:
+                  - /url: https://github.com/krenilpatel11/LabelFlow
+                  - img [ref=e746]
+                  - text: GitHub
+                - link "View live project" [ref=e748] [cursor=pointer]:
+                  - /url: https://label-flow-psi.vercel.app/
+                  - img [ref=e749]
+                  - text: Live
+          - generic [ref=e751]:
+            - img "NeighborlyHub" [ref=e754] [cursor=pointer]
+            - generic [ref=e756]:
+              - paragraph [ref=e757]: "2026"
+              - heading "NeighborlyHub" [level=3] [ref=e758]
+              - paragraph [ref=e759]: Gated Community Management Platform
+              - paragraph [ref=e760]: Modern, mobile-first application designed for residents, security staff, administrators, and service staff to simplify community living. Features visitor management, SOS alerts, complaint handling, and real-time notifications.
+              - generic [ref=e761]:
+                - generic [ref=e762]: React
+                - generic [ref=e763]: Node.js
+                - generic [ref=e764]: MongoDB
+                - generic [ref=e765]: TypeScript
+                - generic [ref=e766]: Socket.io
+              - generic [ref=e767]:
+                - generic [ref=e768]:
+                  - generic [ref=e769]: 📌
+                  - generic [ref=e770]: 50+
+                  - generic [ref=e771]: Active Communities
+                - generic [ref=e772]:
+                  - generic [ref=e773]: ⏱️
+                  - generic [ref=e774]: <2s
+                  - generic [ref=e775]: Response Time
+                - generic [ref=e776]:
+                  - generic [ref=e777]: 👥
+                  - generic [ref=e778]: 92%
+                  - generic [ref=e779]: User Satisfaction
+              - generic [ref=e780]:
+                - link "Case Study ↗" [ref=e781] [cursor=pointer]:
+                  - /url: /projects/securitygate-community-platform
+                  - text: Case Study
+                  - generic [ref=e782]: ↗
+                - link "View GitHub repository" [ref=e783] [cursor=pointer]:
+                  - /url: https://github.com/krenilpatel11/SecurityGateApp
+                  - img [ref=e784]
+                  - text: GitHub
+                - link "View live project" [ref=e786] [cursor=pointer]:
+                  - /url: https://gate-community-hub.vercel.app/
+                  - img [ref=e787]
+                  - text: Live
+          - generic [ref=e789]:
+            - img "Training System" [ref=e792] [cursor=pointer]
+            - generic [ref=e794]:
+              - paragraph [ref=e795]: "2024"
+              - heading "Training System" [level=3] [ref=e796]
+              - paragraph [ref=e797]: Enterprise Employee Training Platform
+              - paragraph [ref=e798]: Enterprise employee training platform built at IMRIEL Software with Angular, ASP.NET Core, SQL Server and Azure. REST APIs, cloud storage, and analytics dashboard. Improved training efficiency by 30%.
+              - generic [ref=e799]:
+                - generic [ref=e800]: Angular
+                - generic [ref=e801]: ASP.NET Core
+                - generic [ref=e802]: SQL Server
+                - generic [ref=e803]: Azure
+                - generic [ref=e804]: Chart.js
+              - generic [ref=e805]:
+                - generic [ref=e806]:
+                  - generic [ref=e807]: 📌
+                  - generic [ref=e808]: 30%
+                  - generic [ref=e809]: Efficiency Gain
+                - generic [ref=e810]:
+                  - generic [ref=e811]: 📌
+                  - generic [ref=e812]: 90%+
+                  - generic [ref=e813]: Test Coverage
+                - generic [ref=e814]:
+                  - generic [ref=e815]: 👥
+                  - generic [ref=e816]: 500+
+                  - generic [ref=e817]: Active Users
+              - generic [ref=e818]:
+                - link "Case Study ↗" [ref=e819] [cursor=pointer]:
+                  - /url: /projects/imriel-training-management
+                  - text: Case Study
+                  - generic [ref=e820]: ↗
+                - link "View GitHub repository" [ref=e821] [cursor=pointer]:
+                  - /url: https://github.com/krenilpatel11
+                  - img [ref=e822]
+                  - text: GitHub
+    - generic [ref=e824]:
+      - generic:
+        - img
+      - generic [ref=e826]:
+        - generic [ref=e827]:
+          - generic [ref=e828]:
+            - heading "Design Services" [level=2] [ref=e829]
+            - paragraph [ref=e830]: From wireframes to pixel-perfect production
+          - img [ref=e832]:
+            - generic [ref=e884]: VENDOR
+            - generic [ref=e885]: DATE
+            - generic [ref=e886]: AMOUNT
+            - generic [ref=e887]: STATUS
+            - generic [ref=e888]: ACCURACY
+            - generic [ref=e914]: Accuracy
+            - generic [ref=e915]: 95%
+        - generic [ref=e916]:
+          - button "01 Web Application Development" [ref=e918]:
+            - generic [ref=e919]:
+              - generic [ref=e920]: "01"
+              - img [ref=e922]
+              - generic [ref=e925]: Web Application Development
+            - img [ref=e927]
+          - button "02 AI & Cloud Solutions" [ref=e931]:
+            - generic [ref=e932]:
+              - generic [ref=e933]: "02"
+              - img [ref=e935]
+              - generic [ref=e938]: AI & Cloud Solutions
+            - img [ref=e940]
+          - button "03 UI/UX Design" [ref=e944]:
+            - generic [ref=e945]:
+              - generic [ref=e946]: "03"
+              - img [ref=e948]
+              - generic [ref=e952]: UI/UX Design
+            - img [ref=e954]
+          - button "04 Backend & API Development" [ref=e958]:
+            - generic [ref=e959]:
+              - generic [ref=e960]: "04"
+              - img [ref=e962]
+              - generic [ref=e965]: Backend & API Development
+            - img [ref=e967]
+          - button "05 Graphic Design & Branding" [ref=e971]:
+            - generic [ref=e972]:
+              - generic [ref=e973]: "05"
+              - img [ref=e975]
+              - generic [ref=e977]: Graphic Design & Branding
+            - img [ref=e979]
+    - generic [ref=e982]:
+      - generic:
+        - img
+      - generic [ref=e984]:
+        - generic [ref=e985]:
+          - paragraph [ref=e986]: UI/UX Designer ✨
+          - heading "Crafting Experiences" [level=2] [ref=e987]
+          - paragraph [ref=e988]: Six facets. One philosophy. Where aesthetics meet function, and every detail creates delight.
+          - generic [ref=e989]:
+            - button [ref=e990]
+            - button [ref=e991]
+            - button [ref=e992]
+            - button [ref=e993]
+            - button [ref=e994]
+            - button [ref=e995]
+          - generic [ref=e996]:
+            - button "←" [disabled] [ref=e997]
+            - button "→" [ref=e998]
+        - generic [ref=e1002]:
+          - generic [ref=e1003] [cursor=pointer]:
+            - generic [ref=e1004]:
+              - img [ref=e1006]
+              - paragraph [ref=e1009]: Every Pixel Tells a Story
+              - heading "The Visual Storyteller" [level=3] [ref=e1010]
+            - paragraph [ref=e1012]: Design isn't decoration—it's communication. Colors convey emotion, spacing guides attention, animation reveals intention.
+          - generic [ref=e1014] [cursor=pointer]:
+            - generic [ref=e1015]:
+              - img [ref=e1017]
+              - paragraph [ref=e1021]: From Mockup to Masterpiece
+              - heading "The Figma Virtuoso" [level=3] [ref=e1022]
+            - paragraph [ref=e1024]: Auto-layout, variants, components—I build design systems in Figma that developers love implementing. Handoff is seamless.
+          - generic [ref=e1026] [cursor=pointer]:
+            - generic [ref=e1027]:
+              - img [ref=e1029]
+              - paragraph [ref=e1033]: Design with Heart
+              - heading "The User Empathizer" [level=3] [ref=e1034]
+            - paragraph [ref=e1036]: I design for humans, not screens. Accessibility, readability, delight—if users feel friction, design failed.
+          - generic [ref=e1038] [cursor=pointer]:
+            - generic [ref=e1039]:
+              - img [ref=e1041]
+              - paragraph [ref=e1043]: Details That Delight
+              - heading "The Micro-Interaction Artist" [level=3] [ref=e1044]
+            - paragraph [ref=e1046]: Hover states, loading spinners, success animations—I sweat the small stuff because small stuff builds trust.
+          - generic [ref=e1048] [cursor=pointer]:
+            - generic [ref=e1049]:
+              - img [ref=e1051]
+              - paragraph [ref=e1055]: 50+ Identities Crafted
+              - heading "The Brand Builder" [level=3] [ref=e1056]
+            - paragraph [ref=e1058]: Logos, color systems, typography—I've shaped brands from nothing into something people remember and trust.
+          - generic [ref=e1060] [cursor=pointer]:
+            - generic [ref=e1061]:
+              - img [ref=e1063]
+              - paragraph [ref=e1066]: Designs That Ship
+              - heading "The Design-Dev Bridge" [level=3] [ref=e1067]
+            - paragraph [ref=e1069]: I design with code constraints in mind. Responsive by nature, performant by design, implementable without compromise.
+    - generic [ref=e1071]:
+      - generic:
+        - img
+      - generic [ref=e1072]:
+        - generic [ref=e1073]:
+          - paragraph [ref=e1074]: Career
+          - heading "Work Experience" [level=2] [ref=e1075]
+          - paragraph [ref=e1076]: A track record of shipping real things.
+        - generic [ref=e1079]:
+          - generic [ref=e1083]:
+            - generic [ref=e1084]:
+              - generic [ref=e1085]:
+                - generic [ref=e1086]:
+                  - img [ref=e1088]
+                  - paragraph [ref=e1091]:
+                    - text: IMRIEL Software Pvt. Ltd. · Vadodara, Gujarat
+                    - link "Visit IMRIEL Software Pvt. Ltd. website" [ref=e1092] [cursor=pointer]:
+                      - /url: https://www.imriel.com
+                      - img [ref=e1093]
+                - heading "Software Engineer" [level=3] [ref=e1097]
+              - generic [ref=e1098]:
+                - generic [ref=e1099]: Feb 2024 – Present
+                - generic [ref=e1100]: Full-time
+            - list [ref=e1101]:
+              - listitem [ref=e1102]: Built 5+ enterprise web modules using Angular and React
+              - listitem [ref=e1104]: Integrated Azure AI Document Intelligence — automated document extraction
+              - listitem [ref=e1106]: Built real-time analytics dashboards with Angular and Chart.js
+              - listitem [ref=e1108]: Maintained 90%+ test coverage across all production modules
+              - listitem [ref=e1110]: Led Agile/Scrum ceremonies; improved UI performance by 25%
+            - generic [ref=e1112]:
+              - generic [ref=e1113]: Angular
+              - generic [ref=e1114]: React
+              - generic [ref=e1115]: Azure AI
+              - generic [ref=e1116]: .NET Core
+              - generic [ref=e1117]: Chart.js
+          - generic [ref=e1121]:
+            - generic [ref=e1122]:
+              - generic [ref=e1123]:
+                - generic [ref=e1124]:
+                  - img [ref=e1126]
+                  - paragraph [ref=e1129]: Dcycle Design Studio Pvt. Ltd. · Ahmedabad, Gujarat
+                - heading "Web Development & Design Intern" [level=3] [ref=e1130]
+              - generic [ref=e1131]:
+                - generic [ref=e1132]: Oct 2023 – Jan 2024
+                - generic [ref=e1133]: Internship
+            - list [ref=e1134]:
+              - listitem [ref=e1135]: Built responsive interfaces using React, HTML5, CSS3, Tailwind CSS
+              - listitem [ref=e1137]: Delivered 3+ real client projects end-to-end
+              - listitem [ref=e1139]: Implemented pixel-perfect UI from Figma designs
+            - generic [ref=e1141]:
+              - generic [ref=e1142]: React
+              - generic [ref=e1143]: Tailwind CSS
+              - generic [ref=e1144]: Figma
+              - generic [ref=e1145]: HTML5
+          - generic [ref=e1149]:
+            - generic [ref=e1150]:
+              - generic [ref=e1151]:
+                - generic [ref=e1152]:
+                  - img [ref=e1154]
+                  - paragraph [ref=e1157]: Parul University · Vadodara, Gujarat
+                - heading "Graphic Designer Intern" [level=3] [ref=e1158]
+              - generic [ref=e1159]:
+                - generic [ref=e1160]: Jan 2023 – Jul 2023
+                - generic [ref=e1161]: Internship
+            - list [ref=e1162]:
+              - listitem [ref=e1163]: Created 50+ marketing and branding assets for university events
+              - listitem [ref=e1165]: Worked with Adobe Photoshop, Illustrator, and CorelDraw
+            - generic [ref=e1167]:
+              - generic [ref=e1168]: Photoshop
+              - generic [ref=e1169]: Illustrator
+              - generic [ref=e1170]: CorelDraw
+              - generic [ref=e1171]: Branding
+    - generic [ref=e1172]:
+      - generic:
+        - img
+      - generic [ref=e1173]:
+        - generic [ref=e1174]:
+          - generic [ref=e1175]:
+            - paragraph [ref=e1176]: Expertise
+            - heading "My Arsenal" [level=2] [ref=e1177]
+          - paragraph [ref=e1178]: The tools I reach for every day — from frontend to cloud.
+        - generic [ref=e1179]:
+          - generic [ref=e1180]:
+            - generic [ref=e1181]:
+              - img [ref=e1183]
+              - paragraph [ref=e1185]: Frontend
+              - generic [ref=e1186]: "10"
+            - generic [ref=e1187]:
+              - generic [ref=e1188]:
+                - img [ref=e1189]
+                - text: React.js
+              - generic [ref=e1191]:
+                - img [ref=e1192]
+                - text: Angular
+              - generic [ref=e1194]:
+                - img [ref=e1195]
+                - text: Next.js
+              - generic [ref=e1197]:
+                - img [ref=e1198]
+                - text: TypeScript
+              - generic [ref=e1200]:
+                - img [ref=e1201]
+                - text: JavaScript
+              - generic [ref=e1203]:
+                - img [ref=e1204]
+                - text: HTML5
+              - generic [ref=e1206]:
+                - img [ref=e1207]
+                - text: CSS3
+              - generic [ref=e1209]:
+                - img [ref=e1210]
+                - text: Tailwind CSS
+              - generic [ref=e1212]: ShadCN/UI
+              - generic [ref=e1213]: Material UI
+          - generic [ref=e1214]:
+            - generic [ref=e1215]:
+              - img [ref=e1217]
+              - paragraph [ref=e1220]: Backend
+              - generic [ref=e1221]: "6"
+            - generic [ref=e1222]:
+              - generic [ref=e1223]:
+                - img [ref=e1224]
+                - text: .NET Core
+              - generic [ref=e1226]: ASP.NET Web API
+              - generic [ref=e1227]:
+                - img [ref=e1228]
+                - text: C#
+              - generic [ref=e1230]:
+                - img [ref=e1231]
+                - text: Node.js
+              - generic [ref=e1233]: REST APIs
+              - generic [ref=e1234]: C++
+          - generic [ref=e1235]:
+            - generic [ref=e1236]:
+              - img [ref=e1238]
+              - paragraph [ref=e1242]: Database
+              - generic [ref=e1243]: "6"
+            - generic [ref=e1244]:
+              - generic [ref=e1245]: SQL Server
+              - generic [ref=e1246]:
+                - img [ref=e1247]
+                - text: MySQL
+              - generic [ref=e1249]: Azure SQL
+              - generic [ref=e1250]: Entity Framework
+              - generic [ref=e1251]:
+                - img [ref=e1252]
+                - text: MongoDB
+              - generic [ref=e1254]:
+                - img [ref=e1255]
+                - text: Redis
+          - generic [ref=e1257]:
+            - generic [ref=e1258]:
+              - img [ref=e1260]
+              - paragraph [ref=e1262]: Cloud & DevOps
+              - generic [ref=e1263]: "9"
+            - generic [ref=e1264]:
+              - generic [ref=e1265]:
+                - img [ref=e1266]
+                - text: Microsoft Azure
+              - generic [ref=e1268]:
+                - img [ref=e1269]
+                - text: AWS
+              - generic [ref=e1271]:
+                - img [ref=e1272]
+                - text: Azure AI
+              - generic [ref=e1275]: Azure Web Apps
+              - generic [ref=e1276]:
+                - img [ref=e1277]
+                - text: Docker
+              - generic [ref=e1279]: CI/CD
+              - generic [ref=e1280]:
+                - img [ref=e1281]
+                - text: Git
+              - generic [ref=e1283]:
+                - img [ref=e1284]
+                - text: GitHub
+              - generic [ref=e1286]: Kubernetes
+          - generic [ref=e1287]:
+            - generic [ref=e1288]:
+              - img [ref=e1290]
+              - paragraph [ref=e1293]: AI & ML
+              - generic [ref=e1294]: "4"
+            - generic [ref=e1295]:
+              - generic [ref=e1296]: Azure AI Document Intelligence
+              - generic [ref=e1297]: Azure Cognitive Services
+              - generic [ref=e1298]: NLP
+              - generic [ref=e1299]: Computer Vision
+          - generic [ref=e1300]:
+            - generic [ref=e1301]:
+              - img [ref=e1303]
+              - paragraph [ref=e1306]: Design & Tools
+              - generic [ref=e1307]: "7"
+            - generic [ref=e1308]:
+              - generic [ref=e1309]:
+                - img [ref=e1310]
+                - text: Figma
+              - generic [ref=e1312]: Adobe Photoshop
+              - generic [ref=e1313]: Illustrator
+              - generic [ref=e1314]: CorelDraw
+              - generic [ref=e1315]: Chart.js
+              - generic [ref=e1316]:
+                - img [ref=e1317]
+                - text: Postman
+              - generic [ref=e1319]: VS Code
+        - generic [ref=e1320]:
+          - generic [ref=e1322]:
+            - paragraph [ref=e1323]: Credentials
+            - heading "Certifications & Achievements" [level=3] [ref=e1324]
+          - generic [ref=e1325]:
+            - generic [ref=e1326]:
+              - generic [ref=e1328]:
+                - img [ref=e1330]
+                - generic [ref=e1333]: AI-102
+              - heading "Azure AI Engineer Associate" [level=4] [ref=e1334]
+              - paragraph [ref=e1335]: AI solution design, Document Intelligence, NLP, Computer Vision
+              - generic [ref=e1336]:
+                - generic [ref=e1337]: Microsoft
+                - generic [ref=e1338]: "2024"
+            - generic [ref=e1339]:
+              - generic [ref=e1341]:
+                - img [ref=e1343]
+                - generic [ref=e1345]: AZ-900
+              - heading "Azure Fundamentals" [level=4] [ref=e1346]
+              - paragraph [ref=e1347]: Cloud architecture, security, and core Azure services
+              - generic [ref=e1348]:
+                - generic [ref=e1349]: Microsoft
+                - generic [ref=e1350]: "2024"
+            - generic [ref=e1351]:
+              - generic [ref=e1353]:
+                - img [ref=e1355]
+                - generic [ref=e1358]: AI-900
+              - heading "AI Fundamentals" [level=4] [ref=e1359]
+              - paragraph [ref=e1360]: AI/ML concepts, Cognitive Services, Azure AI capabilities
+              - generic [ref=e1361]:
+                - generic [ref=e1362]: Microsoft
+                - generic [ref=e1363]: "2024"
+            - generic [ref=e1364]:
+              - generic [ref=e1366]:
+                - img [ref=e1368]
+                - generic [ref=e1371]: YP
+              - heading "TCS iON Career Edge" [level=4] [ref=e1372]
+              - paragraph [ref=e1373]: Young Professional certification — communication & workplace readiness
+              - generic [ref=e1374]:
+                - generic [ref=e1375]: TCS iON
+                - generic [ref=e1376]: "2022"
+            - generic [ref=e1377]:
+              - generic [ref=e1379]:
+                - img [ref=e1381]
+                - generic [ref=e1383]: 🏆
+              - heading "AI Hackathon Runner-Up" [level=4] [ref=e1384]
+              - paragraph [ref=e1385]: IMRIEL × Allata — Innovative AI-based solution
+              - generic [ref=e1386]:
+                - generic [ref=e1387]: Achievement
+                - generic [ref=e1388]: "2024"
+    - generic [ref=e1389]:
+      - generic:
+        - img
+      - heading "What people say" [level=2] [ref=e1392]
+      - generic [ref=e1394]:
+        - generic [ref=e1395]:
+          - generic [ref=e1396]: ★★★★★
+          - generic [ref=e1397]: “
+          - paragraph [ref=e1398]: Working with this talented team was a pleasure. They understood our vision and created stunning graphics that perfectly represent our brand.
+          - generic [ref=e1399]:
+            - generic [ref=e1400]: M
+            - generic [ref=e1401]:
+              - paragraph [ref=e1402]: Mia Johnson
+              - paragraph [ref=e1403]: Owner, Everybody Nail Art Studio
+        - generic [ref=e1404]:
+          - generic [ref=e1405]: ★★★★★
+          - generic [ref=e1406]: “
+          - paragraph [ref=e1407]: Our online presence was completely transformed. The website is vibrant, engaging, and fully aligned with our brand's personality.
+          - generic [ref=e1408]:
+            - generic [ref=e1409]: S
+            - generic [ref=e1410]:
+              - paragraph [ref=e1411]: Suresh Waghle
+              - paragraph [ref=e1412]: Business Owner, Jmomos
+        - generic [ref=e1413]:
+          - generic [ref=e1414]: ★★★★★
+          - generic [ref=e1415]: “
+          - paragraph [ref=e1416]: An absolute game-changer for our sports website. Seamless and visually stunning platform that our users love.
+          - generic [ref=e1417]:
+            - generic [ref=e1418]: A
+            - generic [ref=e1419]:
+              - paragraph [ref=e1420]: Alex Turner
+              - paragraph [ref=e1421]: Founder, Sportify
+        - generic [ref=e1422]:
+          - generic [ref=e1423]: ★★★★★
+          - generic [ref=e1424]: “
+          - paragraph [ref=e1425]: Exceptional work. The dynamic interface powered by advanced motion libraries exceeded our expectations.
+          - generic [ref=e1426]:
+            - generic [ref=e1427]: O
+            - generic [ref=e1428]:
+              - paragraph [ref=e1429]: Olivia Roberts
+              - paragraph [ref=e1430]: CEO, Goodkit
+        - generic [ref=e1431]:
+          - generic [ref=e1432]: ★★★★★
+          - generic [ref=e1433]: “
+          - paragraph [ref=e1434]: Outstanding work on our virtual healthcare platform. Progressive, affordable, and accessible.
+          - generic [ref=e1435]:
+            - generic [ref=e1436]: D
+            - generic [ref=e1437]:
+              - paragraph [ref=e1438]: Dr. Emily Clark
+              - paragraph [ref=e1439]: Co-Founder, Trafalgar
+        - generic [ref=e1440]:
+          - generic [ref=e1441]: ★★★★★
+          - generic [ref=e1442]: “
+          - paragraph [ref=e1443]: Working with this talented team was a pleasure. They understood our vision and created stunning graphics that perfectly represent our brand.
+          - generic [ref=e1444]:
+            - generic [ref=e1445]: M
+            - generic [ref=e1446]:
+              - paragraph [ref=e1447]: Mia Johnson
+              - paragraph [ref=e1448]: Owner, Everybody Nail Art Studio
+        - generic [ref=e1449]:
+          - generic [ref=e1450]: ★★★★★
+          - generic [ref=e1451]: “
+          - paragraph [ref=e1452]: Our online presence was completely transformed. The website is vibrant, engaging, and fully aligned with our brand's personality.
+          - generic [ref=e1453]:
+            - generic [ref=e1454]: S
+            - generic [ref=e1455]:
+              - paragraph [ref=e1456]: Suresh Waghle
+              - paragraph [ref=e1457]: Business Owner, Jmomos
+        - generic [ref=e1458]:
+          - generic [ref=e1459]: ★★★★★
+          - generic [ref=e1460]: “
+          - paragraph [ref=e1461]: An absolute game-changer for our sports website. Seamless and visually stunning platform that our users love.
+          - generic [ref=e1462]:
+            - generic [ref=e1463]: A
+            - generic [ref=e1464]:
+              - paragraph [ref=e1465]: Alex Turner
+              - paragraph [ref=e1466]: Founder, Sportify
+        - generic [ref=e1467]:
+          - generic [ref=e1468]: ★★★★★
+          - generic [ref=e1469]: “
+          - paragraph [ref=e1470]: Exceptional work. The dynamic interface powered by advanced motion libraries exceeded our expectations.
+          - generic [ref=e1471]:
+            - generic [ref=e1472]: O
+            - generic [ref=e1473]:
+              - paragraph [ref=e1474]: Olivia Roberts
+              - paragraph [ref=e1475]: CEO, Goodkit
+        - generic [ref=e1476]:
+          - generic [ref=e1477]: ★★★★★
+          - generic [ref=e1478]: “
+          - paragraph [ref=e1479]: Outstanding work on our virtual healthcare platform. Progressive, affordable, and accessible.
+          - generic [ref=e1480]:
+            - generic [ref=e1481]: D
+            - generic [ref=e1482]:
+              - paragraph [ref=e1483]: Dr. Emily Clark
+              - paragraph [ref=e1484]: Co-Founder, Trafalgar
+    - generic [ref=e1486]:
+      - generic [ref=e1490]:
+        - generic:
+          - img
+        - generic [ref=e1492]:
+          - generic [ref=e1493]: Open for projects
+          - heading "Create Magic" [level=2] [ref=e1495]
+          - paragraph [ref=e1496]: Have a product idea? Let's design an experience users will love.
+          - paragraph [ref=e1497]: Drop us a line
+          - link "patelkrenil150@gmail.com" [ref=e1498] [cursor=pointer]:
+            - /url: mailto:patelkrenil150@gmail.com
+        - generic [ref=e1499]:
+          - paragraph [ref=e1500]: Prefer a quick meeting?
+          - button "Start Design Project" [ref=e1501]:
+            - img [ref=e1502]
+            - generic [ref=e1504]: Start Design Project
+            - img [ref=e1505]
+      - generic [ref=e1507]:
+        - link "Email patelkrenil150@gmail.com" [ref=e1508] [cursor=pointer]:
+          - /url: mailto:patelkrenil150@gmail.com
+          - generic [ref=e1509]:
+            - img [ref=e1510]
+            - text: Email
+          - generic [ref=e1513]:
+            - text: patelkrenil150@gmail.com
+            - img [ref=e1514]
+        - link "GitHub github.com/krenilpatel11" [ref=e1517] [cursor=pointer]:
+          - /url: https://github.com/krenilpatel11
+          - generic [ref=e1518]:
+            - img [ref=e1519]
+            - text: GitHub
+          - generic [ref=e1521]:
+            - text: github.com/krenilpatel11
+            - img [ref=e1522]
+        - link "LinkedIn linkedin.com/in/krenilpatel" [ref=e1525] [cursor=pointer]:
+          - /url: https://linkedin.com/in/krenilpatel
+          - generic [ref=e1526]:
+            - img [ref=e1527]
+            - text: LinkedIn
+          - generic [ref=e1531]:
+            - text: linkedin.com/in/krenilpatel
+            - img [ref=e1532]
+        - link "Agency labelflow.store" [ref=e1535] [cursor=pointer]:
+          - /url: https://labelflow.store/
+          - generic [ref=e1536]:
+            - img [ref=e1537]
+            - text: Agency
+          - generic [ref=e1541]:
+            - text: labelflow.store
+            - img [ref=e1542]
+        - link "Behance behance.net/krenilpatel2" [ref=e1545] [cursor=pointer]:
+          - /url: https://www.behance.net/krenilpatel2
+          - generic [ref=e1546]:
+            - img [ref=e1547]
+            - text: Behance
+          - generic [ref=e1549]:
+            - text: behance.net/krenilpatel2
+            - img [ref=e1550]
+    - contentinfo [ref=e1553]:
+      - generic [ref=e1556]:
+        - generic [ref=e1557]: Krenil Patel • Full Stack Engineer • LabelFlow • Azure Certified • Let's Build Together •
+        - generic [ref=e1558]: Krenil Patel • Full Stack Engineer • LabelFlow • Azure Certified • Let's Build Together •
+        - generic [ref=e1559]: Krenil Patel • Full Stack Engineer • LabelFlow • Azure Certified • Let's Build Together •
+        - generic [ref=e1560]: Krenil Patel • Full Stack Engineer • LabelFlow • Azure Certified • Let's Build Together •
+        - generic [ref=e1561]: Krenil Patel • Full Stack Engineer • LabelFlow • Azure Certified • Let's Build Together •
+        - generic [ref=e1562]: Krenil Patel • Full Stack Engineer • LabelFlow • Azure Certified • Let's Build Together •
+      - generic [ref=e1563]:
+        - generic [ref=e1564]:
+          - generic [ref=e1565]:
+            - paragraph [ref=e1566]: KP.
+            - paragraph [ref=e1567]: Full Stack Engineer & Digital Creator based in Vadodara, India.
+          - generic [ref=e1568]:
+            - paragraph [ref=e1569]: Work
+            - list [ref=e1570]:
+              - listitem [ref=e1571]:
+                - link "Projects" [ref=e1572] [cursor=pointer]:
+                  - /url: "#projects"
+              - listitem [ref=e1573]:
+                - link "Services" [ref=e1574] [cursor=pointer]:
+                  - /url: "#services"
+              - listitem [ref=e1575]:
+                - link "Agency" [ref=e1576] [cursor=pointer]:
+                  - /url: https://labelflow.store/
+          - generic [ref=e1577]:
+            - paragraph [ref=e1578]: Connect
+            - list [ref=e1579]:
+              - listitem [ref=e1580]:
+                - link "About" [ref=e1581] [cursor=pointer]:
+                  - /url: "#about"
+              - listitem [ref=e1582]:
+                - link "Experience" [ref=e1583] [cursor=pointer]:
+                  - /url: "#experience"
+              - listitem [ref=e1584]:
+                - link "Contact" [ref=e1585] [cursor=pointer]:
+                  - /url: "#contact"
+          - generic [ref=e1586]:
+            - paragraph [ref=e1587]: Social
+            - list [ref=e1588]:
+              - listitem [ref=e1589]:
+                - link "GitHub" [ref=e1590] [cursor=pointer]:
+                  - /url: https://github.com/krenilpatel11
+              - listitem [ref=e1591]:
+                - link "LinkedIn" [ref=e1592] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/krenilpatel
+              - listitem [ref=e1593]:
+                - link "Behance" [ref=e1594] [cursor=pointer]:
+                  - /url: https://www.behance.net/krenilpatel2
+              - listitem [ref=e1595]:
+                - link "LabelFlow" [ref=e1596] [cursor=pointer]:
+                  - /url: https://labelflow.store/
+          - generic [ref=e1597]:
+            - paragraph [ref=e1598]: Resources
+            - list [ref=e1599]:
+              - listitem [ref=e1600]:
+                - link "Resume" [ref=e1601] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e1602]:
+                - link "Blog" [ref=e1603] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e1604]:
+                - link "Career" [ref=e1605] [cursor=pointer]:
+                  - /url: "#"
+        - generic [ref=e1606]:
+          - paragraph [ref=e1607]: © 2026 Krenil Patel. All Rights Reserved.
+          - paragraph [ref=e1608]: Built with Next.js, Tailwind CSS & ☕
+  - button "🏊 Swimming" [ref=e1611]:
+    - generic [ref=e1612]: 🏊
+    - generic [ref=e1613]: Swimming
+  - alert [ref=e1614]

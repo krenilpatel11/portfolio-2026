@@ -1,23 +1,14 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { CheckCircle2, Loader2, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { FiMail, FiExternalLink, FiLinkedin, FiGithub } from "react-icons/fi";
 import { SiBehance } from "react-icons/si";
 import type { IconType } from "react-icons";
 import { useMood } from "@/context/MoodContext";
+import { useVibeTheme } from "@/context/VibeThemeContext";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
-
-const schema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email"),
-  subject: z.enum(["Web Development", "AI / Cloud Solutions", "UI/UX Design", "Graphic Design", "Other"]),
-  message: z.string().min(20, "Message must be at least 20 characters"),
-});
-type FormData = z.infer<typeof schema>;
+import CalBookingButton from "@/components/CalBookingButton";
 
 interface DirectLink {
   label: string;
@@ -37,35 +28,24 @@ const directLinks: DirectLink[] = [
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const { currentMood } = useMood();
+  const { currentTheme } = useVibeTheme();
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  // Load Typeform embed script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = '//embed.typeform.com/next/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-  const onSubmit = async (data: FormData) => {
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error();
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
-  };
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
-    <section id="contact" className="py-24 md:py-36 ">
+    <section id="contact" className="py-24 md:py-36">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
 
         {/* Two-panel layout */}
@@ -73,11 +53,26 @@ export default function Contact() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: easing }}
-          className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-[var(--border)] mb-0"
+          className="grid md:grid-cols-[45fr_55fr] rounded-2xl overflow-hidden border border-[var(--border)] mb-0"
         >
-          {/* LEFT panel — accent color with highly visible abstract pattern */}
+          {/* LEFT panel — Typeform embed */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: easing }}
+            className="bg-[var(--card-bg)] min-h-[700px] relative"
+          >
+            {/* Typeform embed */}
+            <div 
+              data-tf-live="01KQN3EEEH0XQX0XBXV3BHN2Y0"
+              className="absolute inset-0 w-full h-full"
+              style={{ minHeight: '700px' }}
+            />
+          </motion.div>
+
+          {/* RIGHT panel — accent color with pattern, persona-based title + Schedule Meeting button */}
           <div 
-            className="relative text-white p-10 md:p-14 flex flex-col justify-between min-h-[480px] overflow-hidden transition-colors duration-700"
+            className="relative text-white p-10 md:p-14 flex flex-col justify-between min-h-[700px] overflow-hidden transition-colors duration-700"
             style={{ backgroundColor: currentMood.accentHex }}
           >
             {/* Subtle darker overlay for better pattern contrast */}
@@ -95,26 +90,26 @@ export default function Contact() {
               </span>
 
               <motion.h2
-                key={currentMood.id}
+                key={currentTheme.id}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold font-display leading-[1.05] mb-6 text-white"
               >
-                {currentMood.variants.contact.title}
+                {currentTheme.variants.contact.title}
               </motion.h2>
 
               <motion.p
-                key={`${currentMood.id}-contact-subtitle`}
+                key={`${currentTheme.id}-contact-subtitle`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-sm text-white/80 mb-6"
+                className="text-base text-white/90 mb-8 leading-relaxed"
               >
-                {currentMood.variants.contact.subtitle}
+                {currentTheme.variants.contact.subtitle}
               </motion.p>
 
-              <p className="text-sm text-white/70 uppercase tracking-widest mb-2">Drop us a line</p>
+              <p className="text-xs text-white/70 uppercase tracking-widest mb-2 font-semibold">Drop us a line</p>
               <a
                 href="mailto:patelkrenil150@gmail.com"
                 className="text-base font-semibold underline underline-offset-4 text-white/90 hover:text-white transition-opacity"
@@ -123,155 +118,24 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Arrow button at bottom */}
+            {/* Schedule Meeting Button at bottom */}
             <div className="mt-10 relative z-10">
-              <a
-                href="mailto:patelkrenil150@gmail.com"
-                className="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/30 hover:border-white text-white hover:scale-110 transition-all"
-                aria-label="Email Krenil"
-              >
-                <ArrowUpRight size={20} />
-              </a>
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/70 mb-4">
+                Prefer a quick meeting?
+              </p>
+              
+              <CalBookingButton variant="contact">
+                <motion.span
+                  key={currentTheme.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {currentTheme.variants.contact.ctaButton || "Book a 30-Min Call"}
+                </motion.span>
+              </CalBookingButton>
             </div>
           </div>
-
-          {/* RIGHT panel — form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2, ease: easing }}
-            className="bg-[var(--card-bg)] p-10 md:p-14"
-          >
-            {status === "success" ? (
-              <div className="flex flex-col items-center justify-center h-full gap-4 text-center py-16">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                >
-                  <CheckCircle2 size={56} className="text-[var(--accent)]" />
-                </motion.div>
-                <h3 className="text-xl font-bold text-[var(--foreground)]">Message Sent!</h3>
-                <p className="text-[var(--muted)] text-sm">
-                  Thanks! I&apos;ll get back to you within 24 hours.
-                </p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="text-sm text-[var(--accent)] hover:underline mt-2"
-                >
-                  Send another →
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 h-full flex flex-col justify-between">
-                <div className="space-y-5">
-                  {/* Name */}
-                  <div>
-                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                      Name
-                    </label>
-                    <input
-                      {...register("name")}
-                      placeholder="Your full name"
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                    />
-                    {errors.name && (
-                      <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
-                    )}
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                      Email
-                    </label>
-                    <input
-                      {...register("email")}
-                      type="email"
-                      placeholder="your@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
-                    )}
-                  </div>
-
-                  {/* Subject */}
-                  <div>
-                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                      Subject
-                    </label>
-                    <select
-                      {...register("subject")}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors appearance-none h-12"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E")`,
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'right 1rem center',
-                        backgroundSize: '12px',
-                      }}
-                    >
-                      <option value="">Select a topic</option>
-                      <option>Web Development</option>
-                      <option>AI / Cloud Solutions</option>
-                      <option>UI/UX Design</option>
-                      <option>Graphic Design</option>
-                      <option>Other</option>
-                    </select>
-                    {errors.subject && (
-                      <p className="mt-1 text-xs text-red-500">{errors.subject.message}</p>
-                    )}
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] block mb-1.5">
-                      Message
-                    </label>
-                    <textarea
-                      {...register("message")}
-                      rows={4}
-                      placeholder="Tell me about your project..."
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
-                    />
-                    {errors.message && (
-                      <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>
-                    )}
-                  </div>
-
-                  {status === "error" && (
-                    <p className="text-sm text-red-500">
-                      Something went wrong. Please try again or email directly.
-                    </p>
-                  )}
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[var(--foreground)] text-[var(--background)] font-semibold py-4 rounded-xl hover:opacity-80 transition-opacity disabled:opacity-50 text-sm mt-4"
-                >
-                  {status === "loading" ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" /> Sending...
-                    </>
-                  ) : (
-                    <>
-                      <motion.span
-                        key={currentMood.id}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {currentMood.variants.contact.ctaButton}
-                      </motion.span>
-                      <ArrowUpRight size={16} />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </motion.div>
         </motion.div>
 
         {/* Horizontal strip of direct links */}
@@ -279,7 +143,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4, ease: easing }}
-          className="mt-0 "
+          className="mt-0"
         >
           {directLinks.map((item) => {
             const Icon = item.icon;

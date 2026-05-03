@@ -33,15 +33,7 @@ export function FloatingMoodToggle() {
       title={`Switch vibe — currently: ${currentMood.label}`}
       aria-label="Switch mood"
     >
-      <motion.span
-        key={currentMood.id}
-        initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 0.5 }}
-      >
-        {currentMood.emoji}
-      </motion.span>
-
+     
       {/* Breathing pulse effect */}
       <motion.div
         className="absolute inset-0 rounded-full"

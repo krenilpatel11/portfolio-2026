@@ -5,6 +5,14 @@ import { useMood } from "@/context/MoodContext";
 import { useVibeTheme } from "@/context/VibeThemeContext";
 import { PatternBackground } from "@/components/patterns/PatternBackground";
 import { floatingProjects } from "@/lib/floating-projects";
+import { openCalModal } from "@/lib/cal-init";
+
+// Hook to ensure component only renders after hydration
+function useMounted() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return mounted;
+}
 
 // Chips orbit around the headline block — VERY widely spread, far from center
 // x/y = offset from center (px), floatX/floatY = drift amplitude, dur = seconds per cycle
@@ -73,12 +81,13 @@ function FloatingChip({
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
+  const mounted = useMounted();
   const { currentMood } = useMood();
   const { currentVibe } = useVibeTheme();
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   // Use mood-specific rotating words
-  const rotatingWords = currentMood.variants.heroWords;
+  const rotatingWords = mounted ? currentMood.variants.heroWords : ["Building"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -93,27 +102,31 @@ export default function Hero() {
       className="relative overflow-hidden min-h-screen flex flex-col justify-between"
     >
       {/* Mood-reactive gradient background */}
-      <div 
-        className="absolute inset-0 transition-opacity duration-700"
-        style={{
-          background: `radial-gradient(ellipse 80% 50% at 50% -20%, ${currentMood.accentHex}14, transparent)`,
-        }}
-      />
+      {mounted && (
+        <div 
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{
+            background: `radial-gradient(ellipse 80% 50% at 50% -20%, ${currentMood.accentHex}14, transparent)`,
+          }}
+        />
+      )}
       
       {/* Pattern overlay - more visible */}
       <PatternBackground pattern="organic" opacity={0.06} />
 
       {/* Gradient blobs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
-        <div 
-          className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] transition-colors duration-700" 
-          style={{ backgroundColor: `${currentMood.accentHex}20` }}
-        />
-        <div 
-          className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] transition-colors duration-700"
-          style={{ backgroundColor: `${currentMood.accentHex}14` }}
-        />
-      </div>
+      {mounted && (
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
+          <div 
+            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] transition-colors duration-700" 
+            style={{ backgroundColor: `${currentMood.accentHex}20` }}
+          />
+          <div 
+            className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] transition-colors duration-700"
+            style={{ backgroundColor: `${currentMood.accentHex}14` }}
+          />
+        </div>
+      )}
 
       {/* Inner content */}
       <div className="relative max-w-[1280px] mx-auto w-full px-6 md:px-10 flex-1 flex flex-col justify-center pt-12 pb-12" style={{ zIndex: 20 }}>
@@ -149,35 +162,39 @@ export default function Hero() {
           style={{ position: "relative", zIndex: 20 }}
         >
           <span className="w-6 h-px bg-[var(--muted)]" />
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={currentMood.id}
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.3 }}
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
-            >
-              {currentMood.variants.heroSubtitle}
-            </motion.span>
-          </AnimatePresence>
+          {mounted && (
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentMood.id}
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+              >
+                {currentMood.variants.heroSubtitle}
+              </motion.span>
+            </AnimatePresence>
+          )}
           <span className="w-6 h-px bg-[var(--muted)]" />
         </motion.div>
 
         {/* Headline - mood-reactive title */}
         <div className="text-center max-w-4xl mx-auto mb-8" style={{ position: "relative", zIndex: 20 }}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentMood.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.05] text-[var(--foreground)] mb-4"
-            >
-              {currentMood.variants.heroTitle}
-            </motion.div>
-          </AnimatePresence>
+          {mounted && (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentMood.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.05] text-[var(--foreground)] mb-4"
+              >
+                {currentMood.variants.heroTitle}
+              </motion.div>
+            </AnimatePresence>
+          )}
 
           <div className="overflow-hidden mt-1 pb-2">
             <motion.div
@@ -194,7 +211,7 @@ export default function Hero() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.35, ease: easing }}
                   className="inline-block text-[clamp(2.2rem,4.5vw,4.8rem)] font-bold font-display tracking-[-0.04em] leading-[1.1] text-white px-6 py-1 rounded-2xl accent-reactive"
-                  style={{ backgroundColor: currentMood.accentHex }}
+                  style={mounted ? { backgroundColor: currentMood.accentHex } : { backgroundColor: "#6c3ce1" }}
                 >
                   {rotatingWords[wordIndex]}
                 </motion.span>
@@ -203,25 +220,30 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Vibe-specific description and motto */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentVibe.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="text-center max-w-2xl mx-auto mb-10"
-            style={{ position: "relative", zIndex: 20 }}
-          >
-            <p className="text-base md:text-lg text-[var(--foreground)] mb-3 leading-relaxed">
-              {currentVibe.description}
-            </p>
-            <p className="text-sm text-[var(--muted)] italic font-medium">
-              "{currentVibe.motto}"
-            </p>
-          </motion.div>
-        </AnimatePresence>
+        {/* Theme-specific content (persona-based) */}
+        {mounted && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentMood.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="text-center max-w-2xl mx-auto mb-10"
+              style={{ position: "relative", zIndex: 20 }}
+            >
+              <p className="text-sm text-[var(--muted)] mb-4 leading-relaxed">
+                {currentMood.variants.aboutIntro}
+              </p>
+              <p className="text-base md:text-lg text-[var(--foreground)] mb-3 leading-relaxed font-medium">
+                {currentMood.variants.description}
+              </p>
+              <p className="text-sm text-[var(--muted)] italic">
+                {currentMood.variants.tagline}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        )}
 
         {/* CTAs */}
         <motion.div
@@ -232,96 +254,94 @@ export default function Hero() {
           style={{ position: "relative", zIndex: 20 }}
         >
           <a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-            }}
+            href="/projects"
             className="inline-flex items-center gap-2 bg-[var(--foreground)] text-[var(--background)] font-semibold px-8 py-3.5 rounded-full text-sm hover:opacity-80 transition-opacity"
           >
             See My Work ↓
           </a>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
+          <button
+            onClick={openCalModal}
             className="inline-flex items-center gap-2 border border-[var(--border)] text-[var(--foreground)] font-semibold px-8 py-3.5 rounded-full text-sm hover:border-[var(--foreground)] transition-all"
           >
             Start a Project →
-          </a>
+          </button>
         </motion.div>
       </div>
 
-      {/* Mockup grid - scattered arrangement with actual project images */}
-      <div className="relative overflow-visible pb-20 -mt-8" style={{ zIndex: 20, transformStyle: "preserve-3d" }}>
-        <div className="relative max-w-[1000px] mx-auto px-4" style={{ height: "280px", transformStyle: "preserve-3d" }}>
-          {/* Row 1 - Top scattered (first 3 cards) */}
-          {floatingProjects.slice(0, 3).map((card, index) => {
-            const positions = [
-              "left-[8%] top-0 w-[220px] md:w-[280px]",
-              "left-[32%] top-[20px] w-[200px] md:w-[260px]",
-              "right-[8%] top-[10px] w-[210px] md:w-[270px]",
+      {/* Mockup grid - single line overlapping with subtle float and varied skew */}
+      <div className="relative overflow-visible pb-32 -mt-8" style={{ zIndex: 20, transformStyle: "preserve-3d" }}>
+        <div className="relative max-w-[1200px] mx-auto px-2" style={{ height: "200px", transformStyle: "preserve-3d" }}>
+          {/* All 8 cards in one line with overlap, varied heights, and subtle float */}
+          {floatingProjects.map((card, index) => {
+            // Calculate horizontal position with overlap
+            const baseLeft = 9 + (index * 10.5); // Start at 5%, increment by 10.5% for overlap
+            
+            // Random vertical positions for more natural look
+            const verticalOffsets = ["top-[5px]", "top-[25px]", "top-[15px]", "top-[35px]", "top-[10px]", "top-[30px]", "top-[20px]", "top-[40px]"];
+            const verticalOffset = verticalOffsets[index];
+            
+            // Varied sizes for visual interest
+            const sizes = [
+              "w-[185px] md:w-[225px]",
+              "w-[175px] md:w-[215px]",
+              "w-[180px] md:w-[220px]",
+              "w-[170px] md:w-[210px]",
+              "w-[182px] md:w-[222px]",
+              "w-[178px] md:w-[218px]",
+              "w-[176px] md:w-[216px]",
+              "w-[184px] md:w-[224px]",
             ];
+            const size = sizes[index];
+            
             return (
               <motion.div
                 key={card.src}
-                initial={{ opacity: 0, y: 30, rotate: card.rotate - 1 }}
-                animate={{ opacity: 1, y: 0, rotate: card.rotate }}
-                transition={{ duration: 0.75, delay: card.delay, ease: easing }}
-                className={`absolute ${positions[index]}`}
+                initial={{ opacity: 0, y: 50, rotate: card.rotate - 3 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0, 
+                  rotate: card.rotate 
+                }}
+                transition={{ 
+                  duration: 0.9, 
+                  delay: card.delay, 
+                  ease: easing 
+                }}
+                className={`absolute ${verticalOffset} ${size}`}
                 style={{ 
+                  left: `${baseLeft}%`,
+                  zIndex: 8 - index, // First cards appear on top
                   willChange: "transform, opacity",
                   WebkitTransform: `rotate(${card.rotate}deg)`,
                   backfaceVisibility: "hidden",
                   WebkitBackfaceVisibility: "hidden"
                 }}
               >
-                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
-                  <img 
-                    src={card.src}
-                    alt={card.alt}
-                    width={280}
-                    height={200}
-                    className="w-full h-auto object-cover"
-                    loading="eager"
-                  />
-                </div>
-              </motion.div>
-            );
-          })}
-
-          {/* Row 2 - Bottom scattered (last 2 cards) */}
-          {floatingProjects.slice(3).map((card, index) => {
-            const positions = [
-              "left-[18%] bottom-0 w-[190px] md:w-[240px]",
-              "right-[23%] bottom-[20px] w-[200px] md:w-[250px]",
-            ];
-            return (
-              <motion.div
-                key={card.src}
-                initial={{ opacity: 0, y: 30, rotate: card.rotate + 1 }}
-                animate={{ opacity: 1, y: 0, rotate: card.rotate }}
-                transition={{ duration: 0.75, delay: card.delay, ease: easing }}
-                className={`absolute ${positions[index]}`}
-                style={{ 
-                  willChange: "transform, opacity",
-                  WebkitTransform: `rotate(${card.rotate}deg)`,
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden"
-                }}
-              >
-                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)]">
-                  <img 
-                    src={card.src}
-                    alt={card.alt}
-                    width={250}
-                    height={180}
-                    className="w-full h-auto object-cover"
-                    loading="eager"
-                  />
-                </div>
+                {/* Subtle floating animation wrapper */}
+                <motion.div
+                  animate={{
+                    y: [0, -5, 0], // Reduced from -12 to -5
+                    rotate: [card.rotate, card.rotate + 0.5, card.rotate], // Reduced from +1 to +0.5
+                  }}
+                  transition={{
+                    duration: 4 + (index * 0.3), // Slower, more subtle
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.2,
+                  }}
+                  className="w-full h-full"
+                >
+                  <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--card-bg)] hover:scale-105 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all duration-300 cursor-pointer">
+                    <img 
+                      src={card.src}
+                      alt={card.alt}
+                      width={225}
+                      height={170}
+                      className="w-full h-auto object-cover"
+                      loading="eager"
+                    />
+                  </div>
+                </motion.div>
               </motion.div>
             );
           })}

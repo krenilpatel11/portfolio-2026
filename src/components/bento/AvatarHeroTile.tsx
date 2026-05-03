@@ -15,7 +15,7 @@ export function AvatarHeroTile() {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="relative rounded-2xl border border-[var(--border)] p-4 overflow-hidden noise-overlay accent-reactive h-full flex flex-col"
+      className="relative rounded-2xl border border-[var(--border)] p-3 overflow-hidden noise-overlay accent-reactive h-full flex flex-col"
       style={{
         background: `linear-gradient(135deg, ${currentVibe.colors.primary}15, ${currentVibe.colors.primary}05)`,
         transition: "background 0.7s ease",
@@ -53,13 +53,13 @@ export function AvatarHeroTile() {
       </div>
 
       {/* Avatar - larger and centered */}
-      <div className="flex-1 flex flex-col items-center justify-center mt-8 mb-4">
+      <div className="flex-1 flex flex-col items-center justify-center mt-1 mb-1">
         <AvatarDisplay size="hero" animated showGlow />
       </div>
 
       {/* Name and tagline - compact */}
-      <div className="text-center pb-2">
-        <h3 className="text-2xl font-bold font-display mb-1">{SITE.name}</h3>
+      <div className="text-center pb-1">
+        <h3 className="text-2xl font-bold font-display mb-0.5">{SITE.name}</h3>
         <AnimatePresence mode="wait">
           <motion.p
             key={currentTheme.id}
@@ -67,7 +67,7 @@ export function AvatarHeroTile() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="text-xs text-[var(--muted)] mb-3"
+            className="text-xs text-[var(--muted)] mb-2"
           >
             {currentTheme.variants.tagline}
           </motion.p>

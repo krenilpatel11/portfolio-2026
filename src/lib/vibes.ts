@@ -1,7 +1,7 @@
-// Krenil's 5 Vibes - represents his personality/activities
+// Krenil's 6 Vibes - represents his personality/activities
 // Auto-changes every 5 minutes
 
-export type VibeId = "coding" | "designing" | "gyming" | "riding" | "swimming";
+export type VibeId = "coding" | "designing" | "gyming" | "riding" | "swimming" | "hiking";
 
 export interface Vibe {
   id: VibeId;
@@ -101,6 +101,22 @@ export const vibes: Record<VibeId, Vibe> = {
     description: "Finding flow in the water. Swimming is meditation in motion—breath, rhythm, and pure focus.",
     motto: "Like water, adapt to any challenge and flow forward.",
   },
+  hiking: {
+    id: "hiking",
+    label: "Hiking",
+    emoji: "🥾",
+    colors: {
+      primary: "#16A34A",   // Green
+      secondary: "#84CC16", // Lime
+    },
+    videos: {
+      video1: "/avatars/gifs/hiker1.webm",
+      video2: "/avatars/gifs/hiker2.webm",
+    },
+    poster: "/avatars/posters/magnific_modern-2d-cartoon-webtoon_2903716406.webp",
+    description: "Exploring trails and conquering peaks. Nature resets perspective, challenges endurance, and reminds me what matters.",
+    motto: "Every mountain climbed is a lesson learned.",
+  },
 };
 
-export const vibeOrder: VibeId[] = ["coding", "designing", "gyming", "riding", "swimming"];
+export const vibeOrder: VibeId[] = ["coding", "designing", "gyming", "riding", "swimming", "hiking"];

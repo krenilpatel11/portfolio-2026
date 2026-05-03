@@ -38,6 +38,7 @@ export function VibeThemeProvider({ children }: { children: ReactNode }) {
     gyming: 0,
     riding: 0,
     swimming: 0,
+    hiking: 0,
   };
 
   const getInitialVibeId = (): VibeId => {

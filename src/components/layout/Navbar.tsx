@@ -4,10 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Sun, Moon, X, Shuffle } from "lucide-react";
 import { useVibeTheme } from "@/context/VibeThemeContext";
+import { initCal, openCalModal } from "@/lib/cal-init";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Projects", href: "/projects" },
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
@@ -25,11 +26,20 @@ export default function Navbar() {
     setMounted(true);
     const handler = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handler);
+    initCal(); // Initialize Cal.com once
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
+    
+    // If it's a page route, navigate directly
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
+    
+    // Otherwise scroll to section
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -80,16 +90,28 @@ export default function Navbar() {
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Right: Contact Us + shuffle theme + theme toggle */}
+          {/* Right: Book Meeting + shuffle theme + theme toggle */}
           <div className="flex items-center gap-4">
             
-            <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
-              className="hidden sm:block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors tracking-wide"
-            >
-              Contact Us
-            </a>
+            {/* Book Meeting Button */}
+            {mounted && (
+              <button
+                onClick={openCalModal}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors tracking-wide border border-[var(--border)] rounded-full hover:border-[var(--accent)]"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <motion.span
+                  key={currentTheme.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {currentTheme.variants.contact.ctaButton?.replace('Book a ', '').replace('Schedule ', '') || "Book Call"}
+                </motion.span>
+              </button>
+            )}
 
             {/* Shuffle Persona Button with Tooltip */}
             {mounted && (
