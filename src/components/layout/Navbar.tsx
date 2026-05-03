@@ -2,11 +2,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, X } from "lucide-react";
+import { Sun, Moon, X, Shuffle } from "lucide-react";
+import { useVibeTheme } from "@/context/VibeThemeContext";
+import { initCal, openCalModal } from "@/lib/cal-init";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Projects", href: "/projects" },
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
@@ -15,18 +17,29 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [showThemeTooltip, setShowThemeTooltip] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { currentTheme, shuffleTheme } = useVibeTheme();
 
   useEffect(() => {
     setMounted(true);
     const handler = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handler);
+    initCal(); // Initialize Cal.com once
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
+    
+    // If it's a page route, navigate directly
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
+    
+    // Otherwise scroll to section
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -45,8 +58,8 @@ export default function Navbar() {
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
 
-          {/* Left: Menu button (desktop: nav links; mobile: hamburger "Menu" text) */}
-          <div className="flex items-center">
+          {/* Left: Nav links */}
+          <div className="flex items-center gap-4">
             {/* Desktop nav links */}
             <nav className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
@@ -77,16 +90,66 @@ export default function Navbar() {
             KP<span className="text-[var(--accent)]">.</span>
           </a>
 
-          {/* Right: Contact Us link + theme toggle */}
+          {/* Right: Book Meeting + shuffle theme + theme toggle */}
           <div className="flex items-center gap-4">
-            <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
-              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors tracking-wide"
-            >
-              Contact Us
-            </a>
+            
+            {/* Book Meeting Button */}
+            {mounted && (
+              <button
+                onClick={openCalModal}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors tracking-wide border border-[var(--border)] rounded-full hover:border-[var(--accent)]"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <motion.span
+                  key={currentTheme.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {currentTheme.variants.contact.ctaButton?.replace('Book a ', '').replace('Schedule ', '') || "Book Call"}
+                </motion.span>
+              </button>
+            )}
 
+            {/* Shuffle Persona Button with Tooltip */}
+            {mounted && (
+              <div className="relative">
+                <button
+                  onClick={shuffleTheme}
+                  onMouseEnter={() => setShowThemeTooltip(true)}
+                  onMouseLeave={() => setShowThemeTooltip(false)}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border)] transition-all hover:scale-105 hover:border-[var(--accent)] bg-[var(--card-bg)]"
+                  aria-label="Shuffle persona"
+                  title="Shuffle Persona"
+                >
+                  <span className="text-sm">{currentTheme.emoji}</span>
+                  <span className="text-xs font-semibold text-[var(--foreground)] hidden sm:inline">
+                    {currentTheme.label}
+                  </span>
+                  <Shuffle size={14} className="text-[var(--muted)]" />
+                </button>
+                
+                {/* Tooltip */}
+                <AnimatePresence>
+                  {showThemeTooltip && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 5 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full right-0 mt-2 px-3 py-2 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg shadow-xl text-xs text-[var(--muted)] whitespace-nowrap z-50"
+                    >
+                      Persona shifts every 10 mins or{" "}
+                      <span className="font-semibold text-[var(--foreground)]">shuffle it</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+
+            {/* Theme Toggle Button */}
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

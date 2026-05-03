@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects";
 
@@ -45,16 +46,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="mb-16">
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-xs font-semibold bg-[var(--accent-light)] text-[var(--accent)] px-3 py-1.5 rounded-full">
+              <span key={tag} className="text-xs font-semibold bg-[var(--accent)]/10 text-[var(--accent)] px-3 py-1.5 rounded-full border border-[var(--accent)]/20">
                 {tag}
               </span>
             ))}
           </div>
-          <h1 className="text-[clamp(3rem,7vw,7rem)] font-bold tracking-[-0.04em] leading-[1] mb-4 font-display">
+          <h1 className="text-[clamp(3rem,7vw,5rem)] font-bold tracking-[-0.04em] leading-[1] mb-4 font-display">
             {project.title}
           </h1>
-          <p className="text-xl text-[var(--muted)] font-medium mb-6">{project.subtitle}</p>
-          <p className="text-base text-[var(--muted)] leading-relaxed max-w-2xl">{project.description}</p>
+          <p className="text-xl text-[var(--accent)] font-semibold mb-6">{project.subtitle}</p>
+          <p className="text-base text-[var(--muted)] leading-relaxed max-w-3xl">{project.description}</p>
 
           {/* Links */}
           <div className="flex gap-4 mt-8">
@@ -81,18 +82,24 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
 
-        {/* Project image placeholder */}
-        <div className="w-full aspect-video rounded-3xl bg-gradient-to-br from-[var(--accent-light)] to-[var(--border)] mb-16 flex items-center justify-center">
-          <span className="text-[var(--accent)] font-bold text-lg opacity-40">{project.title}</span>
+        {/* Hero image */}
+        <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--border)] mb-16 relative">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
-        {/* Tech stack */}
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
+        {/* Tech stack & Metrics */}
+        <div className="grid md:grid-cols-3 gap-12 mb-20">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-4">Tech Stack</p>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((t) => (
-                <span key={t} className="text-xs font-semibold border border-[var(--border)] text-[var(--foreground)] px-3 py-1.5 rounded-full">
+                <span key={t} className="text-xs font-semibold border border-[var(--border)] text-[var(--foreground)] px-3 py-1.5 rounded-full hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">
                   {t}
                 </span>
               ))}
@@ -100,11 +107,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
           {project.metrics && (
             <div className="md:col-span-2">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-4">Impact</p>
-              <div className="flex gap-12">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-4">Key Metrics</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 {project.metrics.map((m) => (
                   <div key={m.label}>
-                    <p className="text-4xl font-bold text-[var(--foreground)]">{m.value}</p>
+                    <p className="text-4xl font-bold text-[var(--accent)]">{m.value}</p>
                     <p className="text-sm text-[var(--muted)] mt-1">{m.label}</p>
                   </div>
                 ))}
@@ -113,17 +120,85 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
         </div>
 
+        {/* Case Study Content */}
+        {project.caseStudy && (
+          <div className="space-y-16">
+            {/* Challenge */}
+            <div>
+              <h2 className="text-3xl font-bold mb-4 font-display">The Challenge</h2>
+              <p className="text-base text-[var(--muted)] leading-relaxed max-w-3xl">
+                {project.caseStudy.challenge}
+              </p>
+            </div>
+
+            {/* Solution */}
+            <div>
+              <h2 className="text-3xl font-bold mb-4 font-display">The Solution</h2>
+              <p className="text-base text-[var(--muted)] leading-relaxed max-w-3xl">
+                {project.caseStudy.solution}
+              </p>
+            </div>
+
+            {/* Implementation */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6 font-display">Implementation</h2>
+              <div className="space-y-4 max-w-3xl">
+                {project.caseStudy.implementation.map((item, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center text-sm font-bold border border-[var(--accent)]/20">
+                      {index + 1}
+                    </div>
+                    <p className="text-base text-[var(--muted)] leading-relaxed pt-1">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Additional Images */}
+            {project.caseStudy.images && project.caseStudy.images.length > 1 && (
+              <div className="grid md:grid-cols-2 gap-6">
+                {project.caseStudy.images.slice(1).map((img, index) => (
+                  <div key={index} className="aspect-[4/3] rounded-xl overflow-hidden bg-[var(--card-bg)] border border-[var(--border)] relative">
+                    <Image
+                      src={img}
+                      alt={`${project.title} screenshot ${index + 2}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Results */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6 font-display">Results & Impact</h2>
+              <div className="grid md:grid-cols-2 gap-4 max-w-3xl">
+                {project.caseStudy.results.map((result, index) => (
+                  <div key={index} className="flex gap-3 p-4 rounded-lg border border-[var(--border)] bg-[var(--card-bg)] hover:border-[var(--accent)]/30 transition-colors">
+                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2" />
+                    <p className="text-sm text-[var(--muted)] leading-relaxed">{result}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Next Project */}
-        <div className="border-t border-[var(--border)] pt-16">
+        <div className="border-t border-[var(--border)] pt-16 mt-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-4">Next Project</p>
           <Link
             href={`/projects/${nextProject.slug}`}
             className="group flex items-center justify-between hover:text-[var(--accent)] transition-colors"
           >
-            <span className="text-3xl md:text-5xl font-bold tracking-tight font-display">
-              {nextProject.title}
-            </span>
-            <ArrowUpRight size={32} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <div>
+              <span className="text-3xl md:text-5xl font-bold tracking-tight font-display block mb-2">
+                {nextProject.title}
+              </span>
+              <span className="text-sm text-[var(--muted)]">{nextProject.subtitle}</span>
+            </div>
+            <ArrowUpRight size={32} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0" />
           </Link>
         </div>
       </div>

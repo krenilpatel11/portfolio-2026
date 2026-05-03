@@ -1,0 +1,189 @@
+[     475ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     516ms] [LOG] [Fast Refresh] done in 144ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1186ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1245ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1553ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1633ms] [LOG] [Fast Refresh] done in 188ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1699ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <AvatarHeroTile>
+      <motion.div initial={{opacity:0, ...}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} ...>
+        <div className="relative r..." style={{...}} ref={function useMotionRef.useCallback}>
+          <div>
+          <div>
+          <div className="flex-1 fle...">
+            <AvatarDisplay size="hero" animated={true} showGlow={true}>
+              <AnimatePresence mode="wait">
+                <PresenceChild isPresent={true} initial={undefined} custom={undefined} presenceAffectsLayout={true} ...>
+                  <PopChild pop={false} isPresent={true} anchorX="left" anchorY="top" root={undefined}>
+                    <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                      <motion.div initial={{opacity:0, ...}} animate={{opacity:1,scale:1, ...}} exit={{opacity:0, ...}} ...>
+                        <div className={"relative..."} style={{filter:"dr...", ...}} ...>
+                          <video autoPlay={true} loop={true} muted={true} playsInline={true} preload="auto" ...>
+                            <source
++                             src="/avatars/gifs/coder2.webm"
+-                             src="/avatars/gifs/coder1.webm"
+                              type="video/webm"
+                            >
+                            <source
++                             src="/avatars/gifs/coder2.webm"
+-                             src="/avatars/gifs/coder1.webm"
+                              type="video/mp4"
+                            >
+                            ...
+          ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[    1978ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1979ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777705257739} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2075ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2124ms] [LOG] [Fast Refresh] done in 154ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    9362ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    9421ms] [LOG] [Fast Refresh] done in 163ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   57032ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   57292ms] [LOG] [Fast Refresh] done in 363ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  801555ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  802023ms] [LOG] [Fast Refresh] done in 525ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  806590ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=zEoXKkreDGeF3ulov20CE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  807594ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=zEoXKkreDGeF3ulov20CE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  808780ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  813568ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  813792ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  813954ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  813999ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  814467ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="page" pagePath="page.tsx">
+                        <SegmentTrieNode>
+                        <Home>
+                          <div className="min-h-scre...">
+                            <Navbar>
+                            <Hero>
+                              <section id="hero" className="relative o...">
+                                <div
+                                  className="absolute inset-0 transition-opacity duration-700"
+                                  style={{
++                                   background: "radial-gradient(ellipse 80% 50% at 50% -20%, #F59E0B14, transparent)"
+-                                   background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), ..."
+-                                   background-position-x: "initial"
+-                                   background-position-y: "initial"
+-                                   background-size: "initial"
+-                                   background-repeat: "initial"
+-                                   background-attachment: "initial"
+-                                   background-origin: "initial"
+-                                   background-clip: "initial"
+-                                   background-color: "initial"
+                                  }}
+                                >
+                                ...
+                                  <svg className="w-full h-full">
+                                    <defs>
+                                      <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                        <path
+                                          d="M0,75 Q37.5,25 75,75 T150,75"
++                                         stroke="#F59E0B"
+-                                         stroke="#10B981"
+                                          strokeWidth="2"
+                                          fill="none"
+                                          opacity="0.3"
+                                        >
+                                        <path
+                                          d="M0,100 Q37.5,50 75,100 T150,100"
++                                         stroke="#F59E0B"
+-                                         stroke="#10B981"
+                                          strokeWidth="1.5"
+                                          fill="none"
+                                          opacity="0.25"
+                                        >
+                                        <circle
+                                          cx="37.5"
+                                          cy="50"
+                                          r="4"
++                                         fill="#F59E0B"
+-                                         fill="#10B981"
+                                          opacity="0.3"
+                                        >
+                                        <circle
+                                          cx="112.5"
+                                          cy="50"
+                                          r="3"
++                                         fill="#F59E0B"
+-                                         fill="#10B981"
+                                          opacity="0.25"
+                                        >
+                                    ...
+                                <div className="pointer-ev..." style={{zIndex:0}}>
+                                  <div
+                                    className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px..."
+                                    style={{
++                                     backgroundColor: "#F59E0B20"
+-                                     background-color: "rgba(16, 185, 129, 0.125)"
+                                    }}
+                                  >
+                                  <div
+                                    className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px]..."
+                                    style={{
++                                     backgroundColor: "#F59E0B14"
+-                                     background-color: "rgba(16, 185, 129, 0.08)"
+                                    }}
+                                  >
+                                ...
+                                  <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                    <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                      <span
+                                        className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                        style={{opacity:0,transform:"translateY..."}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
++                                       Crafting pixel-perfect interfaces that users actually enjoy using
+-                                       Crafting complete digital experiences from database to pixel
+                                ...
+                            ...
+                      ...
+                    ...
+        ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[  814524ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  814524ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777706070284} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  816214ms] [LOG] [Fast Refresh] done in 2369ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431

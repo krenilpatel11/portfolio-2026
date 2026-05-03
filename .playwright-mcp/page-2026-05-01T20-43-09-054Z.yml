@@ -1,0 +1,60 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2007]:
+    - navigation [ref=e2008]:
+      - generic [ref=e2009]:
+        - link "Back" [ref=e2010] [cursor=pointer]:
+          - /url: /#projects
+          - img [ref=e2011]
+          - text: Back
+        - generic [ref=e2013]: Web App · 2024
+    - generic [ref=e2014]:
+      - generic [ref=e2015]:
+        - generic [ref=e2016]:
+          - generic [ref=e2017]: AI Powered
+          - generic [ref=e2018]: Full Stack
+          - generic [ref=e2019]: Azure AI
+          - generic [ref=e2020]: Dashboard
+        - heading "ViewVoice" [level=1] [ref=e2021]
+        - paragraph [ref=e2022]: AI Invoice Analytics Platform
+        - paragraph [ref=e2023]: AI-powered invoice processing application using React and Azure AI Document Intelligence. Automated vendor, tax, and financial data extraction at 95% accuracy with real-time analytics and concurrent upload processing.
+        - generic [ref=e2024]:
+          - link "Live Site" [ref=e2025] [cursor=pointer]:
+            - /url: https://view-voice-ui.vercel.app/
+            - text: Live Site
+            - img [ref=e2026]
+          - link "GitHub" [ref=e2029] [cursor=pointer]:
+            - /url: https://github.com/krenilpatel11/ViewVoiceUI
+            - text: GitHub
+            - img [ref=e2030]
+      - generic [ref=e2034]: ViewVoice
+      - generic [ref=e2035]:
+        - generic [ref=e2036]:
+          - paragraph [ref=e2037]: Tech Stack
+          - generic [ref=e2038]:
+            - generic [ref=e2039]: React
+            - generic [ref=e2040]: TypeScript
+            - generic [ref=e2041]: ShadCN/UI
+            - generic [ref=e2042]: Azure AI
+            - generic [ref=e2043]: Node.js
+            - generic [ref=e2044]: Vercel
+        - generic [ref=e2045]:
+          - paragraph [ref=e2046]: Impact
+          - generic [ref=e2047]:
+            - generic [ref=e2048]:
+              - paragraph [ref=e2049]: 95%
+              - paragraph [ref=e2050]: Extraction Accuracy
+            - generic [ref=e2051]:
+              - paragraph [ref=e2052]: 60%
+              - paragraph [ref=e2053]: Processing Time ↓
+      - generic [ref=e2054]:
+        - paragraph [ref=e2055]: Next Project
+        - link "SecurityGate" [ref=e2056] [cursor=pointer]:
+          - /url: /projects/securitygate-community-platform
+          - generic [ref=e2057]: SecurityGate
+          - img [ref=e2058]
+  - button "🎨 Designing" [ref=e1995]:
+    - generic [ref=e1900]: 🎨
+    - generic [ref=e1901]: Designing
+  - button "Open Next.js Dev Tools" [ref=e1907] [cursor=pointer]:
+    - img [ref=e1908]
+  - alert [ref=e1911]: ViewVoice — Krenil Patel

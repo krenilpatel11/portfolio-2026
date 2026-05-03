@@ -2,7 +2,7 @@ export const resume = {
   name: "Krenil Patel",
   role: "Full Stack Software Engineer",
   summary:
-    "Full Stack Software Engineer with 2.5+ years of professional experience specializing in Angular, React, .NET Core, and Microsoft Azure. Microsoft Certified professional with expertise in scalable web application development, RESTful API design, and AI-powered solutions.",
+    "Full Stack Software Engineer with 3+ years of professional experience specializing in Angular, React, .NET Core, and Microsoft Azure. Microsoft Certified professional with expertise in scalable web application development, RESTful API design, and AI-powered solutions.",
   email: "patelkrenil150@gmail.com",
   phone: "+91-7567-419-636",
   location: "Vadodara, Gujarat",

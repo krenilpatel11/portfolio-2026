@@ -1,0 +1,3216 @@
+[    1502ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1621ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1675ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[    1927ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="page" pagePath="page.tsx">
+                        <SegmentTrieNode>
+                        <Home>
+                          <div className="min-h-scre...">
+                            <Navbar>
+                            <Hero>
+                              <section id="hero" className="relative o...">
+                                <div
+                                  className="absolute inset-0 transition-opacity duration-700"
+                                  style={{
++                                   background: "radial-gradient(ellipse 80% 50% at 50% -20%, #F59E0B14, transparent)"
+-                                   background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), ..."
+-                                   background-position-x: "initial"
+-                                   background-position-y: "initial"
+-                                   background-size: "initial"
+-                                   background-repeat: "initial"
+-                                   background-attachment: "initial"
+-                                   background-origin: "initial"
+-                                   background-clip: "initial"
+-                                   background-color: "initial"
+                                  }}
+                                >
+                                ...
+                                  <svg className="w-full h-full">
+                                    <defs>
+                                      <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                        <path
+                                          d="M0,75 Q37.5,25 75,75 T150,75"
++                                         stroke="#F59E0B"
+-                                         stroke="#10B981"
+                                          strokeWidth="2"
+                                          fill="none"
+                                          opacity="0.3"
+                                        >
+                                        <path
+                                          d="M0,100 Q37.5,50 75,100 T150,100"
++                                         stroke="#F59E0B"
+-                                         stroke="#10B981"
+                                          strokeWidth="1.5"
+                                          fill="none"
+                                          opacity="0.25"
+                                        >
+                                        <circle
+                                          cx="37.5"
+                                          cy="50"
+                                          r="4"
++                                         fill="#F59E0B"
+-                                         fill="#10B981"
+                                          opacity="0.3"
+                                        >
+                                        <circle
+                                          cx="112.5"
+                                          cy="50"
+                                          r="3"
++                                         fill="#F59E0B"
+-                                         fill="#10B981"
+                                          opacity="0.25"
+                                        >
+                                    ...
+                                <div className="pointer-ev..." style={{zIndex:0}}>
+                                  <div
+                                    className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px..."
+                                    style={{
++                                     backgroundColor: "#F59E0B20"
+-                                     background-color: "rgba(16, 185, 129, 0.125)"
+                                    }}
+                                  >
+                                  <div
+                                    className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px]..."
+                                    style={{
++                                     backgroundColor: "#F59E0B14"
+-                                     background-color: "rgba(16, 185, 129, 0.08)"
+                                    }}
+                                  >
+                                ...
+                                  <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                    <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                      <span
+                                        className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                        style={{opacity:0,transform:"translateY..."}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
++                                       Crafting pixel-perfect interfaces that users actually enjoy using
+-                                       Crafting complete digital experiences from database to pixel
+                                ...
+                            ...
+                      ...
+                    ...
+        ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[    2095ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2095ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777712599649} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2152ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2172ms] [LOG] [Fast Refresh] done in 129ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2373ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2458ms] [LOG] [Fast Refresh] done in 185ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  146110ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  146240ms] [LOG] [Fast Refresh] done in 232ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  152115ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  152244ms] [LOG] [Fast Refresh] done in 231ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 1002457ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2324500ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2325057ms] [LOG] [Fast Refresh] done in 596ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2340923ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2340992ms] [LOG] [Fast Refresh] done in 171ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2354772ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2356031ms] ReferenceError: currentMood is not defined
+    at WhoAmI (http://localhost:3000/_next/static/chunks/src_0fju.ql._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Fsections%252FWhoAmI.tsx+%255Bapp-client%255D+%2528ecmascript%2529:83:47)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9098:47)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10179:316)
+    at flushSyncWork$1 (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9230:86)
+    at Object.scheduleRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:299:13)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:384:38)
+    at applyUpdate (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:878:31)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:886:13
+[ 2356051ms] [LOG] [Fast Refresh] done in 1230ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2382427ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2382723ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2383583ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2383643ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2383703ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[ 2383964ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="page" pagePath="page.tsx">
+                        <SegmentTrieNode>
+                        <Home>
+                          <div className="min-h-scre...">
+                            <Navbar>
+                            <Hero>
+                              <section id="hero" className="relative o...">
+                                <div
+                                  className="absolute inset-0 transition-opacity duration-700"
+                                  style={{
++                                   background: "radial-gradient(ellipse 80% 50% at 50% -20%, #EF444414, transparent)"
+-                                   background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), ..."
+-                                   background-position-x: "initial"
+-                                   background-position-y: "initial"
+-                                   background-size: "initial"
+-                                   background-repeat: "initial"
+-                                   background-attachment: "initial"
+-                                   background-origin: "initial"
+-                                   background-clip: "initial"
+-                                   background-color: "initial"
+                                  }}
+                                >
+                                ...
+                                  <svg className="w-full h-full">
+                                    <defs>
+                                      <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                        <path
+                                          d="M0,75 Q37.5,25 75,75 T150,75"
++                                         stroke="#EF4444"
+-                                         stroke="#10B981"
+                                          strokeWidth="2"
+                                          fill="none"
+                                          opacity="0.3"
+                                        >
+                                        <path
+                                          d="M0,100 Q37.5,50 75,100 T150,100"
++                                         stroke="#EF4444"
+-                                         stroke="#10B981"
+                                          strokeWidth="1.5"
+                                          fill="none"
+                                          opacity="0.25"
+                                        >
+                                        <circle
+                                          cx="37.5"
+                                          cy="50"
+                                          r="4"
++                                         fill="#EF4444"
+-                                         fill="#10B981"
+                                          opacity="0.3"
+                                        >
+                                        <circle
+                                          cx="112.5"
+                                          cy="50"
+                                          r="3"
++                                         fill="#EF4444"
+-                                         fill="#10B981"
+                                          opacity="0.25"
+                                        >
+                                    ...
+                                <div className="pointer-ev..." style={{zIndex:0}}>
+                                  <div
+                                    className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px..."
+                                    style={{
++                                     backgroundColor: "#EF444420"
+-                                     background-color: "rgba(16, 185, 129, 0.125)"
+                                    }}
+                                  >
+                                  <div
+                                    className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px]..."
+                                    style={{
++                                     backgroundColor: "#EF444414"
+-                                     background-color: "rgba(16, 185, 129, 0.08)"
+                                    }}
+                                  >
+                                ...
+                                  <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                    <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                      <span
+                                        className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                        style={{opacity:0,transform:"translateY..."}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
++                                       Designing systems that scale to millions and stand the test of time
+-                                       Crafting complete digital experiences from database to pixel
+                                ...
+                            ...
+                      ...
+                    ...
+        ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[ 2384062ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2384062ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777714981616} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2474343ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2514110ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23374224ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iv4oY3veyxIIsemBKpnXY' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[23375227ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iv4oY3veyxIIsemBKpnXY' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[23377240ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23379524ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23379671ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23379735ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[23380035ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="page" pagePath="page.tsx">
+                        <SegmentTrieNode>
+                        <Home>
+                          <div className="min-h-scre...">
+                            <Navbar>
+                            <Hero>
+                              <section id="hero" className="relative o...">
+                                <div
+                                  className="absolute inset-0 transition-opacity duration-700"
+                                  style={{
++                                   background: "radial-gradient(ellipse 80% 50% at 50% -20%, #FF6B6B14, transparent)"
+-                                   background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), ..."
+-                                   background-position-x: "initial"
+-                                   background-position-y: "initial"
+-                                   background-size: "initial"
+-                                   background-repeat: "initial"
+-                                   background-attachment: "initial"
+-                                   background-origin: "initial"
+-                                   background-clip: "initial"
+-                                   background-color: "initial"
+                                  }}
+                                >
+                                ...
+                                  <svg className="w-full h-full">
+                                    <defs>
+                                      <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                        <path
+                                          d="M0,75 Q37.5,25 75,75 T150,75"
++                                         stroke="#FF6B6B"
+-                                         stroke="#10B981"
+                                          strokeWidth="2"
+                                          fill="none"
+                                          opacity="0.3"
+                                        >
+                                        <path
+                                          d="M0,100 Q37.5,50 75,100 T150,100"
++                                         stroke="#FF6B6B"
+-                                         stroke="#10B981"
+                                          strokeWidth="1.5"
+                                          fill="none"
+                                          opacity="0.25"
+                                        >
+                                        <circle
+                                          cx="37.5"
+                                          cy="50"
+                                          r="4"
++                                         fill="#FF6B6B"
+-                                         fill="#10B981"
+                                          opacity="0.3"
+                                        >
+                                        <circle
+                                          cx="112.5"
+                                          cy="50"
+                                          r="3"
++                                         fill="#FF6B6B"
+-                                         fill="#10B981"
+                                          opacity="0.25"
+                                        >
+                                    ...
+                                <div className="pointer-ev..." style={{zIndex:0}}>
+                                  <div
+                                    className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px..."
+                                    style={{
++                                     backgroundColor: "#FF6B6B20"
+-                                     background-color: "rgba(16, 185, 129, 0.125)"
+                                    }}
+                                  >
+                                  <div
+                                    className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px]..."
+                                    style={{
++                                     backgroundColor: "#FF6B6B14"
+-                                     background-color: "rgba(16, 185, 129, 0.08)"
+                                    }}
+                                  >
+                                ...
+                                  <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                    <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                      <span
+                                        className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                        style={{opacity:0,transform:"translateY..."}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
++                                       Automating deployments, monitoring everything, sleeping peacefully
+-                                       Crafting complete digital experiences from database to pixel
+                                ...
+                            ...
+                      ...
+                    ...
+        ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[23380315ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23380315ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777735977870} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23680327ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23681774ms] [LOG] [Fast Refresh] done in 1519ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23713744ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23713942ms] [LOG] [Fast Refresh] done in 301ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23741723ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23742569ms] [LOG] [Fast Refresh] done in 813ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23742729ms] ReferenceError: AvatarHeroTile is not defined
+    at WhoAmI (http://localhost:3000/_next/static/chunks/src_03ikso8._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Fsections%252FWhoAmI.tsx+%255Bapp-client%255D+%2528ecmascript%2529:159:246)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:186)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10179:316)
+    at processRootScheduleInMicrotask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10200:106)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10274:158
+[23742767ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23742799ms] [LOG] [Fast Refresh] done in 207ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23786418ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23786912ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23787488ms] [LOG] [Fast Refresh] done in 554ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23788256ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23788326ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23788407ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[23788631ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="page" pagePath="page.tsx">
+                        <SegmentTrieNode>
+                        <Home>
+                          <div className="min-h-scre...">
+                            <Navbar>
+                            <Hero>
+                              <section id="hero" className="relative o...">
+                                <div
+                                  className="absolute inset-0 transition-opacity duration-700"
+                                  style={{
++                                   background: "radial-gradient(ellipse 80% 50% at 50% -20%, #F59E0B14, transparent)"
+-                                   background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), ..."
+-                                   background-position-x: "initial"
+-                                   background-position-y: "initial"
+-                                   background-size: "initial"
+-                                   background-repeat: "initial"
+-                                   background-attachment: "initial"
+-                                   background-origin: "initial"
+-                                   background-clip: "initial"
+-                                   background-color: "initial"
+                                  }}
+                                >
+                                ...
+                                  <svg className="w-full h-full">
+                                    <defs>
+                                      <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                        <path
+                                          d="M0,75 Q37.5,25 75,75 T150,75"
++                                         stroke="#F59E0B"
+-                                         stroke="#10B981"
+                                          strokeWidth="2"
+                                          fill="none"
+                                          opacity="0.3"
+                                        >
+                                        <path
+                                          d="M0,100 Q37.5,50 75,100 T150,100"
++                                         stroke="#F59E0B"
+-                                         stroke="#10B981"
+                                          strokeWidth="1.5"
+                                          fill="none"
+                                          opacity="0.25"
+                                        >
+                                        <circle
+                                          cx="37.5"
+                                          cy="50"
+                                          r="4"
++                                         fill="#F59E0B"
+-                                         fill="#10B981"
+                                          opacity="0.3"
+                                        >
+                                        <circle
+                                          cx="112.5"
+                                          cy="50"
+                                          r="3"
++                                         fill="#F59E0B"
+-                                         fill="#10B981"
+                                          opacity="0.25"
+                                        >
+                                    ...
+                                <div className="pointer-ev..." style={{zIndex:0}}>
+                                  <div
+                                    className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px..."
+                                    style={{
++                                     backgroundColor: "#F59E0B20"
+-                                     background-color: "rgba(16, 185, 129, 0.125)"
+                                    }}
+                                  >
+                                  <div
+                                    className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px]..."
+                                    style={{
++                                     backgroundColor: "#F59E0B14"
+-                                     background-color: "rgba(16, 185, 129, 0.08)"
+                                    }}
+                                  >
+                                ...
+                                  <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                    <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                      <span
+                                        className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                        style={{opacity:0,transform:"translateY..."}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
++                                       Automating deployments, monitoring everything, sleeping peacefully
+-                                       Crafting complete digital experiences from database to pixel
+                                ...
+                            ...
+                      ...
+                    ...
+        ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[23788678ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23788679ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777736386233} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23851617ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23851873ms] [LOG] [Fast Refresh] done in 317ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23877051ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23877214ms] [LOG] [Fast Refresh] done in 265ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23898552ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23899740ms] [LOG] [Fast Refresh] done in 1269ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23902299ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23902802ms] [LOG] [Fast Refresh] done in 609ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23905602ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23905947ms] [LOG] [Fast Refresh] done in 454ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23940685ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23940901ms] [LOG] [Fast Refresh] done in 317ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23990838ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[23991073ms] [LOG] [Fast Refresh] done in 290ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24028230ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24028625ms] [LOG] [Fast Refresh] done in 393ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24063871ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24064128ms] [LOG] [Fast Refresh] done in 331ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24067413ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24067438ms] [LOG] [Fast Refresh] done in 130ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24103378ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24103898ms] [LOG] [Fast Refresh] done in 566ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24104041ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24104084ms] [LOG] [Fast Refresh] done in 144ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24121244ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24121308ms] [LOG] [Fast Refresh] done in 141ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24153375ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24153609ms] [LOG] [Fast Refresh] done in 336ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24230040ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24230617ms] [LOG] [Fast Refresh] done in 647ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24230720ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24230757ms] [LOG] [Fast Refresh] done in 138ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24230889ms] ReferenceError: NameAvailabilityTile is not defined
+    at WhoAmI (http://localhost:3000/_next/static/chunks/src_0l1f7x4._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Fsections%252FWhoAmI.tsx+%255Bapp-client%255D+%2528ecmascript%2529:171:246)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:186)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10179:316)
+    at processRootScheduleInMicrotask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10200:106)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10274:158
+[24231072ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24231082ms] [LOG] [Fast Refresh] done in 111ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24279910ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24280259ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24280822ms] [LOG] [Fast Refresh] done in 414ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24281384ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24281538ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24281596ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[24281763ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                      <Home params={Promise} searchParams={Promise}>
+                        <div className="min-h-scre...">
+                          <Navbar>
+                          <Hero>
+                            <section id="hero" className="relative o...">
+                              <div
+                                className="absolute inset-0 transition-opacity duration-700"
+                                style={{
++                                 background: "radial-gradient(ellipse 80% 50% at 50% -20%, #EF444414, transparent)"
+-                                 background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), tr..."
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "initial"
+                                }}
+                              >
+                              ...
+                                <svg className="w-full h-full">
+                                  <defs>
+                                    <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                      <path
+                                        d="M0,75 Q37.5,25 75,75 T150,75"
++                                       stroke="#EF4444"
+-                                       stroke="#10B981"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        opacity="0.3"
+                                      >
+                                      <path
+                                        d="M0,100 Q37.5,50 75,100 T150,100"
++                                       stroke="#EF4444"
+-                                       stroke="#10B981"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                        opacity="0.25"
+                                      >
+                                      <circle
+                                        cx="37.5"
+                                        cy="50"
+                                        r="4"
++                                       fill="#EF4444"
+-                                       fill="#10B981"
+                                        opacity="0.3"
+                                      >
+                                      <circle
+                                        cx="112.5"
+                                        cy="50"
+                                        r="3"
++                                       fill="#EF4444"
+-                                       fill="#10B981"
+                                        opacity="0.25"
+                                      >
+                                  ...
+                              <div className="pointer-ev..." style={{zIndex:0}}>
+                                <div
+                                  className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] ..."
+                                  style={{
++                                   backgroundColor: "#EF444420"
+-                                   background-color: "rgba(16, 185, 129, 0.125)"
+                                  }}
+                                >
+                                <div
+                                  className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] t..."
+                                  style={{
++                                   backgroundColor: "#EF444414"
+-                                   background-color: "rgba(16, 185, 129, 0.08)"
+                                  }}
+                                >
+                              ...
+                                <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                  <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                    <span
+                                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Automating deployments, monitoring everything, sleeping peacefully
+-                                     Crafting complete digital experiences from database to pixel
+                              ...
+                          ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[24281825ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24281825ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777736879379} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24360128ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24360712ms] [LOG] [Fast Refresh] done in 541ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24514470ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24514508ms] [LOG] [Fast Refresh] done in 146ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24755306ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24755651ms] [LOG] [Fast Refresh] done in 449ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24776400ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24776647ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24776691ms] [LOG] [Fast Refresh] done in 330ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24777143ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24777203ms] [LOG] [Fast Refresh] done in 163ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24778544ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24778694ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24778809ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[24779247ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                      <Home params={Promise} searchParams={Promise}>
+                        <div className="min-h-scre...">
+                          <Navbar>
+                          <Hero>
+                            <section id="hero" className="relative o...">
+                              <div
+                                className="absolute inset-0 transition-opacity duration-700"
+                                style={{
++                                 background: "radial-gradient(ellipse 80% 50% at 50% -20%, #3B82F614, transparent)"
+-                                 background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), tr..."
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "initial"
+                                }}
+                              >
+                              ...
+                                <svg className="w-full h-full">
+                                  <defs>
+                                    <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                      <path
+                                        d="M0,75 Q37.5,25 75,75 T150,75"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        opacity="0.3"
+                                      >
+                                      <path
+                                        d="M0,100 Q37.5,50 75,100 T150,100"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                        opacity="0.25"
+                                      >
+                                      <circle
+                                        cx="37.5"
+                                        cy="50"
+                                        r="4"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.3"
+                                      >
+                                      <circle
+                                        cx="112.5"
+                                        cy="50"
+                                        r="3"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.25"
+                                      >
+                                  ...
+                              <div className="pointer-ev..." style={{zIndex:0}}>
+                                <div
+                                  className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] ..."
+                                  style={{
++                                   backgroundColor: "#3B82F620"
+-                                   background-color: "rgba(16, 185, 129, 0.125)"
+                                  }}
+                                >
+                                <div
+                                  className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] t..."
+                                  style={{
++                                   backgroundColor: "#3B82F614"
+-                                   background-color: "rgba(16, 185, 129, 0.08)"
+                                  }}
+                                >
+                              ...
+                                <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                  <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                    <span
+                                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Automating deployments, monitoring everything, sleeping peacefully
+-                                     Crafting complete digital experiences from database to pixel
+                              ...
+                          ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[24779297ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24779297ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777737376851} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24802097ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24802260ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24802295ms] [LOG] [Fast Refresh] done in 258ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24803631ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24803727ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24803834ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[24804333ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                      <Home params={Promise} searchParams={Promise}>
+                        <div className="min-h-scre...">
+                          <Navbar>
+                          <Hero>
+                            <section id="hero" className="relative o...">
+                              <div
+                                className="absolute inset-0 transition-opacity duration-700"
+                                style={{
++                                 background: "radial-gradient(ellipse 80% 50% at 50% -20%, #3B82F614, transparent)"
+-                                 background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), tr..."
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "initial"
+                                }}
+                              >
+                              ...
+                                <svg className="w-full h-full">
+                                  <defs>
+                                    <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                      <path
+                                        d="M0,75 Q37.5,25 75,75 T150,75"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        opacity="0.3"
+                                      >
+                                      <path
+                                        d="M0,100 Q37.5,50 75,100 T150,100"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                        opacity="0.25"
+                                      >
+                                      <circle
+                                        cx="37.5"
+                                        cy="50"
+                                        r="4"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.3"
+                                      >
+                                      <circle
+                                        cx="112.5"
+                                        cy="50"
+                                        r="3"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.25"
+                                      >
+                                  ...
+                              <div className="pointer-ev..." style={{zIndex:0}}>
+                                <div
+                                  className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] ..."
+                                  style={{
++                                   backgroundColor: "#3B82F620"
+-                                   background-color: "rgba(16, 185, 129, 0.125)"
+                                  }}
+                                >
+                                <div
+                                  className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] t..."
+                                  style={{
++                                   backgroundColor: "#3B82F614"
+-                                   background-color: "rgba(16, 185, 129, 0.08)"
+                                  }}
+                                >
+                              ...
+                                <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                  <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                    <span
+                                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Automating deployments, monitoring everything, sleeping peacefully
+-                                     Crafting complete digital experiences from database to pixel
+                              ...
+                          ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[24804340ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24804340ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777737401894} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24826499ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24826666ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24826696ms] [LOG] [Fast Refresh] done in 265ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24827283ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24827348ms] [LOG] [Fast Refresh] done in 164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24828462ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24828562ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24828617ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[24829072ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                      <Home params={Promise} searchParams={Promise}>
+                        <div className="min-h-scre...">
+                          <Navbar>
+                          <Hero>
+                            <section id="hero" className="relative o...">
+                              <div
+                                className="absolute inset-0 transition-opacity duration-700"
+                                style={{
++                                 background: "radial-gradient(ellipse 80% 50% at 50% -20%, #3B82F614, transparent)"
+-                                 background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), tr..."
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "initial"
+                                }}
+                              >
+                              ...
+                                <svg className="w-full h-full">
+                                  <defs>
+                                    <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                      <path
+                                        d="M0,75 Q37.5,25 75,75 T150,75"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        opacity="0.3"
+                                      >
+                                      <path
+                                        d="M0,100 Q37.5,50 75,100 T150,100"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                        opacity="0.25"
+                                      >
+                                      <circle
+                                        cx="37.5"
+                                        cy="50"
+                                        r="4"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.3"
+                                      >
+                                      <circle
+                                        cx="112.5"
+                                        cy="50"
+                                        r="3"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.25"
+                                      >
+                                  ...
+                              <div className="pointer-ev..." style={{zIndex:0}}>
+                                <div
+                                  className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] ..."
+                                  style={{
++                                   backgroundColor: "#3B82F620"
+-                                   background-color: "rgba(16, 185, 129, 0.125)"
+                                  }}
+                                >
+                                <div
+                                  className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] t..."
+                                  style={{
++                                   backgroundColor: "#3B82F614"
+-                                   background-color: "rgba(16, 185, 129, 0.08)"
+                                  }}
+                                >
+                              ...
+                                <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                  <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                    <span
+                                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Automating deployments, monitoring everything, sleeping peacefully
+-                                     Crafting complete digital experiences from database to pixel
+                              ...
+                          ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[24828993ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[24828993ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777737426548} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25037392ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25038058ms] ReferenceError: vibeOrder is not defined
+    at WhoAmI (http://localhost:3000/_next/static/chunks/src_02.wvmi._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Fsections%252FWhoAmI.tsx+%255Bapp-client%255D+%2528ecmascript%2529:211:51)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:186)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10179:316)
+    at flushSyncWork$1 (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9230:86)
+    at Object.scheduleRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:299:13)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:384:38)
+    at applyUpdate (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:878:31)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:886:13
+[25038124ms] [LOG] [Fast Refresh] done in 689ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25100201ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25100621ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25101312ms] [LOG] [Fast Refresh] done in 480ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25102166ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25102300ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25102384ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25102608ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                      <Home params={Promise} searchParams={Promise}>
+                        <div className="min-h-scre...">
+                          <Navbar>
+                          <Hero>
+                            <section id="hero" className="relative o...">
+                              <div
+                                className="absolute inset-0 transition-opacity duration-700"
+                                style={{
++                                 background: "radial-gradient(ellipse 80% 50% at 50% -20%, #3B82F614, transparent)"
+-                                 background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), tr..."
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "initial"
+                                }}
+                              >
+                              ...
+                                <svg className="w-full h-full">
+                                  <defs>
+                                    <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                      <path
+                                        d="M0,75 Q37.5,25 75,75 T150,75"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        opacity="0.3"
+                                      >
+                                      <path
+                                        d="M0,100 Q37.5,50 75,100 T150,100"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                        opacity="0.25"
+                                      >
+                                      <circle
+                                        cx="37.5"
+                                        cy="50"
+                                        r="4"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.3"
+                                      >
+                                      <circle
+                                        cx="112.5"
+                                        cy="50"
+                                        r="3"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.25"
+                                      >
+                                  ...
+                              <div className="pointer-ev..." style={{zIndex:0}}>
+                                <div
+                                  className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] ..."
+                                  style={{
++                                   backgroundColor: "#3B82F620"
+-                                   background-color: "rgba(16, 185, 129, 0.125)"
+                                  }}
+                                >
+                                <div
+                                  className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] t..."
+                                  style={{
++                                   backgroundColor: "#3B82F614"
+-                                   background-color: "rgba(16, 185, 129, 0.08)"
+                                  }}
+                                >
+                              ...
+                                <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                  <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                    <span
+                                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Automating deployments, monitoring everything, sleeping peacefully
+-                                     Crafting complete digital experiences from database to pixel
+                              ...
+                          ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[25102637ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25102637ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777737700191} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25202785ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25213036ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25214329ms] [LOG] [Fast Refresh] done in 1443ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25214541ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25214579ms] [LOG] [Fast Refresh] done in 140ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25255370ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25256628ms] [LOG] [Fast Refresh] done in 1327ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25256772ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25256991ms] [LOG] [Fast Refresh] done in 320ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25372611ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25373048ms] [LOG] [Fast Refresh] done in 401ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25447864ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25447978ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25448022ms] [LOG] [Fast Refresh] done in 204ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25448265ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25448456ms] [LOG] [Fast Refresh] done in 292ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25450295ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25450393ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25450471ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25451290ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <Home params={Promise} searchParams={Promise}>
+      <div className="min-h-scre...">
+        <Navbar>
+        <Hero>
+          <section id="hero" className="relative o...">
+            <div>
+            <PatternBackground>
+            <div>
+            <div className="relative m..." style={{zIndex:20}}>
+              <div>
+              <motion.div>
+              <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:0.5, ...}} ...>
+                <div className="flex items..." style={{position:"...", ...}} ref={function useMotionRef.useCallback}>
+                  <span>
+                  <AnimatePresence mode="wait">
+                    <PresenceChild isPresent={true} initial={undefined} custom={undefined} presenceAffectsLayout={true} ...>
+                      <PopChild pop={false} isPresent={true} anchorX="left" anchorY="top" root={undefined}>
+                        <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                          <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-5}} ...>
+                            <span
+                              className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                              style={{opacity:0,transform:"translateY..."}}
+                              ref={function useMotionRef.useCallback}
+                            >
++                             Automating deployments, monitoring everything, sleeping peacefully
+-                             Crafting complete digital experiences from database to pixel
+                  ...
+              ...
+            ...
+        ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[25451101ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25451102ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777738048656} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25451465ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25451915ms] [LOG] [Fast Refresh] done in 571ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25488059ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25488497ms] [LOG] [Fast Refresh] done in 459ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25549438ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25549836ms] [LOG] [Fast Refresh] done in 449ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25726615ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25726899ms] [LOG] [Fast Refresh] done in 271ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25781735ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25782028ms] [LOG] [Fast Refresh] done in 343ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25841143ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25841988ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25841990ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25842159ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25842168ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25842169ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25876856ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25876872ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25876873ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25891469ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25891713ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25891714ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892228ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892229ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892311ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892312ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892432ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25892797ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892797ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892799ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892799ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25892899ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25894628ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25894800ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25894801ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25896387ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25896388ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25896433ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25896433ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25896494ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25901333ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25901333ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25901361ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[25901467ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25901468ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[25901521ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[26074338ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[26074353ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[26074353ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[26074443ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[26074444ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[26074463ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27137304ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27137316ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27137321ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27137492ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27137712ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27137712ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27139753ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27139825ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27139825ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27140258ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27140258ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27140299ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27140299ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27140359ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27140419ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27140420ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27140463ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27172797ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27172802ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27172823ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27172823ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27172904ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27173084ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27173084ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27173121ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27174578ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27174579ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27174657ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27174657ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27174719ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27543338ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27543355ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27543355ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27543451ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27543451ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27543462ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27946179ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27946497ms] [ERROR] ./src/components/sections/WhoAmI.tsx:345:9
+Expected corresponding JSX closing tag for <section>
+  343 |
+  344 |         </div>
+> 345 |       </div>)
+      |         ^^^
+  346 |     </section>
+  347 |   );
+  348 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27952875ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27953064ms] [ERROR] ./src/components/sections/WhoAmI.tsx:345:9
+Expected corresponding JSX closing tag for <section>
+  343 |
+  344 |         </div>
+> 345 |       </div>
+      |         ^^^
+  346 |       )
+  347 |     </section>
+  348 |   );
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27977123ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27977335ms] [ERROR] ./src/components/sections/WhoAmI.tsx:347:5
+Expression expected
+  345 |       )
+  346 |       </div>
+> 347 |     </section>
+      |     ^
+  348 |   );
+  349 | }
+  350 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27977337ms] [ERROR] ./src/components/sections/WhoAmI.tsx:347:6
+Unterminated regexp literal
+  345 |       )
+  346 |       </div>
+> 347 |     </section>
+      |      ^^^^^^^^^
+  348 |   );
+  349 | }
+  350 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27979529ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   )
+  348 |   );
+  349 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27979529ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   )
+  348 |   );
+  349 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27979555ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27981019ms] [ERROR] ./src/components/sections/WhoAmI.tsx:345:9
+Expected corresponding JSX closing tag for <section>
+  343 |
+  344 |         </div>
+> 345 |       </div>
+      |         ^^^
+  346 |   )
+  347 |     </section>
+  348 |   );
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27981033ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[27983537ms] [ERROR] ./src/components/sections/WhoAmI.tsx:345:9
+Expected corresponding JSX closing tag for <section>
+  343 |
+  344 |         </div>
+> 345 |       </div>
+      |         ^^^
+  346 |       
+  347 |   )
+  348 |     </section>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[27983542ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28049620ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28049682ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28049682ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28053774ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28053903ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>);
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28053903ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>);
+      |      ^^^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28059808ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28059809ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |     </>
+  348 |   );
+  349 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28059809ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |     </>
+  348 |   );
+  349 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28063072ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:5
+Expression expected
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |     ^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28063073ms] [ERROR] ./src/components/sections/WhoAmI.tsx:346:6
+Unterminated regexp literal
+  344 |         </div>
+  345 |       </div>
+> 346 |     </section>
+      |      ^^^^^^^^^
+  347 |   );
+  348 | }
+  349 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28063090ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28067093ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28067193ms] [ERROR] ./src/components/sections/WhoAmI.tsx:345:5
+Expression expected
+  343 |         </div>
+  344 |       </div>
+> 345 |     </section>
+      |     ^
+  346 |   );
+  347 | }
+  348 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28067193ms] [ERROR] ./src/components/sections/WhoAmI.tsx:345:6
+Unterminated regexp literal
+  343 |         </div>
+  344 |       </div>
+> 345 |     </section>
+      |      ^^^^^^^^^
+  346 |   );
+  347 | }
+  348 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/WhoAmI.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/WhoAmI.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28093676ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28095034ms] [LOG] [Fast Refresh] done in 1208ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28095255ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28095842ms] [LOG] [Fast Refresh] done in 729ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28103073ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28103155ms] [LOG] [Fast Refresh] done in 184ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28154484ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=_Jnoeqorr2LYQU-vxUGEn' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[28155490ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=_Jnoeqorr2LYQU-vxUGEn' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[28158235ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28161241ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28161481ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28161591ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[28162119ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                      <Home params={Promise} searchParams={Promise}>
+                        <div className="min-h-scre...">
+                          <Navbar>
+                          <Hero>
+                            <section id="hero" className="relative o...">
+                              <div
+                                className="absolute inset-0 transition-opacity duration-700"
+                                style={{
++                                 background: "radial-gradient(ellipse 80% 50% at 50% -20%, #3B82F614, transparent)"
+-                                 background-image: "radial-gradient(80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), tr..."
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "initial"
+                                }}
+                              >
+                              ...
+                                <svg className="w-full h-full">
+                                  <defs>
+                                    <pattern id="organic" x="0" y="0" width="150" height="150" ...>
+                                      <path
+                                        d="M0,75 Q37.5,25 75,75 T150,75"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        opacity="0.3"
+                                      >
+                                      <path
+                                        d="M0,100 Q37.5,50 75,100 T150,100"
++                                       stroke="#3B82F6"
+-                                       stroke="#10B981"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                        opacity="0.25"
+                                      >
+                                      <circle
+                                        cx="37.5"
+                                        cy="50"
+                                        r="4"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.3"
+                                      >
+                                      <circle
+                                        cx="112.5"
+                                        cy="50"
+                                        r="3"
++                                       fill="#3B82F6"
+-                                       fill="#10B981"
+                                        opacity="0.25"
+                                      >
+                                  ...
+                              <div className="pointer-ev..." style={{zIndex:0}}>
+                                <div
+                                  className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-[120px] ..."
+                                  style={{
++                                   backgroundColor: "#3B82F620"
+-                                   background-color: "rgba(16, 185, 129, 0.125)"
+                                  }}
+                                >
+                                <div
+                                  className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full blur-[100px] t..."
+                                  style={{
++                                   backgroundColor: "#3B82F614"
+-                                   background-color: "rgba(16, 185, 129, 0.08)"
+                                  }}
+                                >
+                              ...
+                                <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                  <motion.span initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} ...>
+                                    <span
+                                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Creating interfaces that feel intuitive and look stunning
+-                                     Crafting complete digital experiences from database to pixel
+                              ...
+                          ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3372:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[28162186ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[28162186ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777740759741} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431

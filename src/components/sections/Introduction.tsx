@@ -45,10 +45,10 @@ export default function Introduction() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="about" className="py-0 border-t border-[var(--border)]">
+    <section id="about" className="py-0 ">
 
       {/* Main text block — narrow centered with top/bottom border */}
-      <div className="border-b border-[var(--border)] py-16 md:py-24">
+      <div className="border-b border-[var(--border)] py-16 md:py-16 scroll-mt-20">
         <div ref={ref} className="max-w-2xl mx-auto px-6 md:px-10 text-center">
           <motion.p
             initial={{ opacity: 0, y: 16 }}

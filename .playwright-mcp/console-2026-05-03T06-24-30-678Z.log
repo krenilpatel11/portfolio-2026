@@ -1,0 +1,872 @@
+[     723ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     809ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     865ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[    1040ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <div className="min-h-scre...">
+                <Navbar>
+                <Hero>
+                  <section id="hero" className="relative o...">
+                    <PatternBackground pattern="organic" opacity={0.06}>
+                      <div className={"absolute..."} style={{opacity:0.06}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="organic" x="0" y="0" width="150" height="150" patternUnits="userSpaceO...">
+                              <path
+                                d="M0,75 Q37.5,25 75,75 T150,75"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.3"
+                              >
+                              <path
+                                d="M0,100 Q37.5,50 75,100 T150,100"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                fill="none"
+                                opacity="0.25"
+                              >
+                              <circle
+                                cx="37.5"
+                                cy="50"
+                                r="4"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.3"
+                              >
+                              <circle
+                                cx="112.5"
+                                cy="50"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.25"
+                              >
+                          ...
+                    ...
+                <WhoAmI>
+                  <section id="about" className="relative p...">
+                    <PatternBackground pattern="geometric" opacity={0.05}>
+                      <div className={"absolute..."} style={{opacity:0.05}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="geometric" x="0" y="0" width="80" height="80" patternUnits="userSpaceO...">
+                              <rect
+                                x="8"
+                                y="8"
+                                width="25"
+                                height="25"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.5"
+                              >
+                              <circle
+                                cx="60"
+                                cy="60"
+                                r="18"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.45"
+                              >
+                              <polygon
+                                points="60,18 72,38 48,38"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.48"
+                              >
+                              <line
+                                x1="8"
+                                y1="60"
+                                x2="33"
+                                y2="60"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <line
+                                x1="60"
+                                y1="8"
+                                x2="60"
+                                y2="33"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <circle
+                                cx="40"
+                                cy="40"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.5"
+                              >
+                          ...
+                    ...
+                      <PopChild pop={false} isPresent={true} anchorX="left" anchorY="top" root={undefined}>
+                        <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                          <motion.p initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-5}} ...>
+                            <p className="text-xs fo..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
++                             Swimming
+-                             Coding
+                              ...
+                ...
+        ...
+      ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:7021:36)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[    1046ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1168ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1168ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777789471846} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    2291ms] [LOG] [Fast Refresh] done in 1473ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   38618ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   39101ms] [LOG] [Fast Refresh] done in 585ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   47926ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   48586ms] [LOG] [Fast Refresh] done in 716ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   57308ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   58119ms] ReferenceError: handleBookingClick is not defined
+    at Navbar (http://localhost:3000/_next/static/chunks/src_0dvmeve._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Flayout%252FNavbar.tsx+%255Bapp-client%255D+%2528ecmascript%2529:165:46)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:186)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10179:316)
+    at flushSyncWork$1 (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9230:86)
+    at Object.scheduleRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:299:13)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:384:38)
+    at applyUpdate (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:878:31)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:886:13
+[   58183ms] [LOG] [Fast Refresh] done in 807ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   71529ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   71826ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   72453ms] [LOG] [Fast Refresh] done in 391ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   72920ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   72972ms] [LOG] [Fast Refresh] done in 153ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   74027ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   74138ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   74201ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   74541ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <div className="min-h-scre...">
+                <Navbar>
+                <Hero>
+                  <section id="hero" className="relative o...">
+                    <PatternBackground pattern="organic" opacity={0.06}>
+                      <div className={"absolute..."} style={{opacity:0.06}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="organic" x="0" y="0" width="150" height="150" patternUnits="userSpaceO...">
+                              <path
+                                d="M0,75 Q37.5,25 75,75 T150,75"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.3"
+                              >
+                              <path
+                                d="M0,100 Q37.5,50 75,100 T150,100"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                fill="none"
+                                opacity="0.25"
+                              >
+                              <circle
+                                cx="37.5"
+                                cy="50"
+                                r="4"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.3"
+                              >
+                              <circle
+                                cx="112.5"
+                                cy="50"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.25"
+                              >
+                          ...
+                    ...
+                <WhoAmI>
+                  <section id="about" className="relative p...">
+                    <PatternBackground pattern="geometric" opacity={0.05}>
+                      <div className={"absolute..."} style={{opacity:0.05}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="geometric" x="0" y="0" width="80" height="80" patternUnits="userSpaceO...">
+                              <rect
+                                x="8"
+                                y="8"
+                                width="25"
+                                height="25"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.5"
+                              >
+                              <circle
+                                cx="60"
+                                cy="60"
+                                r="18"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.45"
+                              >
+                              <polygon
+                                points="60,18 72,38 48,38"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.48"
+                              >
+                              <line
+                                x1="8"
+                                y1="60"
+                                x2="33"
+                                y2="60"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <line
+                                x1="60"
+                                y1="8"
+                                x2="60"
+                                y2="33"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <circle
+                                cx="40"
+                                cy="40"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.5"
+                              >
+                          ...
+                    ...
+                      <PopChild pop={false} isPresent={true} anchorX="left" anchorY="top" root={undefined}>
+                        <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                          <motion.p initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-5}} ...>
+                            <p className="text-xs fo..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
++                             Swimming
+-                             Coding
+                              ...
+                ...
+        ...
+      ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:7021:36)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[   74436ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   74436ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777789545114} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   81270ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   82507ms] [LOG] [Fast Refresh] done in 1318ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   90555ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   90638ms] ReferenceError: handleBookingClick is not defined
+    at Hero (http://localhost:3000/_next/static/chunks/src_0dvmeve._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Fsections%252FHero.tsx+%255Bapp-client%255D+%2528ecmascript%2529:618:42)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9098:47)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10179:316)
+    at flushSyncWork$1 (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9230:86)
+    at Object.scheduleRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:299:13)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:384:38)
+    at applyUpdate (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:878:31)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:886:13
+[   90662ms] [LOG] [Fast Refresh] done in 89ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   90824ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   90900ms] [LOG] [Fast Refresh] done in 176ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  100395ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  100399ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  100732ms] [LOG] [Fast Refresh] done in 100ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  101680ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  101750ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  101843ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  102052ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <div className="min-h-scre...">
+                <Navbar>
+                <Hero>
+                  <section id="hero" className="relative o...">
+                    <PatternBackground pattern="organic" opacity={0.06}>
+                      <div className={"absolute..."} style={{opacity:0.06}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="organic" x="0" y="0" width="150" height="150" patternUnits="userSpaceO...">
+                              <path
+                                d="M0,75 Q37.5,25 75,75 T150,75"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.3"
+                              >
+                              <path
+                                d="M0,100 Q37.5,50 75,100 T150,100"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                fill="none"
+                                opacity="0.25"
+                              >
+                              <circle
+                                cx="37.5"
+                                cy="50"
+                                r="4"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.3"
+                              >
+                              <circle
+                                cx="112.5"
+                                cy="50"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.25"
+                              >
+                          ...
+                    ...
+                <WhoAmI>
+                  <section id="about" className="relative p...">
+                    <PatternBackground pattern="geometric" opacity={0.05}>
+                      <div className={"absolute..."} style={{opacity:0.05}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="geometric" x="0" y="0" width="80" height="80" patternUnits="userSpaceO...">
+                              <rect
+                                x="8"
+                                y="8"
+                                width="25"
+                                height="25"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.5"
+                              >
+                              <circle
+                                cx="60"
+                                cy="60"
+                                r="18"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.45"
+                              >
+                              <polygon
+                                points="60,18 72,38 48,38"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.48"
+                              >
+                              <line
+                                x1="8"
+                                y1="60"
+                                x2="33"
+                                y2="60"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <line
+                                x1="60"
+                                y1="8"
+                                x2="60"
+                                y2="33"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <circle
+                                cx="40"
+                                cy="40"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.5"
+                              >
+                          ...
+                    ...
+                      <PopChild pop={false} isPresent={true} anchorX="left" anchorY="top" root={undefined}>
+                        <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                          <motion.p initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-5}} ...>
+                            <p className="text-xs fo..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
++                             Swimming
+-                             Coding
+                              ...
+                ...
+        ...
+      ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:7021:36)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[  102103ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  102104ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777789572781} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  110083ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  110572ms] [LOG] [Fast Refresh] done in 389ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  120651ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  121130ms] [LOG] [Fast Refresh] done in 441ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  143014ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  143490ms] [LOG] [Fast Refresh] done in 580ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  154311ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  155023ms] ReferenceError: handleClick is not defined
+    at CalBookingButton (http://localhost:3000/_next/static/chunks/src_0dvmeve._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252FCalBookingButton.tsx+%255Bapp-client%255D+%2528ecmascript%2529:94:22)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9098:47)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10179:316)
+    at flushSyncWork$1 (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9230:86)
+    at Object.scheduleRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:299:13)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:384:38)
+    at applyUpdate (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:878:31)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:886:13
+[  155028ms] [LOG] [Fast Refresh] done in 635ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  189758ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  190002ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  190573ms] [LOG] [Fast Refresh] done in 339ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  191553ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  191653ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  191740ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  191950ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <div className="min-h-scre...">
+                <Navbar>
+                <Hero>
+                  <section id="hero" className="relative o...">
+                    <PatternBackground pattern="organic" opacity={0.06}>
+                      <div className={"absolute..."} style={{opacity:0.06}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="organic" x="0" y="0" width="150" height="150" patternUnits="userSpaceO...">
+                              <path
+                                d="M0,75 Q37.5,25 75,75 T150,75"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.3"
+                              >
+                              <path
+                                d="M0,100 Q37.5,50 75,100 T150,100"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                fill="none"
+                                opacity="0.25"
+                              >
+                              <circle
+                                cx="37.5"
+                                cy="50"
+                                r="4"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.3"
+                              >
+                              <circle
+                                cx="112.5"
+                                cy="50"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.25"
+                              >
+                          ...
+                    ...
+                <WhoAmI>
+                  <section id="about" className="relative p...">
+                    <PatternBackground pattern="geometric" opacity={0.05}>
+                      <div className={"absolute..."} style={{opacity:0.05}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="geometric" x="0" y="0" width="80" height="80" patternUnits="userSpaceO...">
+                              <rect
+                                x="8"
+                                y="8"
+                                width="25"
+                                height="25"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.5"
+                              >
+                              <circle
+                                cx="60"
+                                cy="60"
+                                r="18"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.45"
+                              >
+                              <polygon
+                                points="60,18 72,38 48,38"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.48"
+                              >
+                              <line
+                                x1="8"
+                                y1="60"
+                                x2="33"
+                                y2="60"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <line
+                                x1="60"
+                                y1="8"
+                                x2="60"
+                                y2="33"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <circle
+                                cx="40"
+                                cy="40"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.5"
+                              >
+                          ...
+                    ...
+                      <PopChild pop={false} isPresent={true} anchorX="left" anchorY="top" root={undefined}>
+                        <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                          <motion.p initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-5}} ...>
+                            <p className="text-xs fo..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
++                             Swimming
+-                             Coding
+                              ...
+                ...
+        ...
+      ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:7021:36)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[  192021ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  192021ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777789662698} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  199672ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  200675ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  201681ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  202685ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  203692ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  208698ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  213702ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  218708ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=CSn7NY_hQH_5YdpWRWJxc' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13299
+[  223961ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  225661ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  225825ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  225929ms] [ERROR] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  226186ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <div className="min-h-scre...">
+                <Navbar>
+                <Hero>
+                  <section id="hero" className="relative o...">
+                    <PatternBackground pattern="organic" opacity={0.06}>
+                      <div className={"absolute..."} style={{opacity:0.06}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="organic" x="0" y="0" width="150" height="150" patternUnits="userSpaceO...">
+                              <path
+                                d="M0,75 Q37.5,25 75,75 T150,75"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.3"
+                              >
+                              <path
+                                d="M0,100 Q37.5,50 75,100 T150,100"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                fill="none"
+                                opacity="0.25"
+                              >
+                              <circle
+                                cx="37.5"
+                                cy="50"
+                                r="4"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.3"
+                              >
+                              <circle
+                                cx="112.5"
+                                cy="50"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.25"
+                              >
+                          ...
+                    ...
+                <WhoAmI>
+                  <section id="about" className="relative p...">
+                    <PatternBackground pattern="geometric" opacity={0.05}>
+                      <div className={"absolute..."} style={{opacity:0.05}}>
+                        <svg className="w-full h-full">
+                          <defs>
+                            <pattern id="geometric" x="0" y="0" width="80" height="80" patternUnits="userSpaceO...">
+                              <rect
+                                x="8"
+                                y="8"
+                                width="25"
+                                height="25"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.5"
+                              >
+                              <circle
+                                cx="60"
+                                cy="60"
+                                r="18"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.45"
+                              >
+                              <polygon
+                                points="60,18 72,38 48,38"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="2"
+                                fill="none"
+                                opacity="0.48"
+                              >
+                              <line
+                                x1="8"
+                                y1="60"
+                                x2="33"
+                                y2="60"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <line
+                                x1="60"
+                                y1="8"
+                                x2="60"
+                                y2="33"
++                               stroke="#3B82F6"
+-                               stroke="#10B981"
+                                strokeWidth="1.5"
+                                opacity="0.4"
+                              >
+                              <circle
+                                cx="40"
+                                cy="40"
+                                r="3"
++                               fill="#3B82F6"
+-                               fill="#10B981"
+                                opacity="0.5"
+                              >
+                          ...
+                    ...
+                      <PopChild pop={false} isPresent={true} anchorX="left" anchorY="top" root={undefined}>
+                        <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                          <motion.p initial={{opacity:0,y:5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-5}} ...>
+                            <p className="text-xs fo..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
++                             Swimming
+-                             Coding
+                              ...
+                ...
+        ...
+      ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:7021:36)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[  226281ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  226282ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 2.0.1, ts: 1777789696959} /_vercel/insights/view @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431

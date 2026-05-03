@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FiBriefcase, FiEdit, FiBook, FiExternalLink } from "react-icons/fi";
 import type { IconType } from "react-icons";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 
 const experiences: {
   period: string;
@@ -77,9 +78,12 @@ export default function ExperienceTimeline() {
   return (
     <section
       id="experience"
-      className="py-24 md:py-36 border-t border-[var(--border)]"
+      className="relative py-16 md:py-20 scroll-mt-20  overflow-hidden"
     >
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
+      {/* Pattern background */}
+      <PatternBackground pattern="circuit" opacity={0.04} />
+      
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

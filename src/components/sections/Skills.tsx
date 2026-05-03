@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { PatternBackground } from "@/components/patterns/PatternBackground";
 import {
   FiMonitor, FiServer, FiDatabase, FiCpu,
   FiFeather, FiAward, FiZap, FiCloud, FiExternalLink,
@@ -9,7 +10,7 @@ import {
   SiReact, SiAngular, SiNextdotjs, SiTypescript, SiJavascript,
   SiTailwindcss, SiDotnet, SiSharp, SiNodedotjs, SiMysql,
   SiMongodb, SiDocker, SiGit, SiGithub, SiFigma, SiPostman,
-  SiHtml5, SiCss,
+  SiHtml5, SiCss, SiRedis,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
@@ -21,6 +22,7 @@ const skillIconMap: Record<string, IconType> = {
   Docker: SiDocker, Git: SiGit, GitHub: SiGithub, Figma: SiFigma,
   Postman: SiPostman, HTML5: SiHtml5, CSS3: SiCss,
   "Microsoft Azure": FiCloud, "Azure AI": FiCpu,
+  AWS: FiCloud, Redis: SiRedis,
 };
 
 const skillGroups = [
@@ -46,7 +48,7 @@ const skillGroups = [
     bg: "rgba(34,197,94,0.1)",
     tx: "#16a34a",
     GroupIcon: FiDatabase,
-    skills: ["SQL Server","MySQL","Azure SQL","Entity Framework","MongoDB"],
+    skills: ["SQL Server","MySQL","Azure SQL","Entity Framework","MongoDB","Redis"],
   },
   {
     label: "Cloud & DevOps",
@@ -54,7 +56,7 @@ const skillGroups = [
     bg: "rgba(249,115,22,0.1)",
     tx: "#ea580c",
     GroupIcon: FiCloud,
-    skills: ["Microsoft Azure","Azure AI","Azure Web Apps","Docker","CI/CD","Git","GitHub"],
+    skills: ["Microsoft Azure","AWS","Azure AI","Azure Web Apps","Docker","CI/CD","Git","GitHub","Kubernetes"],
   },
   {
     label: "AI & ML",
@@ -128,8 +130,11 @@ export default function Skills() {
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <section id="skills" className="py-24 md:py-36 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10" ref={ref}>
+    <section id="skills" className="relative py-16 md:py-20 scroll-mt-20  overflow-hidden">
+      {/* Pattern background - more visible */}
+      <PatternBackground pattern="hexagon" opacity={0.05} />
+      
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10" ref={ref}>
 
         {/* ── Header ── */}
         <motion.div
