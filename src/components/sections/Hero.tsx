@@ -270,27 +270,30 @@ export default function Hero() {
       </div>
 
       {/* Mockup grid - single line overlapping with subtle float and varied skew */}
-      <div className="relative overflow-visible pb-32 -mt-8" style={{ zIndex: 20, transformStyle: "preserve-3d" }}>
-        <div className="relative max-w-[1200px] mx-auto px-2" style={{ height: "200px", transformStyle: "preserve-3d" }}>
+      <div className="relative overflow-visible pb-32 -mt-8 px-4 md:px-2" style={{ zIndex: 20, transformStyle: "preserve-3d" }}>
+        <div className="relative max-w-[1200px] mx-auto" style={{ height: "200px", transformStyle: "preserve-3d" }}>
           {/* All 8 cards in one line with overlap, varied heights, and subtle float */}
           {floatingProjects.map((card, index) => {
             // Calculate horizontal position with overlap
-            const baseLeft = 9 + (index * 10.5); // Start at 5%, increment by 10.5% for overlap
+            // Mobile: start at 2% with 10% increment for better spacing
+            // Desktop: start at 9% with 10.5% increment
+            const baseLeft = 2 + (index * 10); // Mobile-first positioning
+            const baseLeftDesktop = 9 + (index * 10.5); // Desktop positioning
             
             // Random vertical positions for more natural look
             const verticalOffsets = ["top-[5px]", "top-[25px]", "top-[15px]", "top-[35px]", "top-[10px]", "top-[30px]", "top-[20px]", "top-[40px]"];
             const verticalOffset = verticalOffsets[index];
             
-            // Varied sizes for visual interest
+            // Varied sizes for visual interest - smaller on mobile
             const sizes = [
-              "w-[185px] md:w-[225px]",
-              "w-[175px] md:w-[215px]",
-              "w-[180px] md:w-[220px]",
-              "w-[170px] md:w-[210px]",
-              "w-[182px] md:w-[222px]",
-              "w-[178px] md:w-[218px]",
-              "w-[176px] md:w-[216px]",
-              "w-[184px] md:w-[224px]",
+              "w-[120px] md:w-[225px]",
+              "w-[115px] md:w-[215px]",
+              "w-[118px] md:w-[220px]",
+              "w-[112px] md:w-[210px]",
+              "w-[120px] md:w-[222px]",
+              "w-[116px] md:w-[218px]",
+              "w-[114px] md:w-[216px]",
+              "w-[122px] md:w-[224px]",
             ];
             const size = sizes[index];
             

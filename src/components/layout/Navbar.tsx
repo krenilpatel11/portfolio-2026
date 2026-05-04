@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, X, Shuffle } from "lucide-react";
+import { Sun, Moon, X, Shuffle, Menu } from "lucide-react";
 import { useVibeTheme } from "@/context/VibeThemeContext";
 import { initCal, openCalModal } from "@/lib/cal-init";
 
@@ -73,12 +73,13 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Mobile: "Menu" text button */}
+            {/* Mobile: Hamburger icon button */}
             <button
               onClick={() => setMenuOpen(true)}
-              className="md:hidden text-sm font-semibold text-[var(--foreground)] tracking-wide hover:text-[var(--accent)] transition-colors"
+              className="md:hidden p-2 text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
+              aria-label="Open menu"
             >
-              Menu
+              <Menu size={24} />
             </button>
           </div>
 
