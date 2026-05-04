@@ -1,0 +1,107 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "Back" [ref=e5] [cursor=pointer]:
+          - /url: /#projects
+          - img [ref=e6]
+          - text: Back
+        - generic [ref=e8]: Dashboard · 2024
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - generic [ref=e12]: Enterprise
+          - generic [ref=e13]: Dashboard
+          - generic [ref=e14]: Cloud
+        - heading "Training System" [level=1] [ref=e15]
+        - paragraph [ref=e16]: Enterprise Employee Training Platform
+        - paragraph [ref=e17]: Enterprise employee training platform built at IMRIEL Software with Angular, ASP.NET Core, SQL Server and Azure. REST APIs, cloud storage, and analytics dashboard. Improved training efficiency by 30%.
+        - link "GitHub" [ref=e19] [cursor=pointer]:
+          - /url: https://github.com/krenilpatel11
+          - text: GitHub
+          - img [ref=e20]
+      - img "Training System" [ref=e24]
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - paragraph [ref=e27]: Tech Stack
+          - generic [ref=e28]:
+            - generic [ref=e29]: Angular
+            - generic [ref=e30]: ASP.NET Core
+            - generic [ref=e31]: SQL Server
+            - generic [ref=e32]: Azure
+            - generic [ref=e33]: Chart.js
+        - generic [ref=e34]:
+          - paragraph [ref=e35]: Key Metrics
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - paragraph [ref=e38]: 30%
+              - paragraph [ref=e39]: Efficiency Gain
+            - generic [ref=e40]:
+              - paragraph [ref=e41]: 90%+
+              - paragraph [ref=e42]: Test Coverage
+            - generic [ref=e43]:
+              - paragraph [ref=e44]: 500+
+              - paragraph [ref=e45]: Active Users
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - heading "The Challenge" [level=2] [ref=e48]
+          - paragraph [ref=e49]: IMRIEL Software needed a comprehensive training management system to streamline employee onboarding, track course completion, and measure learning outcomes. The existing manual process involved spreadsheets, email coordination, and paper-based assessments, leading to poor visibility into training progress, inconsistent record-keeping, and difficulty measuring training effectiveness across 500+ employees.
+        - generic [ref=e50]:
+          - heading "The Solution" [level=2] [ref=e51]
+          - paragraph [ref=e52]: Developed a full-stack enterprise training platform with Angular frontend and ASP.NET Core backend, integrated with SQL Server and Azure Cloud. The system provides role-based dashboards for employees, trainers, and administrators, automated course enrollment, progress tracking, assessment management, and comprehensive analytics. Implemented secure cloud storage for training materials and real-time reporting for training compliance.
+        - generic [ref=e53]:
+          - heading "Implementation" [level=2] [ref=e54]
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: "1"
+              - paragraph [ref=e58]: Built scalable backend architecture with ASP.NET Core Web API using repository pattern and dependency injection
+            - generic [ref=e59]:
+              - generic [ref=e60]: "2"
+              - paragraph [ref=e61]: Designed normalized SQL Server database schema with optimized indexing for course, user, and assessment data
+            - generic [ref=e62]:
+              - generic [ref=e63]: "3"
+              - paragraph [ref=e64]: Developed responsive Angular SPA with lazy loading, reactive forms, and Angular Material UI components
+            - generic [ref=e65]:
+              - generic [ref=e66]: "4"
+              - paragraph [ref=e67]: Implemented Azure Blob Storage for secure training material uploads (videos, PDFs, presentations)
+            - generic [ref=e68]:
+              - generic [ref=e69]: "5"
+              - paragraph [ref=e70]: Created role-based authentication with JWT tokens supporting Employee, Trainer, and Admin roles
+            - generic [ref=e71]:
+              - generic [ref=e72]: "6"
+              - paragraph [ref=e73]: Built real-time progress tracking dashboard with Chart.js visualizations for completion rates and performance metrics
+            - generic [ref=e74]:
+              - generic [ref=e75]: "7"
+              - paragraph [ref=e76]: Integrated email notification system for course assignments, deadline reminders, and completion certificates
+            - generic [ref=e77]:
+              - generic [ref=e78]: "8"
+              - paragraph [ref=e79]: Implemented automated assessment grading with configurable pass/fail thresholds and retry policies
+            - generic [ref=e80]:
+              - generic [ref=e81]: "9"
+              - paragraph [ref=e82]: Optimized API performance with caching, pagination, and asynchronous processing for large datasets
+            - generic [ref=e83]:
+              - generic [ref=e84]: "10"
+              - paragraph [ref=e85]: Deployed to Azure App Service with CI/CD pipelines for automated testing and deployment
+        - generic [ref=e86]:
+          - heading "Results & Impact" [level=2] [ref=e87]
+          - generic [ref=e88]:
+            - paragraph [ref=e91]: Improved training efficiency by 30%, reducing onboarding time from 4 weeks to 2.8 weeks
+            - paragraph [ref=e94]: Achieved 90%+ test coverage with comprehensive unit and integration tests
+            - paragraph [ref=e97]: Successfully onboarded 500+ active users across 12 departments with 98% adoption rate
+            - paragraph [ref=e100]: Reduced administrative overhead by 40% through automation of enrollment and tracking
+            - paragraph [ref=e103]: Increased course completion rates by 25% with automated reminders and progress tracking
+            - paragraph [ref=e106]: Generated 1,500+ training completion certificates automatically in first 6 months
+            - paragraph [ref=e109]: Enabled real-time visibility into training compliance with executive analytics dashboard
+      - generic [ref=e110]:
+        - paragraph [ref=e111]: Next Project
+        - link "Sport Dynamic and Responsive Sports Website" [ref=e112] [cursor=pointer]:
+          - /url: /projects/sport-dynamic-website
+          - generic [ref=e113]:
+            - generic [ref=e114]: Sport
+            - text: Dynamic and Responsive Sports Website
+          - img [ref=e115]
+  - button "💻 Coding" [ref=e120]:
+    - generic [ref=e121]: 💻
+    - generic [ref=e122]: Coding
+  - button "Open Next.js Dev Tools" [ref=e128] [cursor=pointer]:
+    - img [ref=e129]

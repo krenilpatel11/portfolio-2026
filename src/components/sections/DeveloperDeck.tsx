@@ -622,11 +622,13 @@ function DeckCard({
   index,
   activeIndex,
   onClick,
+  onDragEnd,
 }: {
   card: PersonaCard;
   index: number;
   activeIndex: number;
   onClick: () => void;
+  onDragEnd: (direction: number) => void;
 }) {
   const isActive = index === activeIndex;
   const Icon = card.icon;
@@ -637,6 +639,19 @@ function DeckCard({
     <motion.div
       layout
       onClick={onClick}
+      drag={isActive ? "x" : false}
+      dragConstraints={{ left: 0, right: 0 }}
+      dragElastic={0.7}
+      onDragEnd={(e, { offset, velocity }) => {
+        const swipe = Math.abs(offset.x) * velocity.x;
+        
+        // If swipe is strong enough, determine direction
+        if (swipe < -10000) {
+          onDragEnd(1); // Swipe left -> next card
+        } else if (swipe > 10000) {
+          onDragEnd(-1); // Swipe right -> previous card
+        }
+      }}
       animate={{
         x: isActive ? 0 : offset * 28,
         rotate: isActive ? 0 : offset * 3,
@@ -645,7 +660,7 @@ function DeckCard({
         opacity: Math.abs(offset) > 2 ? 0 : 1,
       }}
       transition={{ duration: 0.5, ease: easing }}
-      className={`absolute inset-0 cursor-pointer rounded-3xl bg-gradient-to-br ${card.gradient} border border-white/10 dark:border-white/10 p-8 flex flex-col justify-between shadow-xl overflow-hidden`}
+      className={`absolute inset-0 ${isActive ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} rounded-3xl bg-gradient-to-br ${card.gradient} border border-white/10 dark:border-white/10 p-8 flex flex-col justify-between shadow-xl overflow-hidden`}
       style={{
         backgroundColor: `color-mix(in srgb, ${card.accent} 12%, var(--card-bg))`,
       }}
@@ -693,6 +708,15 @@ export default function DeveloperDeck() {
   React.useEffect(() => {
     setActive(0);
   }, [currentTheme.id]);
+
+  // Handle drag navigation
+  const handleDragEnd = (direction: number) => {
+    if (direction > 0 && active < cards.length - 1) {
+      setActive(active + 1);
+    } else if (direction < 0 && active > 0) {
+      setActive(active - 1);
+    }
+  };
 
   return (
     <section
@@ -811,9 +835,23 @@ export default function DeveloperDeck() {
                   index={i}
                   activeIndex={active}
                   onClick={() => setActive(i)}
+                  onDragEnd={handleDragEnd}
                 />
               ))}
             </div>
+            
+            {/* Drag hint indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: active === 0 ? 0.6 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs text-[var(--muted)] pointer-events-none"
+            >
+              <span>←</span>
+              <span className="hidden sm:inline">Swipe or drag</span>
+              <span className="sm:hidden">Swipe</span>
+              <span>→</span>
+            </motion.div>
           </motion.div>
         </div>
       </div>

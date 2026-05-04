@@ -1,0 +1,207 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e1562] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e1563]:
+      - img [ref=e1564]
+    - generic [ref=e1567]:
+      - button "Open issues overlay" [ref=e1568]:
+        - generic [ref=e1569]:
+          - generic [ref=e1570]: "1"
+          - generic [ref=e1571]: "2"
+        - generic [ref=e1572]:
+          - text: Issue
+          - generic [ref=e1573]: s
+      - button "Collapse issues badge" [ref=e1574]:
+        - img [ref=e1575]
+  - main [ref=e3174]:
+    - generic:
+      - img
+    - generic [ref=e3175]:
+      - link "← Back to Home" [ref=e3176] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e3177]: ←
+        - text: Back to Home
+      - generic [ref=e3178]:
+        - generic [ref=e3179]:
+          - generic [ref=e3180]:
+            - heading "All Projects" [level=1] [ref=e3181]
+            - paragraph [ref=e3182]: A comprehensive showcase of my work spanning web development, AI solutions, enterprise platforms, and agency projects. Each project represents a unique challenge solved with modern technologies and thoughtful design.
+          - button "Book a Meeting" [ref=e3183]:
+            - img [ref=e3184]
+            - text: Book a Meeting
+        - generic [ref=e3186]:
+          - generic [ref=e3187]:
+            - generic [ref=e3188]: "8"
+            - generic [ref=e3189]: Web Projects
+          - generic [ref=e3190]:
+            - generic [ref=e3191]: "4"
+            - generic [ref=e3192]: Featured
+          - generic [ref=e3193]:
+            - generic [ref=e3194]: "5"
+            - generic [ref=e3195]: Categories
+          - generic [ref=e3196]:
+            - generic [ref=e3197]: "1"
+            - generic [ref=e3198]: Design Portfolio
+      - link "External Portfolio Graphic Design Portfolio Brand Identities, Packaging & Social Media Explore a range of graphic design projects on Behance, featuring unique brand identities, eye-catching packaging designs, and impactful social media campaigns. Logo Design Print Design Social Media Graphics Branding View Portfolio on Behance" [ref=e3200] [cursor=pointer]:
+        - /url: https://www.behance.net/krenilpatel2
+        - generic [ref=e3201]:
+          - img [ref=e3203]
+          - generic [ref=e3207]:
+            - generic [ref=e3208]:
+              - img [ref=e3209]
+              - generic [ref=e3211]: External Portfolio
+            - heading "Graphic Design Portfolio" [level=3] [ref=e3212]
+            - paragraph [ref=e3213]: Brand Identities, Packaging & Social Media
+            - paragraph [ref=e3214]: Explore a range of graphic design projects on Behance, featuring unique brand identities, eye-catching packaging designs, and impactful social media campaigns.
+            - generic [ref=e3215]:
+              - generic [ref=e3216]: Logo Design
+              - generic [ref=e3217]: Print Design
+              - generic [ref=e3218]: Social Media Graphics
+              - generic [ref=e3219]: Branding
+            - generic [ref=e3220]:
+              - generic [ref=e3221]: View Portfolio on Behance
+              - img [ref=e3222]
+      - generic [ref=e3224]:
+        - link "ViewVoice Featured 2024 · Web App ViewVoice AI-Powered Invoice Intelligence Platform Full-stack AI-powered document intelligence platform conceptualized and developed by LabelFlow to automate invoice and receipt processing. Features Azure AI Document Intelligence, real-time analytics, and concurrent upload processing with 95% extraction accuracy. React TypeScript ShadCN/UI Azure AI +2 more 95% Extraction Accuracy 60% faster Processing Time" [ref=e3226] [cursor=pointer]:
+          - /url: /projects/viewvoice-ai-invoice-analytics
+          - generic [ref=e3227]:
+            - img "ViewVoice" [ref=e3228]
+            - generic [ref=e3230]: Featured
+          - paragraph [ref=e3231]: 2024 · Web App
+          - heading "ViewVoice" [level=3] [ref=e3232]
+          - paragraph [ref=e3233]: AI-Powered Invoice Intelligence Platform
+          - paragraph [ref=e3234]: Full-stack AI-powered document intelligence platform conceptualized and developed by LabelFlow to automate invoice and receipt processing. Features Azure AI Document Intelligence, real-time analytics, and concurrent upload processing with 95% extraction accuracy.
+          - generic [ref=e3235]:
+            - generic [ref=e3236]: React
+            - generic [ref=e3237]: TypeScript
+            - generic [ref=e3238]: ShadCN/UI
+            - generic [ref=e3239]: Azure AI
+            - generic [ref=e3240]: +2 more
+          - generic [ref=e3241]:
+            - generic [ref=e3242]:
+              - generic [ref=e3243]: 95%
+              - generic [ref=e3244]: Extraction Accuracy
+            - generic [ref=e3245]:
+              - generic [ref=e3246]: 60% faster
+              - generic [ref=e3247]: Processing Time
+        - link "LabelFlow Featured 2024 · Agency LabelFlow Digital Agency & Creative Studio Founded and built LabelFlow — a full-service digital agency providing web development, UI/UX design, branding, and creative marketing solutions. Features service showcases, dynamic project portfolios, client testimonials, and integrated booking system. Angular TypeScript Tailwind CSS GSAP +1 more 15+ Client Projects 6 Services Offered" [ref=e3249] [cursor=pointer]:
+          - /url: /projects/labelflow-digital-agency
+          - generic [ref=e3250]:
+            - img "LabelFlow" [ref=e3251]
+            - generic [ref=e3253]: Featured
+          - paragraph [ref=e3254]: 2024 · Agency
+          - heading "LabelFlow" [level=3] [ref=e3255]
+          - paragraph [ref=e3256]: Digital Agency & Creative Studio
+          - paragraph [ref=e3257]: Founded and built LabelFlow — a full-service digital agency providing web development, UI/UX design, branding, and creative marketing solutions. Features service showcases, dynamic project portfolios, client testimonials, and integrated booking system.
+          - generic [ref=e3258]:
+            - generic [ref=e3259]: Angular
+            - generic [ref=e3260]: TypeScript
+            - generic [ref=e3261]: Tailwind CSS
+            - generic [ref=e3262]: GSAP
+            - generic [ref=e3263]: +1 more
+          - generic [ref=e3264]:
+            - generic [ref=e3265]:
+              - generic [ref=e3266]: 15+
+              - generic [ref=e3267]: Client Projects
+            - generic [ref=e3268]:
+              - generic [ref=e3269]: "6"
+              - generic [ref=e3270]: Services Offered
+        - link "NeighborlyHub Featured 2026 · Web App NeighborlyHub Gated Community Management Platform Modern, mobile-first application designed for residents, security staff, administrators, and service staff to simplify community living. Features visitor management, SOS alerts, complaint handling, and real-time notifications. React Node.js MongoDB TypeScript +1 more 50+ Active Communities <2s Response Time" [ref=e3272] [cursor=pointer]:
+          - /url: /projects/securitygate-community-platform
+          - generic [ref=e3273]:
+            - img "NeighborlyHub" [ref=e3274]
+            - generic [ref=e3276]: Featured
+          - paragraph [ref=e3277]: 2026 · Web App
+          - heading "NeighborlyHub" [level=3] [ref=e3278]
+          - paragraph [ref=e3279]: Gated Community Management Platform
+          - paragraph [ref=e3280]: Modern, mobile-first application designed for residents, security staff, administrators, and service staff to simplify community living. Features visitor management, SOS alerts, complaint handling, and real-time notifications.
+          - generic [ref=e3281]:
+            - generic [ref=e3282]: React
+            - generic [ref=e3283]: Node.js
+            - generic [ref=e3284]: MongoDB
+            - generic [ref=e3285]: TypeScript
+            - generic [ref=e3286]: +1 more
+          - generic [ref=e3287]:
+            - generic [ref=e3288]:
+              - generic [ref=e3289]: 50+
+              - generic [ref=e3290]: Active Communities
+            - generic [ref=e3291]:
+              - generic [ref=e3292]: <2s
+              - generic [ref=e3293]: Response Time
+        - link "Training System Featured 2024 · Dashboard Training System Enterprise Employee Training Platform Enterprise employee training platform built at IMRIEL Software with Angular, ASP.NET Core, SQL Server and Azure. REST APIs, cloud storage, and analytics dashboard. Improved training efficiency by 30%. Angular ASP.NET Core SQL Server Azure +1 more 30% Efficiency Gain 90%+ Test Coverage" [ref=e3295] [cursor=pointer]:
+          - /url: /projects/imriel-training-management
+          - generic [ref=e3296]:
+            - img "Training System" [ref=e3297]
+            - generic [ref=e3299]: Featured
+          - paragraph [ref=e3300]: 2024 · Dashboard
+          - heading "Training System" [level=3] [ref=e3301]
+          - paragraph [ref=e3302]: Enterprise Employee Training Platform
+          - paragraph [ref=e3303]: Enterprise employee training platform built at IMRIEL Software with Angular, ASP.NET Core, SQL Server and Azure. REST APIs, cloud storage, and analytics dashboard. Improved training efficiency by 30%.
+          - generic [ref=e3304]:
+            - generic [ref=e3305]: Angular
+            - generic [ref=e3306]: ASP.NET Core
+            - generic [ref=e3307]: SQL Server
+            - generic [ref=e3308]: Azure
+            - generic [ref=e3309]: +1 more
+          - generic [ref=e3310]:
+            - generic [ref=e3311]:
+              - generic [ref=e3312]: 30%
+              - generic [ref=e3313]: Efficiency Gain
+            - generic [ref=e3314]:
+              - generic [ref=e3315]: 90%+
+              - generic [ref=e3316]: Test Coverage
+        - link "Sport 2024 · Landing Page Sport Dynamic and Responsive Sports Website Cutting-edge sports website designed to deliver an immersive and engaging user experience. Built with React, SCSS, and powerful animation libraries ensuring seamless performance and stunning visuals across all devices. React SCSS Framer Motion GSAP 95/100 Page Speed 98/100 Mobile Score" [ref=e3318] [cursor=pointer]:
+          - /url: /projects/sport-dynamic-website
+          - img "Sport" [ref=e3320]
+          - paragraph [ref=e3322]: 2024 · Landing Page
+          - heading "Sport" [level=3] [ref=e3323]
+          - paragraph [ref=e3324]: Dynamic and Responsive Sports Website
+          - paragraph [ref=e3325]: Cutting-edge sports website designed to deliver an immersive and engaging user experience. Built with React, SCSS, and powerful animation libraries ensuring seamless performance and stunning visuals across all devices.
+          - generic [ref=e3326]:
+            - generic [ref=e3327]: React
+            - generic [ref=e3328]: SCSS
+            - generic [ref=e3329]: Framer Motion
+            - generic [ref=e3330]: GSAP
+          - generic [ref=e3331]:
+            - generic [ref=e3332]:
+              - generic [ref=e3333]: 95/100
+              - generic [ref=e3334]: Page Speed
+            - generic [ref=e3335]:
+              - generic [ref=e3336]: 98/100
+              - generic [ref=e3337]: Mobile Score
+        - link "GoodKit 2024 · Landing Page GoodKit Progressive SaaS Platform Modern SaaS landing page with clean design, smooth animations, and conversion-optimized layouts. Features engaging UI, service showcases, and responsive design built for LabelFlow client. React Tailwind CSS Framer Motion" [ref=e3339] [cursor=pointer]:
+          - /url: /projects/goodkit-saas-landing
+          - img "GoodKit" [ref=e3341]
+          - paragraph [ref=e3343]: 2024 · Landing Page
+          - heading "GoodKit" [level=3] [ref=e3344]
+          - paragraph [ref=e3345]: Progressive SaaS Platform
+          - paragraph [ref=e3346]: Modern SaaS landing page with clean design, smooth animations, and conversion-optimized layouts. Features engaging UI, service showcases, and responsive design built for LabelFlow client.
+          - generic [ref=e3347]:
+            - generic [ref=e3348]: React
+            - generic [ref=e3349]: Tailwind CSS
+            - generic [ref=e3350]: Framer Motion
+        - link "Trafalgar 2024 · Web App Trafalgar Progressive Virtual Healthcare Platform Revolutionary virtual healthcare platform designed to provide accessible, affordable, and high-quality healthcare services. Available on both mobile and online platforms ensuring healthcare is just a click away. React Node.js TypeScript" [ref=e3352] [cursor=pointer]:
+          - /url: /projects/trafalgar-healthcare
+          - img "Trafalgar" [ref=e3354]
+          - paragraph [ref=e3356]: 2024 · Web App
+          - heading "Trafalgar" [level=3] [ref=e3357]
+          - paragraph [ref=e3358]: Progressive Virtual Healthcare Platform
+          - paragraph [ref=e3359]: Revolutionary virtual healthcare platform designed to provide accessible, affordable, and high-quality healthcare services. Available on both mobile and online platforms ensuring healthcare is just a click away.
+          - generic [ref=e3360]:
+            - generic [ref=e3361]: React
+            - generic [ref=e3362]: Node.js
+            - generic [ref=e3363]: TypeScript
+        - link "Portfolio V1 2023 · Portfolio Portfolio V1 Interactive Portfolio using ReactJS Personal portfolio website showcasing projects and skills with dynamic and responsive user interface. Features interactive design, project showcases, and reflects dedication to continuous learning in web development. React JavaScript CSS3" [ref=e3365] [cursor=pointer]:
+          - /url: /projects/portfolio-reactjs
+          - img "Portfolio V1" [ref=e3367]
+          - paragraph [ref=e3369]: 2023 · Portfolio
+          - heading "Portfolio V1" [level=3] [ref=e3370]
+          - paragraph [ref=e3371]: Interactive Portfolio using ReactJS
+          - paragraph [ref=e3372]: Personal portfolio website showcasing projects and skills with dynamic and responsive user interface. Features interactive design, project showcases, and reflects dedication to continuous learning in web development.
+          - generic [ref=e3373]:
+            - generic [ref=e3374]: React
+            - generic [ref=e3375]: JavaScript
+            - generic [ref=e3376]: CSS3
+  - button "🏊 Swimming" [ref=e3170]:
+    - generic [ref=e3171]: 🏊
+    - generic [ref=e3172]: Swimming
+  - alert [ref=e3173]
