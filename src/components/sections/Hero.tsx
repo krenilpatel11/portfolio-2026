@@ -171,7 +171,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+                className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)] text-center"
               >
                 {currentMood.variants.heroSubtitle}
               </motion.span>
